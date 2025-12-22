@@ -5718,37 +5718,28 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	conqueror: {
 		onStart(pokemon) {
-		if (!pokemon.m.vanquished) {
-			pokemon.m.vanquished = 0;
+			if (this.effectState.kos === undefined) {
+				this.effectState.kos = 0;
 			}
 		},
-		// Triggered when THIS Pokémon causes a KO
 		onSourceAfterFaint(target, source, effect) {
-		if (!source || source !== this.effectState.target) return;
-
-		source.m.vanquished = (source.m.vanquished || 0) + 1;
-		this.add(
-			'-message',
-			`${source.name} grew stronger! (+10% Atk/Def/Spe)`
+			if (!source || source !== this.effectState.target) return;
+			this.effectState.kos++;
+			this.add(
+				'-activate',
+				source,
+				'ability: Conqueror',
+				`(${this.effectState.kos} KO${this.effectState.kos > 1 ? 's' : ''})`
 			);
 		},
-		onModifyAtk(atk, pokemon) {
-		const kos = pokemon.m.vanquished || 0;
-		if (kos > 0) {
-			return this.chainModify(1 + 0.1 * kos);
-			}
+		onModifyAtk(atk) {
+			return this.chainModify(Math.pow(1.1, this.effectState.kos));
 		},
-		onModifyDef(def, pokemon) {
-		const kos = pokemon.m.vanquished || 0;
-		if (kos > 0) {
-			return this.chainModify(1 + 0.1 * kos);
-			}
+		onModifyDef(def) {
+			return this.chainModify(Math.pow(1.1, this.effectState.kos));
 		},
-		onModifySpe(spe, pokemon) {
-		const kos = pokemon.m.vanquished || 0;
-		if (kos > 0) {
-			return this.chainModify(1 + 0.1 * kos);
-			}
+		onModifySpe(spe) {
+			return this.chainModify(Math.pow(1.1, this.effectState.kos));
 		},
 		flags: {},
 		name: "Conqueror",
