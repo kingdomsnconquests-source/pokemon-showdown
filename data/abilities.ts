@@ -5718,20 +5718,28 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	conqueror: {
 		onStart(pokemon) {
-			const foeFainted = pokemon.side.foe?.totalFainted || 0;
-			if (foeFainted) {
-				this.add('-activate', pokemon, 'ability: Vengeful Overlord');
-				const conquered = Math.min(foeFainted, 5);
-				this.add('-start', pokemon, `conquered${conquered}`, '[silent]');
-				this.effectState.conquered = conquered;
+			this.effectState.conquered = Math.min(pokemon.side.foe.totalFainted, 5);
+			if (this.effectState.conquered) {
+				this.add('-activate', pokemon, 'ability: Conqueror');
+				this.add('-start', pokemon, `conquered${this.effectState.conquered}`, '[silent]');
 			}
 		},
-		onEnd(pokemon) {
-			if (this.effectState.conquered) {
-				this.add('-end', pokemon, `conquered${this.effectState.conquered}`, '[silent]');
+		onFaint(target, source, effect) {
+			if (!source || source.side !== target.side.foe) return;
+			const pokemon = source;
+			if (!pokemon.hasAbility('conqueror')) return;
+
+			const newConquered = Math.min(pokemon.side.foe.totalFainted, 5);
+			if (newConquered !== this.effectState.conquered) {
+				if (this.effectState.conquered) {
+					this.add('-end', pokemon, `conquered${this.effectState.conquered}`, '[silent]');
+				}
+				this.effectState.conquered = newConquered;
+				this.add('-start', pokemon, `conquered${newConquered}`, '[silent]');
 			}
 		},
 		onModifyAtk(atk, attacker, defender, move) {
+			if (!this.effectState.conquered) return;
 			if (this.effectState.conquered) {
 				const atkMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
 				this.debug(`Conqueror boost: ${atkMod[this.effectState.conquered]}/1`);
@@ -5739,6 +5747,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onModifyDef(def, pokemon) {
+			if (!this.effectState.conquered) return;
 			if (this.effectState.conquered) {
 				const defMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
 				this.debug(`Conqueror boost: ${defMod[this.effectState.conquered]}/1`);
@@ -5746,6 +5755,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onModifySpe(spe, pokemon) {
+			if (!this.effectState.conquered) return;
 			if (this.effectState.conquered) {
 				const speMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
 				this.debug(`Conqueror boost: ${speMod[this.effectState.conquered]}/1`);
