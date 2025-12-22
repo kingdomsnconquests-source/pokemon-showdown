@@ -2281,4 +2281,68 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 
 		activate: "  [POKEMON] extends [MOVE] by 2 turns!",
 	},
+	// Conquest
+	aquaboost: {
+		name: "Aqua Boost",
+		shortDesc: "The allies of this Pokemon have their Water-type moves boosted by 1.3x.",
+	},
+	blackhole: {
+		name: "Black Hole",
+		desc: "Prevents opposing Pokemon from choosing to switch out, unless they are holding a Shed Shell, are a Ghost type, or also have this Ability.",
+		shortDesc: "Prevents foes from choosing to switch unless they also have this Ability.",
+	},
+	bodyguard: {
+		name: "Bodyguard",
+		desc: "Once per switch-in, this Pokemon swaps positions with an ally targeted by an opponent's physical move.",
+		shortDesc: "Once per switch-in, swaps with an ally targeted by an opponent's physical move.",
+		activate: "  [POKEMON] protected its ally!",
+	},
+	bonanza: {
+		name: "Bonanza",
+		shortDesc: "No competitive use.",
+	},
+	calming: {
+		name: "Calming",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned.",
+	},
+	celebrate: {
+		name: "Celebrate",
+		desc: "This Pokemon's next move has its priority increased by 1 if it attacks and knocks out another Pokemon.",
+		shortDesc: "Next move has +1 priority if this Pokemon attacks and knocks out another Pokemon.",
+	},
+	climber: {
+		name: "Climber",
+		desc: "This Pokemon can hit targets that are using Bounce, Fly, or Sky Drop with increased power.",
+		shortDesc: "This Pokemon's moves that hit targets using Bounce/Fly/Sky Drop have 1.5x power.",
+	},
+	confidence: {
+		name: "Confidence",
+		desc: "This Pokemon deals 25% less damage to allies with its moves that hit all adjacent targtets.",
+		shortDesc: "This Pokemon deals 25% less damage to allies with its spread moves.",
+	},
+	conqueror: {
+		name: "Conqueror",
+		desc: "This Pokemon raises its Attack, Defense, and Speed by 5% when it attacks and knocks out an opponent.",
+		shortDesc: "Raises Attack, Defense, and Speed by 5% when this Pokemon knocks out an opponent.",
+	},
+	daze: {
+		name: "Daze",
+		shortDesc: "This Pokemon's contact moves have a 10% chance to sleep the target.",
+	},
+	decoy: {
+		name: "Decoy",
+		desc: "Once per switch-in, this Pokemon swaps positions with an ally targeted by an opponent's special move.",
+		shortDesc: "Once per switch-in, swaps with an ally targeted by an opponent's special move.",
+		activate: "  [POKEMON] protected its ally!",
+	},
+	deepsleep: {
+		name: "Deep Sleep",
+		desc: "If this Pokemon is asleep, it restores 1/8 of its maximum HP, rounded down, at the end of each turn.",
+		shortDesc: "If asleep, restores 1/8 of its max HP at the end of each turn.",
+	},
+	disgust: {
+		name: "Disgust",
+		desc: "This Pokemon's attacking moves always go last but switch-out the target if they hit.",
+		shortDesc: "This Pokemon's attacking moves always go last and switch out the target if they hit.",
+	},	
 };

@@ -5634,8 +5634,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAllyBasePowerPriority: 22,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectState.target && move.type === 'Water') {
-				this.debug('Battery boost');
-				return this.chainModify(1.5);
+				this.debug('Aqua Boost boost');
+				return this.chainModify(1.3);
 			}
 		},
 		flags: {},
@@ -5662,6 +5662,42 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -5,
 	},
 	bodyguard: {
+		onStart(pokemon) {
+			if (pokemon.side.active.length === 2) {
+				pokemon.addVolatile('bodyguard');
+			}
+		},
+		condition: {
+			noCopy: true,
+			onAllyTryHit(target, source, move) {
+				// target = ally being hit
+				// this.effectState.target = ability holder
+				const holder = this.effectState.target;
+
+				// Physical moves only
+				if (!move || move.category !== 'Physical') return;
+
+				// Doubles only
+				const side = holder.side;
+				if (side.active.length !== 2) return;
+
+				// Ally must be the other slot
+				if (target === holder) return;
+
+				const allyPos = target.position;
+				const holderPos = holder.position;
+
+				// Sanity checks
+				if (allyPos === holderPos) return;
+				if (holder.fainted || target.fainted) return;
+
+				this.add('-activate', holder, 'ability: Bodyguard');
+				this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
+
+				// Consume the effect (once per switch-in)
+				delete holder.volatiles['bodyguard'];
+			},
+		},
 		flags: {},
 		name: "Bodyguard",
 		rating: 0,
@@ -5687,9 +5723,22 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -8,
 	},
 	celebrate: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.addVolatile('celebrate');
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-start', target, 'ability: Celebrate');
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Celebrate', '[silent]');
+			}
+		},
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.category === 'Status') {
-				move.pranksterBoosted = true;
+			if (pokemon.volatiles['celebrate']) {
 				return priority + 1;
 			}
 		},
@@ -5699,6 +5748,37 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -9,
 	},
 	climber: {
+		// Allow the hit to proceed during Fly/Bounce/Sky Drop
+		onTryHit(target, source, move) {
+			if (source !== this.effectState.target) return;
+
+			// If Protect (or similar) is active, do NOTHING
+			// Let the engine block the move normally
+			if (target.volatiles['protect'] || target.volatiles['kingsshield'] ||
+				target.volatiles['spikyshield'] || target.volatiles['banefulbunker']) {
+				return;
+			}
+			// If the target is semi-invulnerable via Fly/Bounce/Sky Drop,
+			// allow the hit by not returning null
+			if (
+				target.volatiles['fly'] ||
+				target.volatiles['bounce'] ||
+				target.volatiles['skydrop']
+			) {
+				return;
+			}
+		},
+		// Apply the 1.5x damage boost
+		onBasePower(basePower, source, target, move) {
+			if (
+				target.volatiles['fly'] ||
+				target.volatiles['bounce'] ||
+				target.volatiles['skydrop']
+			) {
+				this.debug('Climber boost');
+				return this.chainModify(1.5);
+			}
+		},
 		flags: {},
 		name: "Climber",
 		rating: 0,
@@ -5767,4 +5847,90 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: -12,
 	},
+	daze: {
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				if (this.randomChance(1, 10)) {
+					target.trySetStatus('slp', source);
+				}
+			}
+		},
+	flags: {},
+	name: "Daze",
+	rating: 3,
+	num: -13,
+	},
+	decoy: {
+		onStart(pokemon) {
+			if (pokemon.side.active.length === 2) {
+				pokemon.addVolatile('decoy');
+			}
+		},
+		condition: {
+			noCopy: true,
+			onAllyTryHit(target, source, move) {
+				// target = ally being hit
+				// this.effectState.target = ability holder
+				const holder = this.effectState.target;
+
+				// Physical moves only
+				if (!move || move.category !== 'Special') return;
+
+				// Doubles only
+				const side = holder.side;
+				if (side.active.length !== 2) return;
+
+				// Ally must be the other slot
+				if (target === holder) return;
+
+				const allyPos = target.position;
+				const holderPos = holder.position;
+
+				// Sanity checks
+				if (allyPos === holderPos) return;
+				if (holder.fainted || target.fainted) return;
+
+				this.add('-activate', holder, 'ability: Decoy');
+				this.swapPosition(holder, allyPos, '[from] ability: Decoy');
+
+				// Consume the effect (once per switch-in)
+				delete holder.volatiles['decoy'];
+			},
+		},
+		flags: {},
+		name: "Decoy",
+		rating: 0,
+		num: -14,
+	},
+	deepsleep: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'slp') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Deep Sleep",
+		rating: 2,
+		num: -15,
+	},
+	disgust: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.category !== 'Status') {
+				return priority - 6;
+			}
+		},
+		onModifyMove(move) {
+			if (move.category !== 'Status') {
+				move.forceSwitch = true;
+			}
+		},
+		flags: {},
+		name: "Disgust",
+		rating: 2,
+		num: -16,
+	},	
 };
