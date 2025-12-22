@@ -5718,35 +5718,38 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	conqueror: {
 		onStart(pokemon) {
-			if (pokemon.side.foe.totalFainted) {
-				this.add('-activate', pokemon, 'ability: Conqueror');
-				const conquered = Math.min(pokemon.side.foe.totalFainted, 5);
+			const foeFainted = pokemon.side.foe?.totalFainted || 0;
+			if (foeFainted) {
+				this.add('-activate', pokemon, 'ability: Vengeful Overlord');
+				const conquered = Math.min(foeFainted, 5);
 				this.add('-start', pokemon, `conquered${conquered}`, '[silent]');
 				this.effectState.conquered = conquered;
 			}
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, `conquered${this.effectState.conquered}`, '[silent]');
+			if (this.effectState.conquered) {
+				this.add('-end', pokemon, `conquered${this.effectState.conquered}`, '[silent]');
+			}
 		},
 		onModifyAtk(atk, attacker, defender, move) {
 			if (this.effectState.conquered) {
-				const powMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
-				this.debug(`Conqueror boost: ${powMod[this.effectState.conquered]}/1`);
-				return this.chainModify([powMod[this.effectState.conquered], 1]);
+				const atkMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
+				this.debug(`Conqueror boost: ${atkMod[this.effectState.conquered]}/1`);
+				return this.chainModify([atkMod[this.effectState.conquered], 1]);
 			}
 		},
 		onModifyDef(def, pokemon) {
 			if (this.effectState.conquered) {
-				const powMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
-				this.debug(`Conqueror boost: ${powMod[this.effectState.conquered]}/1`);
-				return this.chainModify([powMod[this.effectState.conquered], 1]);
+				const defMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
+				this.debug(`Conqueror boost: ${defMod[this.effectState.conquered]}/1`);
+				return this.chainModify([defMod[this.effectState.conquered], 1]);
 			}
 		},
 		onModifySpe(spe, pokemon) {
 			if (this.effectState.conquered) {
-				const powMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
-				this.debug(`Conqueror boost: ${powMod[this.effectState.conquered]}/1`);
-				return this.chainModify([powMod[this.effectState.conquered], 1]);
+				const speMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
+				this.debug(`Conqueror boost: ${speMod[this.effectState.conquered]}/1`);
+				return this.chainModify([speMod[this.effectState.conquered], 1]);
 			}
 		},
 		flags: {},
