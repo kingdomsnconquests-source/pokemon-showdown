@@ -5717,27 +5717,38 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -11,
 	},
 	conqueror: {
+		onStart(pokemon) {
+		if (!pokemon.m.vanquished) {
+			pokemon.m.vanquished = 0;
+			}
+		},
+		// Triggered when THIS Pokémon causes a KO
 		onSourceAfterFaint(target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				if (!target.conquered) target.conquered = 0;
-				target.conquered++;
-			};
-			this.add('-message', `${target.name}'s conquers the foe!`);
+		if (!source || source !== this.effectState.target) return;
+
+		source.m.vanquished = (source.m.vanquished || 0) + 1;
+		this.add(
+			'-message',
+			`${source.name} grew stronger! (+10% Atk/Def/Spe)`
+			);
 		},
 		onModifyAtk(atk, pokemon) {
-			const kos = pokemon.conquered || 0;
-			if (!kos) return;
-			return this.chainModify([10 + kos, 10]);
+		const kos = pokemon.m.vanquished || 0;
+		if (kos > 0) {
+			return this.chainModify(1 + 0.1 * kos);
+			}
 		},
 		onModifyDef(def, pokemon) {
-			const kos = pokemon.conquered || 0;
-			if (!kos) return;
-			return this.chainModify([10 + kos, 10]);
+		const kos = pokemon.m.vanquished || 0;
+		if (kos > 0) {
+			return this.chainModify(1 + 0.1 * kos);
+			}
 		},
 		onModifySpe(spe, pokemon) {
-			const kos = pokemon.conquered || 0;
-			if (!kos) return;
-			return this.chainModify([10 + kos, 10]);
+		const kos = pokemon.m.vanquished || 0;
+		if (kos > 0) {
+			return this.chainModify(1 + 0.1 * kos);
+			}
 		},
 		flags: {},
 		name: "Conqueror",
