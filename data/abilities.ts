@@ -5718,32 +5718,40 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	conqueror: {
 		onStart(pokemon) {
-			if (this.effectState.kos === undefined) {
-				this.effectState.kos = 0;
+			if (pokemon.side.foe.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Conqueror');
+				const conquered = Math.min(pokemon.side.foe.totalFainted, 5);
+				this.add('-start', pokemon, `conquered${conquered}`, '[silent]');
+				this.effectState.conquered = conquered;
 			}
 		},
-		onSourceAfterFaint(target, source, effect) {
-			if (!source || source !== this.effectState.target) return;
-			this.effectState.kos++;
-			this.add(
-				'-activate',
-				source,
-				'ability: Conqueror',
-				`(${this.effectState.kos} KO${this.effectState.kos > 1 ? 's' : ''})`
-			);
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `conquered${this.effectState.conquered}`, '[silent]');
 		},
-		onModifyAtk(atk) {
-			return this.chainModify(Math.pow(1.1, this.effectState.kos));
+		onModifyAtk(atk, attacker, defender, move) {
+			if (this.effectState.conquered) {
+				const powMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
+				this.debug(`Conqueror boost: ${powMod[this.effectState.conquered]}/1`);
+				return this.chainModify([powMod[this.effectState.conquered], 1]);
+			}
 		},
-		onModifyDef(def) {
-			return this.chainModify(Math.pow(1.1, this.effectState.kos));
+		onModifyDef(def, pokemon) {
+			if (this.effectState.conquered) {
+				const powMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
+				this.debug(`Conqueror boost: ${powMod[this.effectState.conquered]}/1`);
+				return this.chainModify([powMod[this.effectState.conquered], 1]);
+			}
 		},
-		onModifySpe(spe) {
-			return this.chainModify(Math.pow(1.1, this.effectState.kos));
+		onModifySpe(spe, pokemon) {
+			if (this.effectState.conquered) {
+				const powMod = [1, 1.05, 1.1, 1.15, 1.2, 1.25];
+				this.debug(`Conqueror boost: ${powMod[this.effectState.conquered]}/1`);
+				return this.chainModify([powMod[this.effectState.conquered], 1]);
+			}
 		},
 		flags: {},
 		name: "Conqueror",
-		rating: 0,
+		rating: 4,
 		num: -12,
 	},
 };
