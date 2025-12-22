@@ -5629,4 +5629,119 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -3,
 	},
+// Pokemon Conquest Abilities
+	aquaboost: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.type === 'Water') {
+				this.debug('Battery boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Aqua Boost",
+		rating: 0,
+		num: -4,
+	},
+	blackhole: {
+		onFoeTrapPokemon(pokemon) {
+			if (!pokemon.hasAbility('blackhole') && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.hasAbility('blackhole')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		flags: {},
+		name: "Black Hole",
+		rating: 5,
+		num: -5,
+	},
+	bodyguard: {
+		flags: {},
+		name: "Bodyguard",
+		rating: 0,
+		num: -6,
+	},
+	bonanza: {
+		flags: {},
+		name: "Bonanza",
+		rating: 0,
+		num: -7,
+	},
+	calming: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('slp', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Calming",
+		rating: 2.5,
+		num: -8,
+	},
+	celebrate: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		flags: {},
+		name: "Celebrate",
+		rating: 0,
+		num: -9,
+	},
+	climber: {
+		flags: {},
+		name: "Climber",
+		rating: 0,
+		num: -10,
+	},
+	confidence: {
+		onModifyDamage(damage, source, target, move) {
+			if (move.target === "allAdjacent" && target !== this.effectState.target && target.isAlly(this.effectState.target)) {
+				this.debug('Confidence weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {},
+		name: "Confidence",
+		rating: 0,
+		num: -11,
+	},
+	conqueror: {
+		onSourceAfterFaint(target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				if (!source.conquered) source.conquered = 0;
+				source.conquered++;
+			};
+			this.add('-message', `${source.name}'s conquers the foe!`);
+		},
+		onModifyAtk(atk, pokemon) {
+			const kos = pokemon.conquered || 0;
+			if (!kos) return;
+			return this.chainModify([10 + kos, 10]);
+		},
+		onModifyDef(def, pokemon) {
+			const kos = pokemon.conquered || 0;
+			if (!kos) return;
+			return this.chainModify([10 + kos, 10]);
+		},
+		onModifySpe(spe, pokemon) {
+			const kos = pokemon.conquered || 0;
+			if (!kos) return;
+			return this.chainModify([10 + kos, 10]);
+		},
+		flags: {},
+		name: "Conqueror",
+		rating: 0,
+		num: -12,
+	},
 };
