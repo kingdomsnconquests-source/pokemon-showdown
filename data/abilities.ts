@@ -5719,10 +5719,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	conqueror: {
 		onSourceAfterFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				if (!source.conquered) source.conquered = 0;
-				source.conquered++;
+				if (!target.conquered) target.conquered = 0;
+				target.conquered++;
 			};
-			this.add('-message', `${source.name}'s conquers the foe!`);
+			this.add('-message', `${target.name}'s conquers the foe!`);
 		},
 		onModifyAtk(atk, pokemon) {
 			const kos = pokemon.conquered || 0;
