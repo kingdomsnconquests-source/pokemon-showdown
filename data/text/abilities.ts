@@ -2303,7 +2303,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	calming: {
 		name: "Calming",
-		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned.",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be slept.",
 	},
 	celebrate: {
 		name: "Celebrate",
@@ -2317,13 +2317,13 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	confidence: {
 		name: "Confidence",
-		desc: "This Pokemon deals 25% less damage to allies with its moves that hit all adjacent targtets.",
+		desc: "This Pokemon deals 25% less damage to allies with its moves that hit all adjacent targets.",
 		shortDesc: "This Pokemon deals 25% less damage to allies with its spread moves.",
 	},
 	conqueror: {
 		name: "Conqueror",
-		desc: "This Pokemon raises its Attack, Defense, and Speed by 5% when it attacks and knocks out an opponent.",
-		shortDesc: "Raises Attack, Defense, and Speed by 5% when this Pokemon knocks out an opponent.",
+		desc: "This Pokemon raises its Attack, Defense, and Speed by 5% for each fainted opponent.",
+		shortDesc: "Raises Attack, Defense, and Speed by 5% for each fainted opponent.",
 	},
 	daze: {
 		name: "Daze",

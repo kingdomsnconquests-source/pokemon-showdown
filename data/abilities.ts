@@ -6006,7 +6006,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) {
-				this.heal(pokemon.baseMaxhp / 16);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		flags: {},
@@ -6025,5 +6025,466 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Hero",
 		rating: 3,
 		num: -26,
+	},
+	highrise: {
+		onBasePowerPriority: 22,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.hasCrashDamage === true) {
+				this.debug('Highrise boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "High-Rise",
+		rating: 0,
+		num: -27,
+	},
+	hotblooded: {
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Hot Blooded",
+		rating: 1.5,
+		num: -28,
+	},
+	instinct: {
+		flags: {},
+		name: "Instinct",
+		rating: 0,
+		num: -29,
+	},
+	interference: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Frighten', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({ accuracy: -1 }, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Interference",
+		rating: 0,
+		num: -30,
+	},
+	jaggededge: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Jagged Edge",
+		rating: 2.5,
+		num: -31,
+	},
+	lastbastion: {
+		onStart(pokemon) {
+			if (pokemon.side.totalFainted >= 5) {
+				this.add('-ability', pokemon, 'Last Bastion');
+				this.boost({ atk: 1, def: 1, spa: 1, spd: 1 }, pokemon, pokemon);
+			}
+		},
+		flags: {},
+		name: "Last Bastion",
+		rating: 4,
+		num: -32,
+	},
+	lifeforce: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		flags: {},
+		name: "Life Force",
+		rating: 2,
+		num: -33,
+	},
+	lullaby: {
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (move.flags['sound']) {
+				if (this.randomChance(1, 10)) {
+					target.trySetStatus('slp', source);
+				}
+			}
+		},
+		flags: {},
+		name: "Lullaby",
+		rating: 2.5,
+		num: -34,
+	},
+	lunchbox: {
+		onEatItem(item, pokemon) {
+			pokemon.addVolatile('lunchbox');
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['lunchbox']) {
+			this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		flags: {},
+		name: "Lunch Box",
+		rating: 2,
+		num: -35,
+	},
+	medic: {
+		onResidual(pokemon) {
+			for (const ally of pokemon.adjacentAllies()) {
+				this.heal(ally.baseMaxhp / 8, ally, pokemon);
+			}
+		},
+		flags: {},
+		name: "Medic",
+		rating: 2,
+		num: -36,
+	},
+	melee: {
+		onAllyDamagingHit(damage, target, source, move) {
+			if (move.target === "normal") {
+				this.damage(source.getStat('atk') / 5, source, target);
+			}
+		},
+		flags: {},
+		name: "Melee",
+		rating: 0,
+		num: -37,
+	},
+	moodmaker: {
+		flags: {},
+		name: "Mood Maker",
+		rating: 0,
+		num: -38,
+	},
+	nomad: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Nomad');
+			pokemon.addVolatile('nomad');
+		},
+		onBasePowerPriority: 22,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.volatiles['nomad']) {
+				this.debug('Nomad boost');
+				return this.chainModify(2);
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			source.removeVolatile('nomad');
+		},
+		flags: {},
+		name: "Nomad",
+		rating: 4,
+		num: -39,
+	},
+	nurse: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			for (const allyActive of pokemon.adjacentAllies()) {
+				if (allyActive.status && this.randomChance(3, 10)) {
+					this.add('-activate', pokemon, 'ability: Healer');
+					allyActive.cureStatus();
+				}
+			}
+		},
+		flags: {},
+		name: "Nurse",
+		rating: 0,
+		num: -40,
+	},
+	omnipotent: {
+		flags: {},
+		name: "Omnipotent",
+		rating: 5,
+		num: -41,
+	},
+	parry: {
+		flags: {},
+		name: "Parry",
+		rating: 0,
+		num: -42,
+	},
+	perception: {
+		onTryHit(target, source, move) {
+			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+				this.add('-activate', target, 'ability: Telepathy');
+				return null;
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Perception",
+		rating: 0,
+		num: -43,
+	},
+	powernap: {
+		onAnyDamage(damage, target, source, effect) {
+			if (target.hp <= target.maxhp / 3 && !target.volatiles['powernap'] && target.status !== 'slp') {
+				target.setStatus('slp', target);
+				target.statusState.time = 3;
+				target.statusState.startTime = 3;
+				this.heal(target.baseMaxhp);
+				target.addVolatile('powernap');
+			}
+		},
+		flags: {},
+		name: "Power Nap",
+		rating: 3,
+		num: -44,
+	},
+	pride: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Pride",
+		rating: 3,
+		num: -45,
+	},
+	runup: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Run Up');
+			pokemon.addVolatile('runup');
+		},
+		onBasePowerPriority: 22,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.volatiles['runup']) {
+				this.debug('Run Up boost');
+				return this.chainModify(1,5);
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			source.removeVolatile('runup');
+		},
+		flags: {},
+		name: "Run Up",
+		rating: 3,
+		num: -46,
+	},
+	sandpit: {
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sandstorm') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Sand Pit",
+		rating: 1.5,
+		num: -47,
+	},
+	sequence: {
+		onBasePowerPriority: 22,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.adjacentAllies().some(ally => ally.hasType('Electric'))) {
+				this.debug('Sequence boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Sequence",
+		rating: 0,
+		num: -48,
+	},
+	shackle: {
+		onModifyMove(move) {
+			if (move.category !== 'Status') {
+				move.volatileStatus = 'partiallytrapped';
+			}
+		},
+		flags: {},
+		name: "Shackle",
+		rating: 0,
+		num: -49
+	},
+	share: {
+		flags: {},
+		name: "Share",
+		rating: 0,
+		num: -50
+	},
+	shield:  {
+		onFoeTryMove(target, source, move) {
+			// Wide Guard blocks all spread moves
+			if (move?.target !== 'allAdjacent' && move.target !== 'allAdjacentFoes') {
+				return;
+			}
+			if (move.isZ || move.isMax) {
+				if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+				target.getMoveHitData(move).zBrokeProtect = true;
+				return;
+			}
+			this.add('-activate', target, 'ability: Shield');
+			const lockedmove = source.getVolatile('lockedmove');
+			if (lockedmove) {
+				// Outrage counter is reset
+				if (source.volatiles['lockedmove'].duration === 2) {
+					delete source.volatiles['lockedmove'];
+				}
+			}
+			return this.NOT_FAIL;
+		},
+		flags: { breakable: 1 },
+		name: "Shield",
+		rating: 2.5,
+		num: -51,
+	},
+	skater: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				if (!this.boost({ spe: 1 })) {
+					this.add('-immune', target, '[from] ability: Skater');
+				}
+				return null;
+			}
+		},
+		flags: {},
+		name: "Skater",
+		rating: 3,
+		num: -52
+	},
+	spirit: {
+		onAnyDamage(damage, target, source, effect) {
+			if (target.hp <= target.maxhp / 3) {
+				this.heal(target.baseMaxhp);
+				this.boost({ atk: 1 }, target, target)
+			}
+		},
+		flags: {},
+		name: "Spirit",
+		rating: 5,
+		num: -53
+	},
+	sponge: {
+		flags: {},
+		name: "Sponge",
+		rating: 0,
+		num: -54
+	},
+	sprint: {
+		flags: {},
+		name: "Sprint",
+		rating: 0,
+		num: -55
+	},
+	stealth: {
+		flags: {},
+		name: "Stealth",
+		rating: 0,
+		num: -56
+	},
+	tenacity: {
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.category !== "Status") {
+				this.debug('Adding Stench flinch');
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 10,
+					volatileStatus: 'flinch',
+				});
+			}
+		},
+		flags: {},
+		name: "Tenacity",
+		rating: 0,
+		num: -57
+	},
+	thrust: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.category !== 'Status') {
+				return priority - 6;
+			}
+		},
+		onModifyMove(move) {
+			if (move.category !== 'Status') {
+				move.forceSwitch = true;
+			}
+		},
+		flags: {},
+		name: "Thrust",
+		rating: 2,
+		num: -58,
+	},
+	vanguard: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.category !== 'Status' && target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Vanguard damage boost');
+				return move.basePower * 1.5;
+			}
+		},
+		flags: {},
+		name: "Vanguard",
+		rating: 4,
+		num: -59
+	},
+	warmblanket: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Warm Blanket');
+				}
+				return null;
+			}
+		},
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Warm Blanket",
+		rating: 3,
+		num: -60,		
+	},
+	waverider: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({ spe: 1 })) {
+					this.add('-immune', target, '[from] ability: Wave Rider');
+				}
+				return null;
+			}
+		},
+		flags: {},
+		name: "Wave Rider",
+		rating: 3,
+		num: -61
 	}
 };

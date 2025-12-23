@@ -937,7 +937,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Evasion Abilities Clause',
 		desc: "Bans abilities that boost Evasion under certain weather conditions",
-		banlist: ['Sand Veil', 'Snow Cloak'],
+		banlist: ['Dodge', 'Instinct', 'Parry', 'Sand Veil', 'Snow Cloak'],
 		onBegin() {
 			this.add('rule', 'Evasion Abilities Clause: Evasion abilities are banned');
 		},
@@ -946,7 +946,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Evasion Items Clause',
 		desc: "Bans items that lower the accuracy of moves used against the user",
-		banlist: ['Bright Powder', 'Lax Incense'],
+		banlist: ['Bright Powder', 'Lax Incense', 'Sylph Wings'],
 		onBegin() {
 			this.add('rule', 'Evasion Items Clause: Evasion items are banned');
 		},
