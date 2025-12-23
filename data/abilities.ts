@@ -5748,37 +5748,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -9,
 	},
 	climber: {
-		// Allow the hit to proceed during Fly/Bounce/Sky Drop
-		onTryHit(target, source, move) {
-			if (source !== this.effectState.target) return;
-
-			// If Protect (or similar) is active, do NOTHING
-			// Let the engine block the move normally
-			if (target.volatiles['protect'] || target.volatiles['kingsshield'] ||
-				target.volatiles['spikyshield'] || target.volatiles['banefulbunker']) {
-				return;
-			}
-			// If the target is semi-invulnerable via Fly/Bounce/Sky Drop,
-			// allow the hit by not returning null
-			if (
-				target.volatiles['fly'] ||
-				target.volatiles['bounce'] ||
-				target.volatiles['skydrop']
-			) {
-				return;
-			}
-		},
-		// Apply the 1.5x damage boost
-		onBasePower(basePower, source, target, move) {
-			if (
-				target.volatiles['fly'] ||
-				target.volatiles['bounce'] ||
-				target.volatiles['skydrop']
-			) {
-				this.debug('Climber boost');
-				return this.chainModify(1.5);
-			}
-		},
+		// implemented in the moves.ts
 		flags: {},
 		name: "Climber",
 		rating: 0,
@@ -5804,7 +5774,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.add('-start', pokemon, `conquered${this.effectState.conquered}`, '[silent]');
 			}
 		},
-		onFaint(target, source, effect) {
+		onSourceAfterFaint(length, target, source, effect) {
 			if (!source || source.side !== target.side.foe) return;
 			const pokemon = source;
 			if (!pokemon.hasAbility('conqueror')) return;
@@ -5906,9 +5876,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	deepsleep: {
 		onDamagePriority: 1,
-		onDamage(damage, target, source, effect) {
-			if (effect.id === 'slp') {
-				this.heal(target.baseMaxhp / 8);
+		onResidualOrder: 5,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.heal(pokemon.baseMaxhp / 8);
 				return false;
 			}
 		},
@@ -5932,5 +5904,126 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Disgust",
 		rating: 2,
 		num: -16,
-	},	
+	},
+	dodge: {
+		flags: {},
+		name: "Dodge",
+		rating: 2.5,
+		num: -17,
+	},
+	explode: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.getStat('atk') / 2, source, target);
+			}
+		},
+		flags: {},
+		name: "Explode",
+		rating: 2,
+		num: -18,
+	},
+	flameboost: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.type === 'Fire') {
+				this.debug('Flame Boost boost');
+				return this.chainModify(1.3);
+			}
+		},
+		flags: {},
+		name: "Flame Boost",
+		rating: 0,
+		num: -19,
+	},
+	fortune: {
+		flags: {},
+		name: "Fortune",
+		rating: 0,
+		num: -20,
+	},
+	frighten: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Frighten', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({ spe: -1 }, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Frighten",
+		rating: 3.5,
+		num: -21,
+	},
+	frostbite: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('frz', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Frostbite",
+		rating: 2.5,
+		num: -22	
+	},
+	grasscloak: {
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
+		flags: { breakable: 1 },
+		name: "Grass Pelt",
+		rating: 0.5,
+		num: -23,
+	},
+	gulp: {
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Gulp",
+		rating: 1.5,
+		num: -24,
+	},
+	herbivore: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Herbivore",
+		rating: 1.5,
+		num: -25,
+	},
+	hero: {
+		onStart(pokemon) {
+			if (pokemon.side.foe.totalFainted - pokemon.side.totalFainted >= 2) {
+				this.add('-ability', pokemon, 'Hero');
+				this.boost({ atk: 1, def: 1 }, pokemon, pokemon);
+			}
+		},
+		flags: {},
+		name: "Hero",
+		rating: 3,
+		num: -26,
+	}
 };

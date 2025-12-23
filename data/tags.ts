@@ -129,7 +129,11 @@ export const Tags: { [id: IDEntry]: TagData } = {
 		name: "G-Max Move",
 		moveFilter: move => typeof move.isMax === 'string',
 	},
-
+	crash: {
+		name: "Crash Move",
+		desc: "Boosted 2x by High-Rise. Recoil increased to 3/4.",
+		moveFilter: move => 'pulse' in move.flags,
+	},
 	// Tiers
 	// -----
 	uber: {

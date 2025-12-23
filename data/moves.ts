@@ -1784,7 +1784,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		condition: {
 			duration: 2,
 			onInvulnerability(target, source, move) {
-				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id) || source.hasAbility('climber')) {
 					return;
 				}
 				return false;
@@ -1792,6 +1792,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			onSourceBasePower(basePower, target, source, move) {
 				if (move.id === 'gust' || move.id === 'twister') {
 					return this.chainModify(2);
+				} else if (source.hasAbility('climber')) {
+					return this.chainModify(1.5);
 				}
 			},
 		},
@@ -6126,7 +6128,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		condition: {
 			duration: 2,
 			onInvulnerability(target, source, move) {
-				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id) || source.hasAbility('climber')) {
 					return;
 				}
 				return false;
@@ -6134,6 +6136,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			onSourceModifyDamage(damage, source, target, move) {
 				if (move.id === 'gust' || move.id === 'twister') {
 					return this.chainModify(2);
+				} else if (source.hasAbility('climber')) {
+					return this.chainModify(1.5);
 				}
 			},
 		},
@@ -17410,7 +17414,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				if (source === this.effectState.target && target === this.effectState.source) {
 					return;
 				}
-				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id) || source.hasAbility('climber')) {
 					return;
 				}
 				return false;
@@ -17425,6 +17429,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				if (move.id === 'gust' || move.id === 'twister') {
 					this.debug('BP doubled on midair target');
 					return this.chainModify(2);
+				} else if (source.hasAbility('climber')) {
+					return this.chainModify(1.5);
 				}
 			},
 			onFaint(target) {
