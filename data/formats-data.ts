@@ -87,7 +87,7 @@ natDexTier: "Illegal",
 	},
 	beedrill: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	beedrillmega: {
@@ -328,7 +328,7 @@ natDexTier: "CQ",
 	},
 	crobat: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	oddish: {
@@ -464,7 +464,7 @@ natDexTier: "Illegal",
 	},
 	alakazam: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	alakazammega: {
@@ -481,7 +481,7 @@ natDexTier: "Illegal",
 	},
 	machamp: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 natDexTier: "CQ",
 	},
 	machampgmax: {
@@ -668,7 +668,7 @@ natDexTier: "Illegal",
 	},
 	steelix: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	steelixmega: {
@@ -1802,7 +1802,7 @@ natDexTier: "Illegal",
 	},
 	aggron: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	aggronmega: {
@@ -2003,7 +2003,7 @@ natDexTier: "Illegal",
 	},
 	armaldo: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	feebas: {
@@ -2112,7 +2112,7 @@ natDexTier: "Illegal",
 	},
 	walrein: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	clamperl: {
@@ -2480,7 +2480,7 @@ natDexTier: "Illegal",
 	},
 	drapion: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	croagunk: {
@@ -2492,7 +2492,7 @@ natDexTier: "CQ",
 	},
 	carnivine: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	finneon: {
@@ -2693,7 +2693,7 @@ natDexTier: "Illegal",
 	},
 	simisage: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	pansear: {
@@ -2702,7 +2702,7 @@ natDexTier: "Illegal",
 	},
 	simisear: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	panpour: {
@@ -2711,7 +2711,7 @@ natDexTier: "Illegal",
 	},
 	simipour: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	munna: {
@@ -2720,7 +2720,7 @@ natDexTier: "Illegal",
 	},
 	musharna: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	pidove: {
@@ -2752,7 +2752,7 @@ natDexTier: "Illegal",
 	},
 	gigalith: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 natDexTier: "CQ",
 	},
 	woobat: {
@@ -2776,7 +2776,7 @@ natDexTier: "Illegal",
 	},
 	audino: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	audinomega: {
@@ -2833,7 +2833,7 @@ natDexTier: "Illegal",
 	},
 	scolipede: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	scolipedemega: {
@@ -2890,7 +2890,7 @@ natDexTier: "Illegal",
 	},
 	darmanitan: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	darmanitanzen: {
@@ -3050,7 +3050,7 @@ natDexTier: "Illegal",
 	},
 	emolga: {
 		isNonstandard: "Past",
-		tier: "CQ",
+		tier: "Illegal",
 		natDexTier: "CQ",
 	},
 	karrablast: {
