@@ -29,7 +29,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard Conquest', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: [
-			'Spirit'
+			'Arceus',
+			'Dialga',
+			'Groudon',
+			'Mewtwo',
+			'Reshiram',
+			'Spirit',
+			'Terrakion',
+			'Zekrom'
 		]
 
 	},

@@ -1749,7 +1749,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "Illegal",
 	},
 	shinx: {
-		tier: "LC",
+		tier: "CQ LC",
 	},
 	luxio: {
 		tier: "CQ NFE",
