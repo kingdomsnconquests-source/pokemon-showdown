@@ -16,15 +16,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 		],
 	},
-	standardconquest: {
-		effectType: 'ValidatorRule',
-		name: 'Standard Conquest',
-		desc: "The standard ruleset for KnC",
-		ruleset: [
-			'Standard AG',
-			'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', '-all pokemon', '+CQ Ban', '+CQ', '+CQ NFE', '+CQ LC'
-		],
-	},
 	standard: {
 		effectType: 'ValidatorRule',
 		name: 'Standard',

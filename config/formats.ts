@@ -25,19 +25,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] KnC: Vanilla+ Season 1 Singles",
-		desc: `The format for the first KnC using a personally modified showdown client.`,
 		mod: 'gen9',
-		ruleset: ['Standard Conquest', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
-			'Arceus',
-			'Dialga',
-			'Groudon',
-			'Mewtwo',
-			'Reshiram',
-			'Spirit',
-			'Terrakion',
-			'Zekrom'
-		]
+			'CQ Ban', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
 
 	},
 	// S/V Singles
