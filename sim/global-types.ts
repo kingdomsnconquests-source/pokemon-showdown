@@ -39,8 +39,8 @@ type Nonstandard = 'Past' | 'Future' | 'Unobtainable' | 'CAP' | 'LGPE' | 'Custom
 type PokemonSet = import('./teams').PokemonSet;
 
 declare namespace TierTypes {
-	export type Singles = "CQ Ban" | "CQ" | "CQ NFE" | "CQ LC" | "AG" | "Uber" | "(Uber)" | "OU" | "(OU)" | "UUBL" | "UU" | "RUBL" | "RU" | "NUBL" | "NU" |
-		"(NU)" | "PUBL" | "PU" | "(PU)" | "ZUBL" | "ZU" | "NFE" | "LC";
+	export type Singles = "CQ Ban" | "AG" | "Uber" | "(Uber)" | "CQ" | "OU" | "(OU)" | "UUBL" | "UU" | "RUBL" | "RU" | "NUBL" | "NU" |
+		"(NU)" | "PUBL" | "PU" | "(PU)" | "ZUBL" | "ZU" | "CQ NFE" | "NFE" | "CQ LC" | "LC";
 	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC";
 	export type Other = "Unreleased" | "Illegal" | "CAP" | "CAP NFE" | "CAP LC";
 }
