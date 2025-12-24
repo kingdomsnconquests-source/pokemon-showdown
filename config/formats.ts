@@ -26,7 +26,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] KnC: Vanilla+ Season 1 Singles",
 		desc: `The format for the first KnC using a personally modified showdown client.`,
-		mod: 'conquest',
+		mod: 'gen9',
 		ruleset: ['Standard Conquest', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: [
 			'Spirit'
