@@ -16,6 +16,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 		],
 	},
+	standardconquest: {
+		effectType: 'ValidatorRule',
+		name: 'Standard Conquest',
+		desc: "The standard ruleset for all official Smogon singles tiers (Ubers, OU, etc.)",
+		ruleset: [
+			'Standard AG',
+			'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', '-all pokemon', '+Conquest'
+		],
+	},
 	standard: {
 		effectType: 'ValidatorRule',
 		name: 'Standard',
