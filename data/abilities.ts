@@ -5712,7 +5712,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	calming: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
+				if (this.randomChance(1, 10)) {
 					source.trySetStatus('slp', target);
 				}
 			}
@@ -5748,10 +5748,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -9,
 	},
 	climber: {
-		// implemented in the moves.ts
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (source.getWeight() < target.getWeight() && typeof accuracy !== 'number') return;
+			this.debug('Climber - enhancing accuracy');
+			return this.chainModify(1.1);
+		},
 		flags: {},
 		name: "Climber",
-		rating: 0,
+		rating: 2,
 		num: -10,
 	},
 	confidence: {
@@ -5906,6 +5911,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -16,
 	},
 	dodge: {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			if (!move.flags['contact'] && typeof accuracy === 'number') {
+				this.debug('Dodge multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			}
+		},
 		flags: {},
 		name: "Dodge",
 		rating: 2.5,
@@ -6052,9 +6064,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -28,
 	},
 	instinct: {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			if (target.runEffectiveness(move) > 0 || !target.runImmunity(move) && typeof accuracy === 'number') {
+				this.debug('Instinct multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			}
+		},
 		flags: {},
 		name: "Instinct",
-		rating: 0,
+		rating: 3,
 		num: -29,
 	},
 	interference: {
@@ -6157,6 +6176,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	melee: {
 		onAllyDamagingHit(damage, target, source, move) {
 			if (move.target === "normal") {
+				this.debug('The target is hit by a follow-up!');
 				this.damage(source.getStat('atk') / 5, source, target);
 			}
 		},
@@ -6166,6 +6186,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -37,
 	},
 	moodmaker: {
+		onAnyModifyAccuracyPriority: -1,
+		onAnyModifyAccuracy(accuracy, target, source) {
+			if (source.isAlly(this.effectState.target) && typeof accuracy === 'number') {
+				return this.chainModify(1.1);
+			}
+		},
 		flags: {},
 		name: "Mood Maker",
 		rating: 0,
@@ -6214,6 +6240,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -41,
 	},
 	parry: {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			if (move.flags['contact'] && typeof accuracy === 'number') {
+				this.debug('Parry multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			}
+		},
 		flags: {},
 		name: "Parry",
 		rating: 0,
@@ -6320,7 +6353,31 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 0,
 		num: -49
 	},
+	shadowdash: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.category !== 'Status' && move.type === 'Dark' || move.type === 'Ghost' || move.type === 'Poison' && pokemon.hp === pokemon.maxhp)
+				return priority + 1;
+		},
+		flags: {},
+		name: "Shadow Dash",
+		rating: 4,
+		num: -62
+	},
 	share: {
+		onAllyAfterUseItem(item, pokemon) {
+			if (pokemon.switchFlag) return;
+			const source = this.effectState.target;
+			const myItem = source.takeItem();
+			if (!myItem) return;
+			if (
+				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
+				!pokemon.setItem(myItem)
+			) {
+				source.item = myItem.id;
+				return;
+			}
+			this.add('-activate', source, 'ability: Share', myItem, `[of] ${pokemon}`);
+		},
 		flags: {},
 		name: "Share",
 		rating: 0,
@@ -6379,28 +6436,64 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -53
 	},
 	sponge: {
+		onModifyMove(move, pokemon, target) {
+			if (move.category !== "Status" && !move.drain) {
+				move.drain = [1, 10]
+			}
+		},
 		flags: {},
 		name: "Sponge",
 		rating: 0,
 		num: -54
 	},
 	sprint: {
+		onModifySpe(spe, pokemon) {
+			this.chainModify(1.5)
+		},
 		flags: {},
 		name: "Sprint",
-		rating: 0,
+		rating: 3.5,
 		num: -55
 	},
 	stealth: {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			if (this.field.isTerrain('grassyterrain') && target.hasType('Grass') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			} else if (this.field.isTerrain('mistyterrain') && target.hasType('Fairy') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			} else if (this.field.isTerrain('psychicterrain') && target.hasType('Psychic') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			} else if (this.field.isTerrain('electricterrain') && target.hasType('Electric') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			} else if (this.field.isWeather('raindance') || this.field.isWeather('primordialsea') && target.hasType('Water') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			} else if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland') && target.hasType('Fire') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			} else if (this.field.isWeather('sandstorm') && target.hasType('Ground') || target.hasType('Rock') || target.hasType('Steel') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			} else if (this.field.isWeather('snowscape') || this.field.isWeather('hail') && target.hasType('Ice') && typeof accuracy === 'number') {
+				this.debug('Stealth multiplies accuracy by 0.9x.');
+				return this.chainModify(0.9)
+			}
+		},
 		flags: {},
 		name: "Stealth",
-		rating: 0,
+		rating: 2,
 		num: -56
 	},
 	tenacity: {
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.category !== "Status") {
-				this.debug('Adding Stench flinch');
+				this.debug('Adding Tenacity flinch');
 				if (!move.secondaries) move.secondaries = [];
 				for (const secondary of move.secondaries) {
 					if (secondary.volatileStatus === 'flinch') return;
