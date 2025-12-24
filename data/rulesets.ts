@@ -955,7 +955,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Evasion Items Clause',
 		desc: "Bans items that lower the accuracy of moves used against the user",
-		banlist: ['Bright Powder', 'Lax Incense', 'Sylph Wings'],
+		banlist: ['Bright Powder', 'Lax Incense'],
 		onBegin() {
 			this.add('rule', 'Evasion Items Clause: Evasion items are banned');
 		},
