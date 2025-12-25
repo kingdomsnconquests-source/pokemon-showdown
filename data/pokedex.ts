@@ -6981,7 +6981,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		types: ["Steel", "Psychic"],
 		gender: "N",
 		baseStats: { hp: 80, atk: 135, def: 130, spa: 95, spd: 90, spe: 70 },
-		abilities: { 0: "Bodyguard", 1: "Clear Body", H: "Thrut" },
+		abilities: { 0: "Bodyguard", 1: "Clear Body", H: "Thrust" },
 		heightm: 1.6,
 		weightkg: 550,
 		color: "Blue",
