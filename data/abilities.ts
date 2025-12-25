@@ -6028,7 +6028,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	hero: {
 		onStart(pokemon) {
-			if (pokemon.side.foe.totalFainted - pokemon.side.totalFainted >= 2) {
+			if (pokemon.side.foe.totalFainted - pokemon.side.totalFainted > 1) {
 				this.add('-ability', pokemon, 'Hero');
 				this.boost({ atk: 1, def: 1 }, pokemon, pokemon);
 			}
@@ -6126,7 +6126,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	lastbastion: {
 		onStart(pokemon) {
-			if (pokemon.side.totalFainted >= 5) {
+			const aliveAllies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted);
+			if (aliveAllies.length < 2) {
 				this.add('-ability', pokemon, 'Last Bastion');
 				this.boost({ atk: 1, def: 1, spa: 1, spd: 1 }, pokemon, pokemon);
 			}
@@ -6410,7 +6411,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				target.getMoveHitData(move).zBrokeProtect = true;
 				return;
 			}
-			this.add('-activate', target, 'ability: Shield');
+			this.add('-activate', source, 'ability: Shield');
 			const lockedmove = source.getVolatile('lockedmove');
 			if (lockedmove) {
 				// Outrage counter is reset
