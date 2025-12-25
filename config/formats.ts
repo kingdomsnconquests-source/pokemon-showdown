@@ -24,7 +24,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "Kingdoms and Conquests",
 	},
 	{
-		name: "[Gen 9] KnC: Vanilla+ Season 1 Singles",
+		name: "[Gen 9] KnC Vanilla+ S1 National Dex",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
 		banlist: [

@@ -6506,18 +6506,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -56
 	},
 	tenacity: {
-		onModifyMovePriority: -1,
-		onModifyMove(move) {
-			if (move.category !== "Status") {
-				this.debug('Adding Tenacity flinch');
-				if (!move.secondaries) move.secondaries = [];
-				for (const secondary of move.secondaries) {
-					if (secondary.volatileStatus === 'flinch') return;
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				if (this.randomChance(1, 10)) {
+					source.addVolatile('mustrecharge', this.effectState.target);
 				}
-				move.secondaries.push({
-					chance: 10,
-					volatileStatus: 'flinch',
-				});
 			}
 		},
 		flags: {},
