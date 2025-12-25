@@ -8338,4 +8338,560 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		gen: 8,
 		isNonstandard: "CAP",
 	},
+	// Conquest Items
+	ashengrace: {
+		name: "Ashen Grace",
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isWeather('sandstorm')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			pokemon.addVolatile('ashengrace');
+		},
+		condition: {
+			onResidualOrder: 5,
+			onResidualSubOrder: 4,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+		num: -3,
+		gen: 9
+	},
+	ceruleangrace: {
+		name: "Cerulean Grace",
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			pokemon.addVolatile('ceruleangrace');
+		},
+		condition: {
+			onResidualOrder: 5,
+			onResidualSubOrder: 4,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+		num: -4,
+		gen: 9
+	},
+	crimsongrace: {
+		name: "Crimson Grace",
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			pokemon.addVolatile('crimsongrace');
+		},
+		condition: {
+			onResidualOrder: 5,
+			onResidualSubOrder: 4,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+		num: -5,
+		gen: 9
+	},
+	emeraldgrace: {
+		name: "Emerald Grace",
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			pokemon.addVolatile('emeraldgrace');
+		},
+		condition: {
+			onResidualOrder: 5,
+			onResidualSubOrder: 4,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+		num: -6,
+		gen: 9
+	},
+	indigograce: {
+		name: "Indigo Grace",
+		fling: {
+			basePower: 10,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			pokemon.addVolatile('indigograce');
+		},
+		condition: {
+			onDamagePriority: 1,
+			onDamage(damage, target, source, effect) {
+				if (effect.id === 'psn' || effect.id === 'tox') {
+					this.heal(target.baseMaxhp / 8);
+					return false;
+				}
+			},
+		},
+		num: -7,
+		gen: 9
+	},
+	ivorygrace: {
+		name: "Ivory Grace",
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isWeather('snowscape') || this.field.isWeather('hail')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isWeather('snowscape') || this.field.isWeather('hail')) {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			pokemon.addVolatile('ivorygrace');
+		},
+		condition: {
+			onResidualOrder: 5,
+			onResidualSubOrder: 4,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+		num: -8,
+		gen: 9
+	},
+	ponigiri: {
+		name: "Ponigiri",
+		num: -9,
+		gen: 9
+	},
+	redponigiri: {
+		name: "Red Ponigiri",
+		num: -10,
+		gen: 9
+	},
+	blueponigiri: {
+		name: "Blue Ponigiri",
+		num: -11,
+		gen: 9
+	},
+	purpleponigiri: {
+		name: "Purple Ponigiri",
+		num: -12,
+		gen: 9
+	},
+	burnblock: {
+		name: "Burn Block",
+		fling: {
+			basePower: 10
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.cureStatus();
+				pokemon.addVolatile('burnblock');
+			}
+		},
+		condition: {
+			duration: 3,
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'brn') return;
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Burn Block');
+				}
+				return false;
+			},
+		},
+		num: -13,
+		gen: 9
+	},
+	freezeblock: {
+		name: "Freeze Block",
+		fling: {
+			basePower: 10
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.cureStatus();
+				pokemon.addVolatile('freezeblock');
+			}
+		},
+		condition: {
+			duration: 3,
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'frz') return;
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Freeze Block');
+				}
+				return false;
+			},
+		},
+		num: -14,
+		gen: 9
+	},
+	paralyzblock: {
+		name: "Paralyz Block",
+		fling: {
+			basePower: 10
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'par') {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.status === 'par') {
+				pokemon.cureStatus();
+				pokemon.addVolatile('paralyzblock');
+			}
+		},
+		condition: {
+			duration: 3,
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'par') return;
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Paralyz Block');
+				}
+				return false;
+			},
+		},
+		num: -15,
+		gen: 9
+	},
+	poisonblock: {
+		name: "Poison Block",
+		fling: {
+			basePower: 10
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.cureStatus();
+				pokemon.addVolatile('poisonblock');
+			}
+		},
+		condition: {
+			duration: 3,
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'psn' || status.id !== 'tox') return;
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Poison Block');
+				}
+				return false;
+			},
+		},
+		num: -16,
+		gen: 9
+	},
+	sleepblock: {
+		name: "Sleep Block",
+		fling: {
+			basePower: 10
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.status === 'slp') {
+				pokemon.cureStatus();
+				pokemon.addVolatile('slpblock');
+			}
+		},
+		condition: {
+			duration: 3,
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'slp') return;
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Sleep Block');
+				}
+				return false;
+			},
+		},
+		num: -17,
+		gen: 9
+	},
+	omniblock: {
+		name: "Omni Block",
+		fling: {
+			basePower: 10
+		},
+		onAfterSetStatusPriority: -1,
+		onAfterSetStatus(status, pokemon) {
+			pokemon.useItem();
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status) {
+				pokemon.useItem();
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.status) {
+				pokemon.cureStatus();
+				pokemon.addVolatile('omniblock');
+			}
+		},
+		condition: {
+			duration: 3,
+			onSetStatus(status, target, source, effect) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Omni Block');
+				}
+				return false;
+			},
+		},
+		num: -18,
+		gen: 9
+	},
+	couplink: {
+		name: "Couplink",
+		num: -19,
+		gen: 9
+	},
+	excellink: {
+		name: "Excellink",
+		num: -20,
+		gen: 9
+	},
+	idyllink: {
+		name: "Idyllink",
+		num: -21,
+		gen: 9
+	},
+	doubleplay: {
+		name: "Double Play",
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			pokemon.useItem();
+			pokemon.addVolatile('doubleplay');
+		},
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-start', target, 'item: Double Play');
+			},
+			onEnd(target) {
+				this.add('-end', target, 'item: Double Play', '[silent]');
+			}
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (pokemon.volatiles['doubleplay']) {
+				return priority + 1;
+			}
+		},
+		num: -22,
+		gen: 9
+	},
+	hachimaki: {
+		name: "Hachimaki",
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			pokemon.useItem();
+		},
+		onAfterUseItem(item, pokemon) {
+			pokemon.addVolatile('perishsong');
+			pokemon.addVolatile('trapped');
+			this.boost({ atk: 4, spa: 4 });
+		},
+		num: -23,
+		gen: 9
+	},
+	noisemaker: {
+		name: "Noisemaker",
+		onDamagingHit(damage, target, source, move) {
+			target.useItem();
+			source.addVolatile('embargo');
+		},
+		num: -24,
+		gen: 9
+	},
+	sirensong: {
+		name: "Siren Song",
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			pokemon.useItem();
+			pokemon.addVolatile('followme');
+		},
+		num: -25,
+		gen: 9
+	},
+	sniperlens: {
+		name: "Sniper lens",
+		onBeforeMovePriority: -1,
+		onBeforeMove(source, target, move) {
+			if (move.category !== 'Status')
+				source.useItem();
+				source.addVolatile('sniperlens');
+		},
+		condition: {
+			onModifyCritRatio(critRatio) {
+				return critRatio + 4;
+			},
+			onAfterMoveSelf(source, target, move) {
+				if (move.category !== 'Status' && target.getMoveHitData(move).crit)
+					source.removeVolatile('sniperlens');
+					this.add('-end', source, 'Sniper Lens', '[silent]');
+			}
+		},
+		num: -26,
+		gen: 9
+	},
+	sylphwings: {
+		name: "Sylph Wings",
+		onModifyAccuracyPriority: -2,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('brightpowder - decreasing accuracy');
+			return this.chainModify([3686, 4096]);
+		},
+		num: -27,
+		gen: 9		
+	},
+	ballofrage: {
+		name: "Ball of Rage",
+		onHit(target, source, move) {
+			if (!target.hp) return;
+			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
+				target.useItem();
+				this.boost({ atk: 3 }, target, target);
+			}
+		},
+		num: -28,
+		gen: 9
+	},
+	generator: {
+		name: "Generator",
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Electric') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		num: -29,
+		gen: 9
+	},
+	guardiancharm: {
+		name: "Guardian Charm",
+		onStart(pokemon) {
+			const aliveAllies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted);
+			if (aliveAllies.length < 2) {
+				this.add('-activate', pokemon, 'item: Guardian Charm');
+				this.boost({ atk: 3, def: 3, spa: 3, spd: 3 }, pokemon, pokemon);
+			}
+		},
+		num: -30,
+		gen: 9
+	},
+	targetcharm: {
+		name: "Target Charm",
+		onStart(pokemon) {
+			pokemon.useItem();
+			pokemon.addVolatile('targetcharm');
+		},
+		condition: {
+			onModifyCritRatio(critRatio) {
+				return critRatio + 2;
+			}
+		},
+		num: -31,
+		gen: 9
+	},
+	unifiercrystal: {
+		name: "Unifier Crystal",
+		onStart(pokemon) {
+			if (pokemon.crystalBoost) return;
+			pokemon.crystalBoost = true;
+			this.boost({ atk: 1, def: 1 }, pokemon);
+		},
+		itemUser: ["Aggron", "Registeel"],
+		num: -32,
+		gen: 9
+	},
+	warriorcrystal: {
+		name: "Warrior Crystal",
+		onStart(pokemon) {
+			if (pokemon.crystalBoost) return;
+			pokemon.crystalBoost = true;
+			this.boost({ atk: 1, spa: 1 }, pokemon);
+		},
+		itemUser: ["Metagross", "Dialga"],
+		num: -33,
+		gen: 9
+	},
+	conquerorcrystal: {
+		name: "Conqueror Crystal",
+		onStart(pokemon) {
+			if (pokemon.crystalBoost) return;
+			pokemon.crystalBoost = true;
+			this.boost({ def: 1, spe: 1 }, pokemon);
+		},
+		itemUser: ["Hydreigon", "Zekrom"],
+		num: -34,
+		gen: 9
+	}
 };
