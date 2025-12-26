@@ -234,6 +234,16 @@ export class BattleActions {
 				target = this.battle.getRandomTarget(pokemon, baseMove);
 			}
 		}
+		const shadowDashBoosted = baseMove.shadowDashBoosted;
+		if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+			const changedMove = this.battle.runEvent('OverrideAction', pokemon, target, baseMove);
+			if (changedMove && changedMove !== true) {
+				baseMove = this.dex.getActiveMove(changedMove);
+				baseMove.priority = priority;
+				if (shadowDashBoosted) baseMove.shadowDashBoosted = shadowDashBoosted;
+				target = this.battle.getRandomTarget(pokemon, baseMove);
+			}
+		}
 		let move = baseMove;
 		if (zMove) {
 			move = this.getActiveZMove(baseMove, pokemon);
@@ -674,6 +684,11 @@ export class BattleActions {
 				if (target.illusion || !(move.status && !this.dex.getImmunity(move.status, target))) {
 					this.battle.hint("Since gen 7, Dark is immune to Prankster moves.");
 				}
+				this.battle.add('-immune', target);
+				hitResults[i] = false;
+			} else if (move.shadowDashBoosted && pokemon.hasAbility('shadowdash') &&
+				!targets[i].isAlly(pokemon) && !this.dex.getImmunity('shadowdash', target)) {
+				this.battle.debug('natural prankster immunity');
 				this.battle.add('-immune', target);
 				hitResults[i] = false;
 			} else {
@@ -1811,7 +1826,7 @@ export class BattleActions {
 
 		if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 
-		if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+		if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts') || !pokemon.hasAbility('pride')) {
 			if (this.battle.gen < 6 || move.id !== 'facade') {
 				baseDamage = this.battle.modify(baseDamage, 0.5);
 			}

@@ -2288,12 +2288,10 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	blackhole: {
 		name: "Black Hole",
-		desc: "Prevents opposing Pokemon from choosing to switch out, unless they are holding a Shed Shell, are a Ghost type, or also have this Ability.",
 		shortDesc: "Prevents foes from choosing to switch unless they also have this Ability.",
 	},
 	bodyguard: {
 		name: "Bodyguard",
-		desc: "Once per switch-in, this Pokemon swaps positions with an ally targeted by an opponent's physical move.",
 		shortDesc: "Once per switch-in, swaps with an ally targeted by an opponent's physical move.",
 		activate: "  [POKEMON] protected its ally!",
 	},
@@ -2307,22 +2305,18 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	celebrate: {
 		name: "Celebrate",
-		desc: "This Pokemon's next move has its priority increased by 1 if it attacks and knocks out another Pokemon.",
 		shortDesc: "Next move has +1 priority if this Pokemon attacks and knocks out another Pokemon.",
 	},
 	climber: {
 		name: "Climber",
-		desc: "This Pokemon can hit targets that are using Bounce, Fly, or Sky Drop with increased power.",
-		shortDesc: "This Pokemon's moves that hit targets using Bounce/Fly/Sky Drop have 1.5x power.",
+		shortDesc: "This Pokemon's moves have 1.1x accuracy if lighter than the target",
 	},
 	confidence: {
 		name: "Confidence",
-		desc: "This Pokemon deals 25% less damage to allies with its moves that hit all adjacent targets.",
 		shortDesc: "This Pokemon deals 25% less damage to allies with its spread moves.",
 	},
 	conqueror: {
 		name: "Conqueror",
-		desc: "This Pokemon raises its Attack, Defense, and Speed by 5% for each fainted opponent.",
 		shortDesc: "Raises Attack, Defense, and Speed by 5% for each fainted opponent.",
 	},
 	daze: {
@@ -2331,18 +2325,200 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	decoy: {
 		name: "Decoy",
-		desc: "Once per switch-in, this Pokemon swaps positions with an ally targeted by an opponent's special move.",
 		shortDesc: "Once per switch-in, swaps with an ally targeted by an opponent's special move.",
 		activate: "  [POKEMON] protected its ally!",
 	},
 	deepsleep: {
 		name: "Deep Sleep",
-		desc: "If this Pokemon is asleep, it restores 1/8 of its maximum HP, rounded down, at the end of each turn.",
 		shortDesc: "If asleep, restores 1/8 of its max HP at the end of each turn.",
 	},
 	disgust: {
 		name: "Disgust",
-		desc: "This Pokemon's attacking moves always go last but switch-out the target if they hit.",
 		shortDesc: "This Pokemon's attacking moves always go last and switch out the target if they hit.",
 	},	
+	dodge: {
+		name: "Dodge",
+		shortDesc: "Non-contact accuracy against this Pokemon is multiplied by 0.9x.",
+	},
+	explode: {
+		name: "Explode",
+		shortDesc: "Fainting due to contact: attacker takes damage equal 1o 1/5 of this Pokemon's attack.",
+	},
+	flameboost: {
+		name: "Flame Boost",
+		shortDesc: "Allies' Fire-type moves deal 1.3x damage.",
+	},
+	fortune: {
+		name: "Fortune",
+		shortDesc: "No competitive use.",
+	},
+	frighten: {
+		name: "Frighten",
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
+	},
+	frostbite: {
+		name: "Frostbite",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be frozen.",
+	},
+	grasscloak: {
+		name: "Grass Pelt",
+		shortDesc: "1.5x Def and SpD while Grassy Terrain is active."
+	},
+	gulp: {
+		name: "Gulp",
+		shortDesc: "If Rain Dance is active, this Pokemon heals 1/16 of its max HP each turn.",
+	},
+	herbivore: {
+		name: "Herbivore",
+		shortDesc: "If Grassy Terrain is active, this Pokemon heals 1/8 of its max HP each turn.",
+	},
+	hero: {
+		name: "Hero",
+		shortDesc: "Fainted Allies - Fainted Foes > 1: On switch-in, +1 Atk and Def.",
+	},
+	highrise: {
+		name: "High-Rise",
+		shortDesc: "Moves with crash damage have 1.5x power."
+	},
+	hotblooded: {
+		name: "Hot Blooded",
+		shortDesc: "This Pokemon is healed 1/4 by Water, 1/8 by Rain; is hurt 1.25x by Fire, 1/8 by Sun.",
+	},
+	instinct: {
+		name: "Instinct",
+		shortDesc: "Super effective accuracy against this Pokemon is multiplied by 0.9x.",
+	},
+	interference: {
+		name: "Interference",
+		shortDesc: "On switch-in, this Pokemon lowers the Accuracy of opponents by 1 stage.",
+	},
+	jaggededge: {
+		name: "Jagged Edge",
+		shortDesc: "Pokemon making contact with this Pokemon lose 1/8 of their max HP.",
+
+	},
+	lastbastion: {
+		name: "Last Bastion",
+		shortDesc: "Last Pokemon standing in the party: +1 Atk, Def, SpA, SpD on switch-in.",
+	},
+	lifeforce: {
+		name: "Life Force",
+		shortDesc: "This Pokemon heals 1/16 HP at the end of each turn.",
+	},
+	lullaby: {
+		name: "Lullaby",
+		shortDesc: "This Pokemon's non-contact moves have a 10% chance to sleep the target.",
+	},
+	lunchbox: {
+		name: "Lunch Box",
+		shortDesc: "After eating a berry, this Pokemon heals 1/8 HP at the end of each turn.",
+	},
+	medic: {
+		name: "Medic",
+		shortDesc: "This Pokemon heals allies for 1/8 HP at the end of each turn.",
+	},
+	melee: {
+		name: "Melee",
+		shortDesc: "After ally attacks, deal a follow-up hit that deals damage equal to 1/5 Attack.",
+	},
+	moodmaker: {
+		name: "Mood Maker",
+		shortDesc: "Increases the accuracy of allies by 1.1x.",
+	},
+	nomad: {
+		name: "Nomad",
+		shortDesc: "This Pokemon's first attacking move that lands deals 2x damage.",
+	},
+	nurse: {
+		name: "Nurse",
+		shortDesc: "30% chance this Pokemon's ally has its status cured at the end of each turn.",
+	},
+	omnipotent: {
+		name: "Omnipotent",
+		shortDesc: "Levitate + Life Force + Tinted Lens + Scrappy.",
+	},
+	parry: {
+		name: "Parry",
+		shortDesc: "Contact accuracy against this Pokemon is multiplied by 0.9x.",
+	},
+	perception: {
+		name: "Perception",
+		shortDesc: "This Pokemon does not take damage from attacks made by its allies.",
+	},
+	powernap: {
+		name: "Power Nap",
+		shortDesc: "When below 1/3 HP, this Pokemon falls asleep for 3 turns and fully restores HP.",
+	},
+	pride: {
+		name: "Pride",
+		shortDesc: "If this Pokemon is statused, its Attack is 1.5x; ignores burn halving physical damage.",
+	},
+	runup: {
+		name: "Run Up",
+		shortDesc: "This Pokemon's first attacking move that lands deals 1.5x damage.",
+	},
+	sandpit: {
+		name: "Sand Pit",
+		shortDesc: "If Sandstorm is active, this Pokemon heals 1/16 of its max HP each turn.",
+	},
+	sequence: {
+		name: "Sequence",
+		shortDesc: "This Pokemon's Electric-type allies deal 1.3x damage."
+	},
+	shackle: {
+		name: "Shackle",
+		shortDesc: "This Pokemon's attacking moves trap the target.",
+	},
+	shadowdash: {
+		name: "Shadow Dash",
+		shortDesc: "Dark, Ghost, and Poison attacking moves have priority raised by 1. Pokemon with Shadow Dash are immune.",
+	},
+	share: {
+		name: "Share",
+		shortDesc: "If an ally uses its item, this Pokemon gives its item to that ally immediately.",
+	},
+	shield:  {
+		name: "Shield",
+		shortDesc: "This Pokemon and its allies are protected from opposing spread moves.",	
+	},
+	skater: {
+		name: "Skater",
+		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Ice move; Ice immunity.",
+	},
+	spirit: {
+		name: "Spirit",
+		shortDesc: "If below 1/3 HP, fully restores HP and gains +1 Attack.",
+	},
+	sponge: {
+		name: "Sponge",
+		shortDesc: "This Pokemon's moves without drain gain a 1/10 drain effect.",
+	},
+	sprint: {
+		name: "Sprint",
+		shortDesc: "This Pokemon's Speed is multiplied by 1.5x.",
+	},
+	stealth: {
+		name: "Stealth",
+		shortDesc: "Type-Favoured Weather/Terrain active: move accuracy targeting this Pokemon multiplied by 0.9x.",
+	},
+	tenacity: {
+		name: "Tenacity",
+		shortDesc: "Contact: 10% chance to inflict the must recharge effect on attacker.",
+	},
+	thrust: {
+		name: "Thrust",
+		shortDesc: "This Pokemon's attacking moves always go last and switch out the target if they hit.",
+	},
+	vanguard: {
+		name: "Vanguard",
+		shortDesc: "This Pokemon deals 1.5x damage if it acts before the target.",
+	},
+	warmblanket: {
+		name: "Warm Blanket",	
+		shortDesc: "If Sunny Day is active, this Pokemon heals 1/16 of its max HP each turn.",
+	},
+	waverider: {
+		name: "Wave Rider",
+		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Water move; Water immunity.",
+	}
 };

@@ -6240,7 +6240,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidual(pokemon) {
 			for (const allyActive of pokemon.adjacentAllies()) {
 				if (allyActive.status && this.randomChance(3, 10)) {
-					this.add('-activate', pokemon, 'ability: Healer');
+					this.add('-activate', pokemon, 'ability: Nurse');
 					allyActive.cureStatus();
 				}
 			}
@@ -6373,6 +6373,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	shadowdash: {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move.category !== 'Status' && move.type === 'Dark' || move.type === 'Ghost' || move.type === 'Poison' && pokemon.hp === pokemon.maxhp)
+				move.shadowDashBoosted = true;
 				return priority + 1;
 		},
 		flags: {},

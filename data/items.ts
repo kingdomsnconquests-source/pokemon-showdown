@@ -8749,12 +8749,13 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		name: "Hachimaki",
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
-			pokemon.useItem();
+			if (!pokemon.hasType('Ghost'))
+				pokemon.useItem();
 		},
 		onAfterUseItem(item, pokemon) {
 			pokemon.addVolatile('perishsong');
 			pokemon.addVolatile('trapped');
-			this.boost({ atk: 4, spa: 4 });
+			this.boost({ atk: 2, spa: 2 });
 		},
 		num: -23,
 		gen: 9

@@ -232,14 +232,15 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onResidualOrder: 13,
 		onResidual(pokemon) {
-			const source = this.effectState.source;
-			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
-			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
-			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
-				delete pokemon.volatiles['partiallytrapped'];
-				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
-				return;
-			}
+            const source = this.effectState.source;
+            if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+                delete pokemon.volatiles['partiallytrapped'];
+                this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
+                return;
+            }
+            if (this.effectState.sourceEffect.id === 'shackle') {
+                return;
+            }
 			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
 		},
 		onEnd(pokemon) {
