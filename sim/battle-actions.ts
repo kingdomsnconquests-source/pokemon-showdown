@@ -688,7 +688,10 @@ export class BattleActions {
 				hitResults[i] = false;
 			} else if (move.shadowDashBoosted && pokemon.hasAbility('shadowdash') &&
 				!targets[i].isAlly(pokemon) && !this.dex.getImmunity('shadowdash', target)) {
-				this.battle.debug('natural prankster immunity');
+				this.battle.debug('natural shadowdash immunity');
+				if (target.illusion || !(move.status && !this.dex.getImmunity(move.status, target))) {
+					this.battle.hint("In this format, Dark/Ghost/Poison is immune to Shadow Dash moves.");
+				}
 				this.battle.add('-immune', target);
 				hitResults[i] = false;
 			} else {
@@ -754,6 +757,12 @@ export class BattleActions {
 				}
 				if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 					this.battle.boost({ spe: 2 }, pokemon);
+				} else if (!move.ohko && target.hasAbility('dodge')) {
+					this.battle.boost({ spe: 1 }, target);
+				} else if (!move.ohko && target.hasAbility('parry')) {
+					this.battle.boost({ def: -1 }, pokemon);
+				} else if (!move.ohko && target.hasAbility('instinct')) {
+					this.battle.boost({ spd: -1 }, pokemon);
 				}
 				hitResults[i] = false;
 				continue;

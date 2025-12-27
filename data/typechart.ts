@@ -26,6 +26,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 	},
 	dark: {
 		damageTaken: {
+			shadowdash: 3,
 			prankster: 3,
 			Bug: 1,
 			Dark: 2,
@@ -201,6 +202,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 	},
 	ghost: {
 		damageTaken: {
+			shadowdash: 3,
 			trapped: 3,
 			Bug: 2,
 			Dark: 1,
@@ -329,6 +331,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 	},
 	poison: {
 		damageTaken: {
+			shadowdash: 3,
 			psn: 3,
 			tox: 3,
 			Bug: 2,

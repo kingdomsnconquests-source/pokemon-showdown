@@ -5669,7 +5669,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onAllyTryHit(target, source, move) {
+			onAllyBeforeMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5845,7 +5845,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onAllyTryHit(target, source, move) {
+			onAllyBeforeMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5911,13 +5911,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -16,
 	},
 	dodge: {
-		onModifyAccuracyPriority: 10,
-		onModifyAccuracy(accuracy, target, source, move) {
-			if (!move.flags['contact'] && typeof accuracy === 'number') {
-				this.debug('Dodge multiplies accuracy by 0.9x.');
-				return this.chainModify(0.9)
-			}
-		},
+		// implemented in battle-actions.ts
 		flags: {},
 		name: "Dodge",
 		rating: 2.5,
@@ -6080,13 +6074,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -28,
 	},
 	instinct: {
-		onModifyAccuracyPriority: 10,
-		onModifyAccuracy(accuracy, target, source, move) {
-			if (target.runEffectiveness(move) > 0 || !target.runImmunity(move) && typeof accuracy === 'number') {
-				this.debug('Instinct multiplies accuracy by 0.9x.');
-				return this.chainModify(0.9)
-			}
-		},
+		// implemented in battle-actions.ts
 		flags: {},
 		name: "Instinct",
 		rating: 3,
@@ -6191,10 +6179,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -36,
 	},
 	melee: {
-		onAllyDamagingHit(damage, target, source, move) {
-			if (move.target === "normal") {
+		onFoeDamagingHit(damage, target, source, move) {
+			if (move.target === "normal" && source !== this.effectState.target && source.isAlly(this.effectState.target)) {
 				this.debug('The target is hit by a follow-up!');
-				this.damage(source.getStat('atk') / 5, source, target);
+				this.damage(source.getStat('atk') / 5, target, source);
 			}
 		},
 		flags: {},
@@ -6257,13 +6245,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -41,
 	},
 	parry: {
-		onModifyAccuracyPriority: 10,
-		onModifyAccuracy(accuracy, target, source, move) {
-			if (move.flags['contact'] && typeof accuracy === 'number') {
-				this.debug('Parry multiplies accuracy by 0.9x.');
-				return this.chainModify(0.9)
-			}
-		},
+		// implemented in battle-actions.ts
 		flags: {},
 		name: "Parry",
 		rating: 0,
@@ -6300,13 +6282,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.status) {
-				return this.chainModify(1.5);
+				if (pokemon.getStat('atk') < pokemon.getStat('spa')) return;
+				return this.chainModify(1.3);
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
 			if (pokemon.status) {
-				return this.chainModify(1.5);
+				if (pokemon.getStat('def') < pokemon.getStat('spd')) return;
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.status) {
+				if (pokemon.getStat('spa') < pokemon.getStat('atk')) return;
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.status) {
+				if (pokemon.getStat('spd') < pokemon.getStat('def')) return;
+				return this.chainModify(1.3);
 			}
 		},
 		flags: {},
@@ -6360,9 +6358,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -48,
 	},
 	shackle: {
-		onModifyMove(move) {
-			if (move.category !== 'Status') {
-				move.volatileStatus = 'partiallytrapped';
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.category !== 'Status' && move.flags['contact']) {
+				this.boost({ spe: -1 }, target, source);
 			}
 		},
 		flags: {},
@@ -6441,7 +6439,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -52
 	},
-	spirit: {
+	spiritability: {
 		onAnyDamage(damage, target, source, effect) {
 			if (target.hp <= target.maxhp / 3) {
 				this.heal(target.baseMaxhp);

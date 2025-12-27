@@ -2338,7 +2338,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},	
 	dodge: {
 		name: "Dodge",
-		shortDesc: "Non-contact accuracy against this Pokemon is multiplied by 0.9x.",
+		shortDesc: "When contact moves miss this Pokemon, this Pokemon's Spe is raised by 1 stage.",
 	},
 	explode: {
 		name: "Explode",
@@ -2386,7 +2386,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	instinct: {
 		name: "Instinct",
-		shortDesc: "Super effective accuracy against this Pokemon is multiplied by 0.9x.",
+		shortDesc: "When non-contact moves miss this Pokemon, the attacker's SpD is lowered by 1 stage.",
 	},
 	interference: {
 		name: "Interference",
@@ -2439,7 +2439,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	parry: {
 		name: "Parry",
-		shortDesc: "Contact accuracy against this Pokemon is multiplied by 0.9x.",
+		shortDesc: "When contact moves miss this Pokemon, the attacker's Def is lowered by 1 stage.",
 	},
 	perception: {
 		name: "Perception",
@@ -2451,7 +2451,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	pride: {
 		name: "Pride",
-		shortDesc: "If this Pokemon is statused, its Attack is 1.5x; ignores burn halving physical damage.",
+		shortDesc: "This Pokemon's highest offensive and defensive stats are raised by 1.3x if inflicted with status.",
 	},
 	runup: {
 		name: "Run Up",
@@ -2467,11 +2467,11 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	shackle: {
 		name: "Shackle",
-		shortDesc: "This Pokemon's attacking moves trap the target.",
+		shortDesc: "This Pokemon's contact moves lower the target's Speed by 1 stage.",
 	},
 	shadowdash: {
 		name: "Shadow Dash",
-		shortDesc: "Dark, Ghost, and Poison attacking moves have priority raised by 1. Pokemon with Shadow Dash are immune.",
+		shortDesc: "Dark/Ghost/Poison attacks have +1 priority while at full HP. Shadow Dash immunity.",
 	},
 	share: {
 		name: "Share",
@@ -2485,7 +2485,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		name: "Skater",
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Ice move; Ice immunity.",
 	},
-	spirit: {
+	spiritability: {
 		name: "Spirit",
 		shortDesc: "If below 1/3 HP, fully restores HP and gains +1 Attack.",
 	},
