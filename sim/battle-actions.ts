@@ -759,10 +759,13 @@ export class BattleActions {
 					this.battle.boost({ spe: 2 }, pokemon);
 				} else if (!move.ohko && target.hasAbility('dodge')) {
 					this.battle.boost({ spe: 1 }, target);
+					this.battle.add('-ability', target, 'Dodge');
 				} else if (!move.ohko && target.hasAbility('parry')) {
 					this.battle.boost({ def: -1 }, pokemon);
+					this.battle.add('-ability', target, 'Parry');
 				} else if (!move.ohko && target.hasAbility('instinct')) {
 					this.battle.boost({ spd: -1 }, pokemon);
+					this.battle.add('-ability', target, 'Instinct');
 				}
 				hitResults[i] = false;
 				continue;

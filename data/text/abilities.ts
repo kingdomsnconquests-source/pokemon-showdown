@@ -2361,7 +2361,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be frozen.",
 	},
 	grasscloak: {
-		name: "Grass Pelt",
+		name: "Grass Cloak",
 		shortDesc: "1.5x Def and SpD while Grassy Terrain is active."
 	},
 	gulp: {
@@ -2485,8 +2485,8 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		name: "Skater",
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Ice move; Ice immunity.",
 	},
-	spiritability: {
-		name: "Spirit",
+	spiritconquest: {
+		name: "Spirit (Conquest)",
 		shortDesc: "If below 1/3 HP, fully restores HP and gains +1 Attack.",
 	},
 	sponge: {

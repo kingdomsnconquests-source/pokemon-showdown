@@ -5971,7 +5971,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	frostbite: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
+				if (this.randomChance(1, 10)) {
 					source.trySetStatus('frz', target);
 				}
 			}
@@ -5991,7 +5991,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
 		},
 		flags: { breakable: 1 },
-		name: "Grass Pelt",
+		name: "Grass Cloak",
 		rating: 0.5,
 		num: -23,
 	},
@@ -6022,7 +6022,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	hero: {
 		onStart(pokemon) {
-			if (pokemon.side.foe.totalFainted - pokemon.side.totalFainted > 1) {
+			if (pokemon.side.totalFainted - pokemon.side.foe.totalFainted > 1) {
 				this.add('-ability', pokemon, 'Hero');
 				this.boost({ atk: 1, def: 1 }, pokemon, pokemon);
 			}
@@ -6182,7 +6182,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onFoeDamagingHit(damage, target, source, move) {
 			if (move.target === "normal" && source !== this.effectState.target && source.isAlly(this.effectState.target)) {
 				this.debug('The target is hit by a follow-up!');
-				this.damage(source.getStat('atk') / 5, target, source);
+				this.damage(this.effectState.target.getStat('atk') / 5, target, this.effectState.target);
 			}
 		},
 		flags: {},
@@ -6282,29 +6282,33 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.status) {
-				if (pokemon.getStat('atk') < pokemon.getStat('spa')) return;
-				return this.chainModify(1.3);
+				if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+					return this.chainModify(1.3);
+				}
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
 			if (pokemon.status) {
-				if (pokemon.getStat('def') < pokemon.getStat('spd')) return;
+				if (pokemon.getStat('def', false, true) > pokemon.getStat('spd', false, true)) {
 				return this.chainModify(1.3);
+				}
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.status) {
-				if (pokemon.getStat('spa') < pokemon.getStat('atk')) return;
-				return this.chainModify(1.3);
+				if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
+					return this.chainModify(1.3);
+				}
 			}
 		},
 		onModifySpDPriority: 5,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.status) {
-				if (pokemon.getStat('spd') < pokemon.getStat('def')) return;
-				return this.chainModify(1.3);
+				if (pokemon.getStat('spd', false, true) > pokemon.getStat('def', false, true)) {
+					return this.chainModify(1.3);
+				}
 			}
 		},
 		flags: {},
@@ -6370,7 +6374,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	shadowdash: {
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move.category !== 'Status' && move.type === 'Dark' || move.type === 'Ghost' || move.type === 'Poison' && pokemon.hp === pokemon.maxhp)
+			if (move.category !== 'Status' && pokemon.hp === pokemon.maxhp && move.type === 'Dark' || move.type === 'Ghost' || move.type === 'Poison')
 				move.shadowDashBoosted = true;
 				return priority + 1;
 		},
@@ -6439,7 +6443,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -52
 	},
-	spiritability: {
+	spiritconquest: {
 		onAnyDamage(damage, target, source, effect) {
 			if (target.hp <= target.maxhp / 3) {
 				this.heal(target.baseMaxhp);
@@ -6447,7 +6451,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		name: "Spirit",
+		name: "Spirit (Conquest)",
 		rating: 5,
 		num: -53
 	},
