@@ -6182,7 +6182,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onFoeDamagingHit(damage, target, source, move) {
 			if (move.target === "normal" && source !== this.effectState.target && source.isAlly(this.effectState.target)) {
 				this.debug('The target is hit by a follow-up!');
-				this.damage(this.effectState.target.getStat('atk') / 5, target, this.effectState.target);
+				this.damage(this.effectState.target.getStat('atk', false, false) / 5, target, this.effectState.target);
 			}
 		},
 		flags: {},
