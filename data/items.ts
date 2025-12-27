@@ -8348,15 +8348,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isWeather('sandstorm')) {
 				pokemon.useItem();
+				pokemon.addVolatile('ashengrace');
 			}
 		},
-		onTerrainChange(pokemon) {
+		onWeatherChange(pokemon) {
 			if (this.field.isWeather('sandstorm')) {
 				pokemon.useItem();
+				pokemon.addVolatile('ashengrace');
 			}
-		},
-		onAfterUseItem(item, pokemon) {
-			pokemon.addVolatile('ashengrace');
 		},
 		condition: {
 			onResidualOrder: 5,
@@ -8377,15 +8376,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
 				pokemon.useItem();
+				pokemon.addVolatile('ceruleangrace');
 			}
 		},
-		onTerrainChange(pokemon) {
+		onWeatherChange(pokemon) {
 			if (this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
 				pokemon.useItem();
+				pokemon.addVolatile('ceruleangrace');
 			}
-		},
-		onAfterUseItem(item, pokemon) {
-			pokemon.addVolatile('ceruleangrace');
 		},
 		condition: {
 			onResidualOrder: 5,
@@ -8406,15 +8404,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
 				pokemon.useItem();
+				pokemon.addVolatile('crimsongrace');
 			}
 		},
-		onTerrainChange(pokemon) {
+		onWeatherChange(pokemon) {
 			if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
 				pokemon.useItem();
+				pokemon.addVolatile('crimsongrace');
 			}
-		},
-		onAfterUseItem(item, pokemon) {
-			pokemon.addVolatile('crimsongrace');
 		},
 		condition: {
 			onResidualOrder: 5,
@@ -8435,15 +8432,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
 				pokemon.useItem();
+				pokemon.addVolatile('emeraldgrace');
 			}
 		},
 		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) {
 				pokemon.useItem();
+				pokemon.addVolatile('emeraldgrace');
 			}
-		},
-		onAfterUseItem(item, pokemon) {
-			pokemon.addVolatile('emeraldgrace');
 		},
 		condition: {
 			onResidualOrder: 5,
@@ -8463,10 +8459,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				pokemon.useItem();
+				pokemon.addVolatile('indigograce');
 			}
-		},
-		onAfterUseItem(item, pokemon) {
-			pokemon.addVolatile('indigograce');
 		},
 		condition: {
 			onDamagePriority: 1,
@@ -8489,15 +8483,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isWeather('snowscape') || this.field.isWeather('hail')) {
 				pokemon.useItem();
+				pokemon.addVolatile('ivorygrace');
 			}
 		},
-		onTerrainChange(pokemon) {
+		onWeatherChange(pokemon) {
 			if (this.field.isWeather('snowscape') || this.field.isWeather('hail')) {
 				pokemon.useItem();
+				pokemon.addVolatile('ivorygrace');
 			}
-		},
-		onAfterUseItem(item, pokemon) {
-			pokemon.addVolatile('ivorygrace');
 		},
 		condition: {
 			onResidualOrder: 5,
@@ -8537,10 +8530,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				pokemon.useItem();
-			}
-		},
-		onAfterUseItem(item, pokemon) {
-			if (pokemon.status === 'brn') {
 				pokemon.cureStatus();
 				pokemon.addVolatile('burnblock');
 			}
@@ -8566,10 +8555,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'frz') {
 				pokemon.useItem();
-			}
-		},
-		onAfterUseItem(item, pokemon) {
-			if (pokemon.status === 'frz') {
 				pokemon.cureStatus();
 				pokemon.addVolatile('freezeblock');
 			}
@@ -8595,10 +8580,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'par') {
 				pokemon.useItem();
-			}
-		},
-		onAfterUseItem(item, pokemon) {
-			if (pokemon.status === 'par') {
 				pokemon.cureStatus();
 				pokemon.addVolatile('paralyzblock');
 			}
@@ -8624,10 +8605,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				pokemon.useItem();
-			}
-		},
-		onAfterUseItem(item, pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				pokemon.cureStatus();
 				pokemon.addVolatile('poisonblock');
 			}
@@ -8653,10 +8630,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'slp') {
 				pokemon.useItem();
-			}
-		},
-		onAfterUseItem(item, pokemon) {
-			if (pokemon.status === 'slp') {
 				pokemon.cureStatus();
 				pokemon.addVolatile('slpblock');
 			}
@@ -8682,14 +8655,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onAfterSetStatusPriority: -1,
 		onAfterSetStatus(status, pokemon) {
 			pokemon.useItem();
+				pokemon.cureStatus();
+				pokemon.addVolatile('omniblock');
 		},
 		onUpdate(pokemon) {
 			if (pokemon.status) {
 				pokemon.useItem();
-			}
-		},
-		onAfterUseItem(item, pokemon) {
-			if (pokemon.status) {
 				pokemon.cureStatus();
 				pokemon.addVolatile('omniblock');
 			}
@@ -8751,11 +8722,9 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			if (!pokemon.hasType('Ghost'))
 				pokemon.useItem();
-		},
-		onAfterUseItem(item, pokemon) {
-			pokemon.addVolatile('perishsong');
-			pokemon.addVolatile('trapped');
-			this.boost({ atk: 2, spa: 2 });
+				pokemon.addVolatile('perishsong');
+				pokemon.addVolatile('trapped');
+				this.boost({ atk: 2, spa: 2 });
 		},
 		num: -23,
 		gen: 9
