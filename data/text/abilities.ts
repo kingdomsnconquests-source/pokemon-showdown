@@ -2288,7 +2288,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	blackhole: {
 		name: "Black Hole",
-		shortDesc: "Prevents foes from choosing to switch unless they also have this Ability.",
+		shortDesc: "On contact, the attacker becomes partially trapped.",
 	},
 	bodyguard: {
 		name: "Bodyguard",

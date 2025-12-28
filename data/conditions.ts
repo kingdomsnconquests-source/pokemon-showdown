@@ -238,6 +238,9 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
                 this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
                 return;
             }
+            if (this.effectState.sourceEffect.id === 'blackhole') {
+				return;
+			}
 			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
 		},
 		onEnd(pokemon) {

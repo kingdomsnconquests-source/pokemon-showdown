@@ -5643,16 +5643,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -4,
 	},
 	blackhole: {
-		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('blackhole') && pokemon.isAdjacent(this.effectState.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if (!source || !pokemon.isAdjacent(source)) return;
-			if (!pokemon.hasAbility('blackhole')) {
-				pokemon.maybeTrapped = true;
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-activate', target, 'ability: Black Hole');
+				source.addVolatile('partiallyTrapped');
 			}
 		},
 		flags: {},
