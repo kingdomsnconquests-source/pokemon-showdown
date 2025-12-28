@@ -5582,7 +5582,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		isNonstandard: "CAP",
 		flags: { breakable: 1 },
 		name: "Mountaineer",
 		rating: 3,
@@ -5760,8 +5759,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -10,
 	},
 	confidence: {
-		onModifyDamage(damage, source, target, move) {
-			if (move.target === "allAdjacent" && target !== this.effectState.target && target.isAlly(this.effectState.target)) {
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target !== this.effectState.target && target.isAlly(this.effectState.target)) {
 				this.debug('Confidence weaken');
 				return this.chainModify(0.75);
 			}
@@ -5902,6 +5901,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onModifyMove(move) {
 			if (move.category !== 'Status') {
+				this.add('-ability', this.effectState.target, 'Disgust');
 				move.forceSwitch = true;
 			}
 		},
@@ -6325,7 +6325,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.volatiles['runup']) {
 				this.debug('Run Up boost');
-				return this.chainModify(1,5);
+				return this.chainModify(1.5);
 			}
 		},
 		onSourceDamagingHit(damage, target, source, move) {
@@ -6513,6 +6513,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				if (this.randomChance(1, 10)) {
+					this.add('-activate', this.effectState.target, 'ability: Tenacity');
 					source.addVolatile('mustrecharge', this.effectState.target);
 				}
 			}
@@ -6530,6 +6531,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onModifyMove(move) {
 			if (move.category !== 'Status') {
+				this.add('-ability', this.effectState.target, 'Thrust');
 				move.forceSwitch = true;
 			}
 		},
