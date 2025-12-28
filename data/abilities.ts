@@ -6351,10 +6351,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	sequence: {
 		onBasePowerPriority: 22,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.adjacentAllies().some(ally => ally.hasType('Electric'))) {
-				this.debug('Sequence boost');
-				return this.chainModify(1.5);
-			}
+			if (attacker !== this.effectState.target) return;
+				if (attacker.adjacentAllies().some(ally => ally.hasType('Electric'))) {
+					const electricAllies = attacker.adjacentAllies().filter(ally => ally.hasType('Electric'));
+					this.debug('Sequence boost');
+					return this.chainModify(1 + (0.5 * electricAllies.length));
+				}
 		},
 		flags: {},
 		name: "Sequence",

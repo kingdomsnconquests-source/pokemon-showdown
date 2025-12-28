@@ -2313,7 +2313,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	confidence: {
 		name: "Confidence",
-		shortDesc: "This Pokemon deals 25% less damage to allies with its spread moves.",
+		shortDesc: "This Pokemon's allies receive 3/4 damage from other Pokemon's attacks.",
 	},
 	conqueror: {
 		name: "Conqueror",
@@ -2463,7 +2463,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	sequence: {
 		name: "Sequence",
-		shortDesc: "This Pokemon's Electric-type allies deal 1.3x damage."
+		shortDesc: "This Pokemon damage increases by 50% per Electric ally on the field."
 	},
 	shackle: {
 		name: "Shackle",
