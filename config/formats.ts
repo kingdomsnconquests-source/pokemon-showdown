@@ -24,7 +24,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "Kingdoms and Conquests",
 	},
 	{
-		name: "[Gen 9] Ambition S1 ND Singles",
+		name: "[Gen 9] Ambition National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
 		banlist: [
@@ -34,10 +34,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	},
 	{
-		name: "[Gen 9] Ambition S1 ND Doubles",
+		name: "[Gen 9] Ambition National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard Doubles', 'NatDex Mod', 'Evasion Abilities Clause', 'Terastal Clause', 'Data Preview'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -45,10 +45,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	},
 	{
-		name: "[Gen 9] Ambition S1 ND Triples",
+		name: "[Gen 9] Ambition National Dex Triples",
 		mod: 'gen9',
 		gameType: 'triples',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['NatDex Mod', 'Evasion Abilities Clause', 'Terastal Clause', 'Data Preview'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
