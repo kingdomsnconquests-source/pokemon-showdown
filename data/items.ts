@@ -8863,5 +8863,75 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		itemUser: ["Hydreigon", "Zekrom"],
 		num: -34,
 		gen: 9
-	}
+	},
+	chilipowder: {
+		name: "Chili Powder",
+		onSourceBeforeFaint(pokemon, effect) {
+			if (effect && effect.effectType === 'Move') {
+				pokemon.useItem();
+				pokemon.trySetStatus('brn', pokemon);
+				pokemon.allies().forEach(ally => {
+					ally.trySetStatus('brn', pokemon);
+				});
+			}
+		},
+		num: -35,
+		gen: 9
+	},
+	cursedflute: {
+		name: "Cursed Flute",
+		onSourceBeforeFaint(pokemon, effect) {
+			if (effect && effect.effectType === 'Move') {
+				pokemon.useItem();
+				pokemon.addVolatile('confusion');
+				pokemon.allies().forEach(ally => {
+					ally.addVolatile('confusion');
+				});
+			}
+		},
+		num: -36,
+		gen: 9
+	},
+	discharger: {
+		name: "Discharger",
+		onSourceBeforeFaint(pokemon, effect) {
+			if (effect && effect.effectType === 'Move') {
+				pokemon.useItem();
+				pokemon.trySetStatus('par', pokemon);
+				pokemon.allies().forEach(ally => {
+					ally.trySetStatus('par', pokemon);
+				});
+			}
+		},
+		num: -37,
+		gen: 9
+	},
+	dryice: {
+		name: "Dry Ice",
+		onSourceBeforeFaint(pokemon, effect) {
+			if (effect && effect.effectType === 'Move') {
+				pokemon.useItem();
+				pokemon.trySetStatus('frz', pokemon);
+				pokemon.allies().forEach(ally => {
+					ally.trySetStatus('frz', pokemon);
+				});
+			}
+		},
+		num: -38,
+		gen: 9
+	},
+	sleeptightsalts: {
+		name: "Sleeptight Salts",
+		onSourceBeforeFaint(pokemon, effect) {
+			if (effect && effect.effectType === 'Move') {
+				pokemon.useItem();
+				pokemon.trySetStatus('slp', pokemon);
+				pokemon.allies().forEach(ally => {
+					ally.trySetStatus('slp', pokemon);
+				});
+			}
+		},
+		num: -39,
+		gen: 9
+	},
 };
