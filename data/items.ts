@@ -8833,9 +8833,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	unifiercrystal: {
 		name: "Unifier Crystal",
+		onTakeItem: false,
 		onStart(pokemon) {
 			if (pokemon.crystalBoost) return;
 			pokemon.crystalBoost = true;
+			this.add('-activate', pokemon, 'item: Unifier Crystal');
 			this.boost({ atk: 1, def: 1 }, pokemon);
 		},
 		itemUser: ["Aggron", "Registeel"],
@@ -8844,9 +8846,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	warriorcrystal: {
 		name: "Warrior Crystal",
+		onTakeItem: false,
 		onStart(pokemon) {
 			if (pokemon.crystalBoost) return;
 			pokemon.crystalBoost = true;
+			this.add('-activate', pokemon, 'item: Warrior Crystal');
 			this.boost({ atk: 1, spa: 1 }, pokemon);
 		},
 		itemUser: ["Metagross", "Dialga"],
@@ -8855,9 +8859,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	conquerorcrystal: {
 		name: "Conqueror Crystal",
+		onTakeItem: false,
 		onStart(pokemon) {
 			if (pokemon.crystalBoost) return;
 			pokemon.crystalBoost = true;
+			this.add('-activate', pokemon, 'item: Conqueror Crystal');
 			this.boost({ def: 1, spe: 1 }, pokemon);
 		},
 		itemUser: ["Hydreigon", "Zekrom"],
@@ -8866,12 +8872,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	chilipowder: {
 		name: "Chili Powder",
-		onSourceBeforeFaint(pokemon, effect) {
-			if (effect && effect.effectType === 'Move') {
-				pokemon.useItem();
-				pokemon.trySetStatus('brn', pokemon);
-				pokemon.allies().forEach(ally => {
-					ally.trySetStatus('brn', pokemon);
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && !source.isAlly(target)) {
+				this.add('-activate', target, 'item: Chili Powder');
+				target.useItem();
+				source.trySetStatus('brn', source);
+				source.allies().forEach(ally => {
+					ally.trySetStatus('brn', source);
 				});
 			}
 		},
@@ -8880,11 +8888,13 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	cursedflute: {
 		name: "Cursed Flute",
-		onSourceBeforeFaint(pokemon, effect) {
-			if (effect && effect.effectType === 'Move') {
-				pokemon.useItem();
-				pokemon.addVolatile('confusion');
-				pokemon.allies().forEach(ally => {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp) {
+				this.add('-activate', target, 'item: Cursed Flute');
+				target.useItem();
+				source.addVolatile('confusion');
+				source.allies().forEach(ally => {
 					ally.addVolatile('confusion');
 				});
 			}
@@ -8894,12 +8904,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	discharger: {
 		name: "Discharger",
-		onSourceBeforeFaint(pokemon, effect) {
-			if (effect && effect.effectType === 'Move') {
-				pokemon.useItem();
-				pokemon.trySetStatus('par', pokemon);
-				pokemon.allies().forEach(ally => {
-					ally.trySetStatus('par', pokemon);
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && !source.isAlly(target)) {
+				this.add('-activate', target, 'item: Discharger');
+				target.useItem();
+				source.trySetStatus('par', target);
+				source.allies().forEach(ally => {
+					ally.trySetStatus('par', target);
 				});
 			}
 		},
@@ -8908,12 +8920,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	dryice: {
 		name: "Dry Ice",
-		onSourceBeforeFaint(pokemon, effect) {
-			if (effect && effect.effectType === 'Move') {
-				pokemon.useItem();
-				pokemon.trySetStatus('frz', pokemon);
-				pokemon.allies().forEach(ally => {
-					ally.trySetStatus('frz', pokemon);
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && !source.isAlly(target)) {
+				this.add('-activate', target, 'item: Dry Ice');
+				target.useItem();
+				source.trySetStatus('frz', target);
+				source.allies().forEach(ally => {
+					ally.trySetStatus('frz', target);
 				});
 			}
 		},
@@ -8922,16 +8936,213 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	sleeptightsalts: {
 		name: "Sleeptight Salts",
-		onSourceBeforeFaint(pokemon, effect) {
-			if (effect && effect.effectType === 'Move') {
-				pokemon.useItem();
-				pokemon.trySetStatus('slp', pokemon);
-				pokemon.allies().forEach(ally => {
-					ally.trySetStatus('slp', pokemon);
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && !source.isAlly(target)) {
+				this.add('-activate', target, 'item: Sleeptight Salts');
+				target.useItem();
+				source.trySetStatus('slp', target);
+				source.allies().forEach(ally => {
+					ally.trySetStatus('slp', target);
 				});
 			}
 		},
 		num: -39,
+		gen: 9
+	},
+	cheeringconch: {
+		name: "Cheering Conch",
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Special' && this.randomChance(3, 10)) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: -40,
+		gen: 9
+	},
+	warfan: {
+		name: "War Fan",
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Physical' && this.randomChance(3, 10)) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: -41,
+		gen: 9
+	},
+	fogmachine: {
+		name: "Fog Machine",
+		onCriticalHit: false,
+		num: -42,
+		gen: 9
+	},
+	herosmantle: {
+		name: "Hero's Mantle",
+		onDamagePriority: -40,
+		onDamage(damage, target, source, effect) {
+			if (this.randomChance(1, 10) && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add("-activate", target, "item: Focus Band");
+				return target.hp - 1;
+			}
+		},
+		num: -43,
+		gen: 9
+	},
+	paddedcloak: {
+		name: "Padded Cloak",
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn' && status.id !== 'frz') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] item: Padded Cloak');
+			}
+			return false;
+		},
+		num: -44,
+		gen: 9
+	},
+	luckycharm: {
+		name: "Lucky Charm",
+		onAfterSetStatusPriority: -1,
+		onAfterSetStatus(status, pokemon) {
+			pokemon.useItem();
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status || pokemon.volatiles['confusion']) {
+				pokemon.useItem();
+			}
+		},
+		onUseItem(item, pokemon) {
+			pokemon.cureStatus();
+			pokemon.removeVolatile('confusion');
+		},
+		num: -45,
+		gen: 9
+	},
+	jigglypuffcharm: {
+		name: "Jigglypuff Charm",
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] item: Jigglypuff Charm');
+			}
+			return false;
+		},
+		itemUser: ["Igglybuff","Jigglypuff", "Wigglytuff"],
+		onTakeItem: false,
+		num: -46,
+		gen: 9
+	},
+	largesack: {
+		name: "Large Sack",
+		onAnyTakeItem(item, pokemon, source, move) {
+			if (this.effectState.target === pokemon) return;
+			if (!pokemon.isAlly(this.effectState.target)) {
+				this.effectState.target.useItem();
+				const item = pokemon.lastItem;
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sacjk', '[of] ' + this.effectState.target);
+				this.effectState.target.setItem(item, source, item);
+			}
+		},
+		num: -47,
+		gen: 9
+	},
+	luckycoin: {
+		name: "Lucky Coin",
+		num: -48,
+		gen: 9
+	},
+	magicballoon: {
+		name: "Magic Balloon",
+		fling: {
+			basePower: 10,
+		},
+		onStart(target) {
+			if (!target.ignoringItem() && !this.field.getPseudoWeather('gravity')) {
+				this.add('-item', target, 'Magic Balloon');
+			}
+		},
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Magic Balloon');
+			target.item = '';
+			this.clearEffectState(target.itemState);
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('magicballoon'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Magic Balloon');
+				target.item = '';
+				this.clearEffectState(target.itemState);
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('magicballoon'));
+			}
+		},
+		num: -49,
+		gen: 9
+	},
+	metalmirror: {
+		name: "Metal Mirror",
+		fling: {
+			basePower: 60,
+		},
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				this.damage(source.baseMaxhp / 6, source, target);
+			}
+		},
+		num: -50,
+		gen: 9
+	},
+	travelerscharm: {
+		name: "Traveler's Charm",
+		fling: {
+			basePower: 80,
+		},
+		num: -51,
+		gen: 9
+	},
+	weakspotlens: {
+		name: "Weak Spot Lens",
+		fling: {
+			basePower: 10,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: -52,
+		gen: 9
+	},
+	powerwristband: {
+		name: "Power Wristband",
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category !== 'Status') {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			target.useItem();
+		},
+		num: -53,
+		gen: 9
+	},
+	ironbrace: {
+		name: "Iron Brace",
+		onModifyDamage(damage, source, target, move) {
+			if (!move) return;
+			if (move && move.category !== 'Status' && target === this.effectState.target) {
+				return this.chainModify([100, 150]);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			target.useItem();
+		},
+		num: -54,
 		gen: 9
 	},
 };
