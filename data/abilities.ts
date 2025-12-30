@@ -6442,8 +6442,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	spiritconquest: {
 		onAnyDamage(damage, target, source, effect) {
+			if (target.spiritRestored) return;
 			if (target.hp <= target.maxhp / 3) {
-				this.heal(target.baseMaxhp);
+				target.spiritRestored = true;
+				this.heal(target.baseMaxhp, target, target);
 				this.boost({ atk: 1 }, target, target)
 			}
 		},
@@ -6511,8 +6513,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				if (this.randomChance(1, 10)) {
 					this.add('-activate', this.effectState.target, 'ability: Tenacity');
-					source.addVolatile('mustrecharge', this.effectState.target);
+					source.addVolatile('stunned', this.effectState.target);
 				}
+			}
+		},
+		condition: {
+			duration: 2,
+			onBeforeMovePriority: 9,
+			onBeforeMove(pokemon) {
+				if (pokemon.volatiles['stunned'].duration === 1) {
+					return false;
+				}
+			},
+			onAfterMove(pokemon) {
+				pokemon.removeVolatile('stunned');
 			}
 		},
 		flags: {},
