@@ -893,4 +893,27 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			return bp;
 		},
 	},
+// KnC Ambition Kingdom Effects
+	windy: {
+		name: 'Windy',
+		effectType: 'Weather',
+		duration: 5,
+		onModifySpePriority: 10,
+		onModifySpe(spd, pokemon) {
+			if (pokemon.hasType('Flying') && !pokemon.isGrounded()) {
+				return this.chainModify(1.2);
+			}
+		},
+		onFieldStart(field, source, effect) {
+			this.add('-weather', 'Windy', '[from] ability: ' + effect.name, `[of] ${source}`);
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'Windy', '[upkeep]');
+			this.eachEvent('Weather');
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none');
+		},
+	},
 };

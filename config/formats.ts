@@ -58,6 +58,63 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// Kingdom-Specific Formats
 	///////////////////////////////////////////////////////////////////
 	{
+		name: "[Gen 9] Avia National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-weather', 'Windy');
+			this.field.weather = 'windy' as ID;
+			this.field.weatherState = { id: 'windy' };
+		},
+	},
+	{
+		name: "[Gen 9] Cragspur National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			for (const side of this.sides) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+				side.addSideCondition('stealthrock');
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Fontaine National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-weather', 'Rain Dance');
+			this.field.weather = 'raindance' as ID;
+			this.field.weatherState = { id: 'raindance' };
+		},
+	},
+	{
+		name: "[Gen 9] Greenleaf National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-terrain', 'Grassy Terrain');
+			this.field.terrain = 'grassyterrain' as ID;
+			this.field.terrainState = { id: 'grassyterrain' };
+		},
+	},
+	{
 		name: "[Gen 9] Ignis National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -69,6 +126,62 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.add('-weather', 'Sunny Day');
 			this.field.weather = 'sunnyday' as ID;
 			this.field.weatherState = { id: 'sunnyday' };
+		},
+	},
+	{
+		name: "[Gen 9] Illusio National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-terrain', 'Psychic Terrain');
+			this.field.terrain = 'psychicterrain' as ID;
+			this.field.terrainState = { id: 'psychicterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Nixtorm National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-weather', 'Snowscape');
+			this.field.weather = 'snowscape' as ID;
+			this.field.weatherState = { id: 'snowscape' };
+		},
+	},
+	{
+		name: "[Gen 9] Terrera National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-weather', 'Sandstorm');
+			this.field.weather = 'sandstorm' as ID;
+			this.field.weatherState = { id: 'sandstorm' };
+		},
+	},
+	{
+		name: "[Gen 9] Violight National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-terrain', 'Electric Terrain');
+			this.field.terrain = 'electricterrain' as ID;
+			this.field.terrainState = { id: 'electricterrain' };
 		},
 	},
 	// S/V Singles

@@ -317,6 +317,12 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		activate: "  The mysterious strong winds weakened the attack!",
 		block: "  The mysterious strong winds blow on regardless!",
 	},
+	windy: {
+		weatherName: "Windy",
+		start: "  Wind currents are accelerating airborne Pok\u00E9mon!",
+		end: "  The wind currents have dissipated!",
+		upkeep: "  (The wind is howling.)",
+	},
 
 	// terrain
 	electricterrain: {

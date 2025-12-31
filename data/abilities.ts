@@ -6513,7 +6513,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				if (this.randomChance(1, 10)) {
 					this.add('-activate', this.effectState.target, 'ability: Tenacity');
-					source.addVolatile('stunned', this.effectState.target);
+					source.addVolatile('stunned');
 				}
 			}
 		},
