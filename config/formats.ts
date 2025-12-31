@@ -81,10 +81,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		onBegin() {
 			for (const side of this.sides) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-				side.addSideCondition('stealthrock');
+				side.addSideCondition(
+					'stealthrock',
+					null,
+					this.dex.conditions.get('stealthrock')
+				);
 			}
-		},
+		}
 	},
 	{
 		name: "[Gen 9] Fontaine National Dex Singles",
