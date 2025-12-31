@@ -72,24 +72,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Cragspur National Dex Singles",
-		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
-		],
-		onBegin() {
-			for (const side of this.sides) {
-				side.addSideCondition(
-					'stealthrock',
-					null,
-					this.dex.conditions.get('stealthrock')
-				);
-			}
-		}
-	},
-	{
 		name: "[Gen 9] Fontaine National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
