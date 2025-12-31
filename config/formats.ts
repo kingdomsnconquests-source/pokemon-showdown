@@ -94,7 +94,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
 		onBegin() {
-			this.add('-terrain', 'Grassy Terrain');
+			this.add('-fieldstart', 'move: Grassy Terrain');
 			this.field.terrain = 'grassyterrain' as ID;
 			this.field.terrainState = { id: 'grassyterrain' };
 		},
@@ -122,7 +122,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
 		onBegin() {
-			this.add('-terrain', 'Psychic Terrain');
+			this.add('-fieldstart', 'move: Psychic Terrain');
 			this.field.terrain = 'psychicterrain' as ID;
 			this.field.terrainState = { id: 'psychicterrain' };
 		},
@@ -164,7 +164,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
 		onBegin() {
-			this.add('-terrain', 'Electric Terrain');
+			this.add('-fieldstart', 'move: Electric Terrain');
 			this.field.terrain = 'electricterrain' as ID;
 			this.field.terrainState = { id: 'electricterrain' };
 		},
