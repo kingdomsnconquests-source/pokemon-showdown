@@ -6031,7 +6031,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBasePowerPriority: 22,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.hasCrashDamage === true) {
-				this.debug('Highrise boost');
+				this.debug('High-Rise boost');
 				return this.chainModify(1.5);
 			}
 		},
