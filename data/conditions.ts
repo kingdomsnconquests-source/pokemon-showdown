@@ -1027,24 +1027,26 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		name: 'Dragon Force',
 		effectType: 'Weather',
 		duration: 5,
-		onModifyDamage(damage, source, target, move) {
-			const elementalTypes = ['Fire', 'Water', 'Grass', 'Electric'];
-			const hasElementalType = elementalTypes.some(type => source.hasType(type));
-			if (move.type === 'Dragon') {
-				this.debug('Dragon Force increased boost');
-				return this.chainModify(1.3);
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			const result = this.random(5);
+			const typeModFire = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('sunnyday')), -6, 6);
+			const typeModWater = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('raindance')), -6, 6);
+			const typeModGrass = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('grassyterrain')), -6, 6);
+			const typeModElectric = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('electricterrain')), -6, 6);
+			if (result === 0) {
+				this.damage(pokemon.maxhp * (2 ** typeModFire) / 8);
+			} else if (result === 1) {
+				this.damage(pokemon.maxhp * (2 ** typeModGrass) / 8);
+			} else if (result === 2) {
+				this.damage(pokemon.maxhp * (2 ** typeModWater) / 8);
+			} else if (result === 3) {
+				this.heal(pokemon.maxhp / 8);
+				pokemon.cureStatus();
+				pokemon.removeVolatile('confusion');
+			} else {
+				this.damage(pokemon.maxhp * (2 ** typeModElectric) / 8);
 			}
-			if (hasElementalType) {
-				this.debug('Dragon Force boost');
-				return this.chainModify(1.1);
-			}
-		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			const elementalTypes = ['Fire', 'Water', 'Grass', 'Electric', 'Dragon'];
-			const hasElementalType = elementalTypes.some(type => source.hasType(type));
-			if (!hasElementalType && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10);
-			}
-		},
+		}
 	},
 };
