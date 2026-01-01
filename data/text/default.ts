@@ -334,7 +334,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		start: "  A crackling draconic energy flows through the battlefield!",
 		end: "  The mystical dragon force has dissipated!",
 		upkeep: "  (The dragon force is radiating.)",
-		damage: "  [POKEMON] is scorched by the dragon force!",
+		damage: "  The dragon force rages!",
 		heal: "  [POKEMON] is rejuvenated by the dragon force!",
 	},
 
