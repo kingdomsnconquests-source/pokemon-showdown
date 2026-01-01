@@ -1036,20 +1036,20 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			const typeModElectric = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('electricterrain')), -6, 6);
 			if (result === 0) {
 				this.add('-message', `${pokemon.name} is scorched by fiery energy!`);
-				this.damage(pokemon.maxhp * (2 ** typeModFire) / 8);
+				this.damage(pokemon.maxhp * (2 ** typeModFire) / 16);
 			} else if (result === 1) {
 				this.add('-message', `${pokemon.name} is entangled by grassy energy!`);
-				this.damage(pokemon.maxhp * (2 ** typeModGrass) / 8);
+				this.damage(pokemon.maxhp * (2 ** typeModGrass) / 16);
 			} else if (result === 2) {
 				this.add('-message', `${pokemon.name} is soaked by watery energy!`);
-				this.damage(pokemon.maxhp * (2 ** typeModWater) / 8);
+				this.damage(pokemon.maxhp * (2 ** typeModWater) / 16);
 			} else if (result === 3) {
-				this.heal(pokemon.maxhp / 8);
+				this.heal(pokemon.maxhp / 16);
 				pokemon.cureStatus();
 				pokemon.removeVolatile('confusion');
 			} else {
 				this.add('-message', `${pokemon.name} is shocked by electrical energy!`);
-				this.damage(pokemon.maxhp * (2 ** typeModElectric) / 8);
+				this.damage(pokemon.maxhp * (2 ** typeModElectric) / 16);
 			}
 		}
 	},
