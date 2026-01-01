@@ -72,6 +72,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Chrysalia National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Silky Terrain');
+			this.field.terrain = 'silkyterrain' as ID;
+			this.field.terrainState = { id: 'silkyterrain' };
+		},
+	},
+	{
 		name: "[Gen 9] Cragspur National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -80,8 +94,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
 		onBegin() {
+			this.add('-fieldstart', 'move: Rocky Terrain');
 			this.field.terrain = 'rockyterrain' as ID;
 			this.field.terrainState = { id: 'rockyterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Dragnor National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-weather', 'Dragon Force');
+			this.field.weather = 'dragonforce' as ID;
+			this.field.weatherState = { id: 'dragonforce' };
 		},
 	},
 	{
@@ -163,6 +192,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
 		onBegin() {
+			this.add('-fieldstart', 'move: Arena Terrain');
 			this.field.terrain = 'arenaterrain' as ID;
 			this.field.terrainState = { id: 'arenaterrain' };
 		},
@@ -218,6 +248,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
 		onBegin() {
+			this.add('-fieldstart', 'move: Toxic Terrain');
 			this.field.terrain = 'toxicterrain' as ID;
 			this.field.terrainState = { id: 'toxicterrain' };
 		},

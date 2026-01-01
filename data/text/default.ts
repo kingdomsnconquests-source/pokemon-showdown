@@ -329,6 +329,13 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		end: "  The spooky atmosphere has lifted!",
 		upkeep: "  (The spooky atmosphere lingers.)",
 	},
+	dragonforce: {
+		weatherName: "Dragon Force",
+		start: "  A crackling draconic energy flows through the battlefield!",
+		end: "  The mystical dragon force has dissipated!",
+		upkeep: "  (The dragon force is radiating.)",
+		damage: "  [POKEMON] is scorched by the dragon force!",
+	},
 
 	// terrain
 	electricterrain: {
@@ -365,6 +372,11 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		start: "  The battlefield turned into an arena!",
 		end: "  The arena disappeared from the battlefield!",
 		boost: "  [POKEMON] is empowered by the roar of the crowd!",
+	},
+	silkyterrain: {
+		start: "  A webs spread across the battlefield!",
+		end: "  The webs disappeared from the battlefield!",
+		boost: "  [POKEMON] is slowed by the silky terrain!",
 	},
 
 	// field effects
