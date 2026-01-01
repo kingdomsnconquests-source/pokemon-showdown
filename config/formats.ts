@@ -72,6 +72,19 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Cragspur National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.field.terrain = 'rockyterrain' as ID;
+			this.field.terrainState = { id: 'rockyterrain' };
+		},
+	},
+	{
 		name: "[Gen 9] Fontaine National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -142,6 +155,33 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Pugilis National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.field.terrain = 'arenaterrain' as ID;
+			this.field.terrainState = { id: 'arenaterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Spectra National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-weather', 'Spooky');
+			this.field.weather = 'spooky' as ID;
+			this.field.weatherState = { id: 'spooky' };
+		},
+	},
+	{
 		name: "[Gen 9] Terrera National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -168,6 +208,28 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.terrain = 'electricterrain' as ID;
 			this.field.terrainState = { id: 'electricterrain' };
 		},
+	},
+	{
+		name: "[Gen 9] Viperia National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.field.terrain = 'toxicterrain' as ID;
+			this.field.terrainState = { id: 'toxicterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Yaksha National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview', '!Team Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
 	},
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////

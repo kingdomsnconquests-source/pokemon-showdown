@@ -6517,18 +6517,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
-		condition: {
-			duration: 2,
-			onBeforeMovePriority: 9,
-			onBeforeMove(pokemon) {
-				if (pokemon.volatiles['stunned'].duration === 1) {
-					return false;
-				}
-			},
-			onAfterMove(pokemon) {
-				pokemon.removeVolatile('stunned');
-			}
-		},
 		flags: {},
 		name: "Tenacity",
 		rating: 0,

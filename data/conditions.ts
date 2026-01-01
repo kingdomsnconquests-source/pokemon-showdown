@@ -1,3 +1,5 @@
+import { Ability } from '../sim/dex-abilities';
+
 export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	brn: {
 		name: 'brn',
@@ -223,7 +225,9 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		name: 'partiallytrapped',
 		duration: 5,
 		durationCallback(target, source) {
-			if (source?.hasItem('gripclaw')) return 8;
+            if (this.effectState.sourceEffect.id === 'blackhole') {
+				return 2;
+			} else if (source?.hasItem('gripclaw')) return 8;
 			return this.random(5, 7);
 		},
 		onStart(pokemon, source) {
@@ -370,12 +374,28 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('cant', pokemon, 'recharge');
 			pokemon.removeVolatile('mustrecharge');
 			pokemon.removeVolatile('truant');
+			pokemon.removeVolatile('stunned');
 			return null;
 		},
 		onStart(pokemon) {
 			this.add('-mustrecharge', pokemon);
 		},
 		onLockMove: 'recharge',
+	},
+	stunned: {
+		name: 'stunned',
+		duration: 2,
+		onBeforeMovePriority: 9,
+		onBeforeMove(pokemon) {
+			this.add('cant', pokemon, 'stunned');
+			pokemon.removeVolatile('stunned');
+			pokemon.removeVolatile('mustrecharge');
+			pokemon.removeVolatile('truant');
+			return null;
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('stunned');
+		},
 	},
 	futuremove: {
 		// this is a slot condition
@@ -916,4 +936,82 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-weather', 'none');
 		},
 	},
+	spooky: {
+		name: 'Spooky',
+		effectType: 'Weather',
+		duration: 5,
+		onModifyMovePriority: -2,
+		onModifyMove(move, pokemon) {
+			if (move.secondaries && pokemon.hasType('Ghost')) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 1.5;
+				}
+			}
+			if (move.self?.chance) move.self.chance *= 1.5;
+		},
+		onFieldStart(field, source, effect) {
+			this.add('-weather', 'Spooky', '[from] ability: ' + effect.name, `[of] ${source}`);
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'Spooky', '[upkeep]');
+			this.eachEvent('Weather');
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none');
+		},
+	},
+	toxicterrain: {
+		name: 'Toxic Terrain',
+		effectType: 'Terrain',
+		duration: 5,
+		onSwitchIn(pokemon) {
+			if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('travelerscharm')) return;
+			if (pokemon.isGrounded()) {
+				pokemon.trySetStatus('tox', pokemon);
+			}
+		},
+		onTryMove(attacker, defender, move) {
+			if (move.id ===  'toxicspikes') {
+				this.add('-fail', attacker, move, '[from] Toxic Terrain');
+				this.attrLastMove('[still]');
+				return null;
+			}
+		}
+	},
+	rockyterrain: {
+		name: 'Rocky Terrain',
+		effectType: 'Terrain',
+		duration: 5,
+		onSwitchIn(pokemon) {
+			if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('travelerscharm')) return;
+			const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+			this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+		},
+		onTryMove(attacker, defender, move) {
+			if (move.id ===  'stealthrock') {
+				this.add('-fail', attacker, move, '[from] Rocky Terrain');
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		onAfterHit(target, source, move) {
+			if (move.id === 'stoneaxe') return null;
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (move.id === 'stoneaxe') return null;
+		},
+	},
+	arena: {
+		name: 'Arena Terrain',
+		effectType: 'Terrain',
+		duration: 5,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (!source.hasType('Fighting')) return;
+			if (source.hasType('Fighting') && effect && effect.effectType === 'Move') {
+				this.boost({ atk: length, spa: length }, source);
+			}
+		},
+	}
 };

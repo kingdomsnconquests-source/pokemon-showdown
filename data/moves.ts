@@ -15262,6 +15262,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
 					pokemon.removeVolatile('partiallytrapped');
 				}
+				if (pokemon.hp && this.field.isTerrain('toxicterrain')) {
+					this.field.clearTerrain();
+				} else if (pokemon.hp && this.field.isTerrain('rockyterrain')) 
+					this.field.clearTerrain();
 			}
 		},
 		onAfterSubDamage(damage, target, pokemon, move) {

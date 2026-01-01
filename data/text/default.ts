@@ -323,6 +323,12 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		end: "  The wind currents have dissipated!",
 		upkeep: "  (The wind is howling.)",
 	},
+	spooky: {
+		weatherName: "Spooky",
+		start: "  A spooky atmosphere looms over the battlefield!",
+		end: "  The spooky atmosphere has lifted!",
+		upkeep: "  (The spooky atmosphere lingers.)",
+	},
 
 	// terrain
 	electricterrain: {
@@ -344,6 +350,21 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		start: "  The battlefield got weird!",
 		end: "  The weirdness disappeared from the battlefield!",
 		block: "  [POKEMON] is protected by the Psychic Terrain!",
+	},
+	toxicterrain: {
+		start: "  A toxic ooze covers the battlefield!",
+		end: "  The toxic toxic ooze disappeared from the battlefield!",
+		damage: "  [POKEMON] is hurt by the toxic terrain!",
+	},
+	rockyterrain: {
+		start: "  Sharp rocks cover the battlefield!",
+		end: "  The sharp rocks disappeared from the battlefield!",
+		damage: "  [POKEMON] is hurt by the rocky terrain!",
+	},
+	arenaterrain: {
+		start: "  The battlefield turned into an arena!",
+		end: "  The arena disappeared from the battlefield!",
+		boost: "  [POKEMON] is empowered by the roar of the crowd!",
 	},
 
 	// field effects
