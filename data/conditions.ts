@@ -1018,7 +1018,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		name: 'Silky Terrain',
 		effectType: 'Terrain',
 		duration: 5,
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			if (pokemon.hasType('Bug')) return;
 			this.boost({ spe: -1 }, pokemon);
 		}
@@ -1029,11 +1029,11 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		duration: 5,
 		onModifyDamage(damage, source, target, move) {
 			const elementalTypes = ['Fire', 'Water', 'Grass', 'Electric'];
+			const hasElementalType = elementalTypes.some(type => source.hasType(type));
 			if (move.type === 'Dragon') {
 				this.debug('Dragon Force increased boost');
 				return this.chainModify(1.3);
 			}
-			const hasElementalType = elementalTypes.some(type => source.hasType(type));
 			if (hasElementalType) {
 				this.debug('Dragon Force boost');
 				return this.chainModify(1.1);
@@ -1042,7 +1042,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			const elementalTypes = ['Fire', 'Water', 'Grass', 'Electric', 'Dragon'];
 			const hasElementalType = elementalTypes.some(type => source.hasType(type));
-			if (hasElementalType && move.category !== 'Status') {
+			if (!hasElementalType && move.category !== 'Status') {
 				this.damage(source.baseMaxhp / 10);
 			}
 		},
