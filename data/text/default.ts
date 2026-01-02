@@ -381,6 +381,10 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	},
 
 	// field effects
+	arena: {
+		start: "  The battlefield turns into an arena! A crowd waits for action...",
+		end: "  The battlefield returns to normal. The crowd disperses...",
+	},
 	gravity: {
 		start: "  Gravity intensified!",
 		end: "  Gravity returned to normal!",

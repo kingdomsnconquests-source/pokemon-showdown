@@ -192,9 +192,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
 		onBegin() {
-			this.add('-fieldstart', 'move: Arena Terrain');
-			this.field.terrain = 'arenaterrain' as ID;
-			this.field.terrainState = { id: 'arenaterrain' };
+			this.add('-fieldstart', 'move: Arena');
+			this.field.addPseudoWeather('arena');
 		},
 	},
 	{
@@ -223,6 +222,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.add('-weather', 'Sandstorm');
 			this.field.weather = 'sandstorm' as ID;
 			this.field.weatherState = { id: 'sandstorm' };
+		},
+	},
+	{
+		name: "[Gen 9] Valora National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onBegin() {
+			this.add('-weather', 'Magnetic Field');
+			this.field.weather = 'magneticfield' as ID;
+			this.field.weatherState = { id: 'magneticfield' };
 		},
 	},
 	{

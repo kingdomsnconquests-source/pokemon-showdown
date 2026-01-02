@@ -1003,17 +1003,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (move.id === 'stoneaxe') return null;
 		},
 	},
-	arenaterrain: {
-		name: 'Arena Terrain',
-		effectType: 'Terrain',
-		duration: 5,
-		onSourceAfterFaint(length, target, source, effect) {
-			if (!source.hasType('Fighting')) return;
-			if (source.hasType('Fighting') && effect && effect.effectType === 'Move') {
-				this.boost({ atk: length, spa: length }, source);
-			}
-		},
-	},
 	silkyterrain: {
 		name: 'Silky Terrain',
 		effectType: 'Terrain',
@@ -1052,5 +1041,48 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				this.damage(pokemon.maxhp * (2 ** typeModElectric) / 16);
 			}
 		}
+	},
+	magneticfield: {
+		name: 'Magnetic Field',
+		effectType: 'Weather',
+		duration: 5,
+		onSwitchIn(pokemon) {
+			if (!pokemon.hasType('Steel')) return;
+			if (pokemon.hasType('Steel')) {
+				this.add('-message', `${pokemon.name} is risen by the magnetic field!`);
+				pokemon.addVolatile('magnetrise');
+			}
+		}
+	},
+	aurora: {
+		name: 'Aurora',
+		effectType: 'Weather',
+		duration: 5,
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella')) return;
+			if (move.type === 'Normal') {
+				this.debug('Aurora Normal boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onFieldStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'Aurora', '[from] ability: ' + effect.name, `[of] ${source}`);
+			} else {
+				this.add('-weather', 'Aurora');
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'Aurora', '[upkeep]');
+			this.eachEvent('Weather');
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none');
+		},
 	},
 };

@@ -5896,7 +5896,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onModifyMove(move) {
 			if (move.category !== 'Status') {
-				this.add('-ability', this.effectState.target, 'Disgust');
+				this.add('-activate', this.effectState.target, 'ability: Thrust');
 				move.forceSwitch = true;
 			}
 		},
@@ -6018,7 +6018,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	hero: {
 		onStart(pokemon) {
 			if (pokemon.side.totalFainted - pokemon.side.foe.totalFainted > 1) {
-				this.add('-ability', pokemon, 'Hero');
+				this.add('-activate', pokemon, 'ability: Hero');
 				this.boost({ atk: 1, def: 1 }, pokemon, pokemon);
 			}
 		},
@@ -6111,7 +6111,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			const aliveAllies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted);
 			if (aliveAllies.length < 2) {
-				this.add('-ability', pokemon, 'Last Bastion');
+				this.add('-activate', pokemon, 'ability: Last Bastion');
 				this.boost({ atk: 1, def: 1, spa: 1, spd: 1 }, pokemon, pokemon);
 			}
 		},
@@ -6199,7 +6199,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	nomad: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Nomad');
+			this.add('-activate', pokemon, 'Nomad');
 			pokemon.addVolatile('nomad');
 		},
 		onBasePowerPriority: 22,
@@ -6313,7 +6313,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	runup: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Run Up');
+			this.add('-activate', pokemon, 'ability: Run Up');
 			pokemon.addVolatile('runup');
 		},
 		onBasePowerPriority: 22,
@@ -6350,6 +6350,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (attacker.adjacentAllies().some(ally => ally.hasType('Electric'))) {
 					const electricAllies = attacker.adjacentAllies().filter(ally => ally.hasType('Electric'));
 					this.debug('Sequence boost');
+					this.add('-activate', attacker, 'ability: Sequence');
 					return this.chainModify(1 + (0.5 * electricAllies.length));
 				}
 		},
@@ -6502,6 +6503,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.debug('Stealth multiplies accuracy by 0.9x.');
 				return this.chainModify(0.9)
 			}
+			this.add('-activate', target, 'ability: Stealth');
 		},
 		flags: {},
 		name: "Stealth",
@@ -6530,7 +6532,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onModifyMove(move) {
 			if (move.category !== 'Status') {
-				this.add('-ability', this.effectState.target, 'Thrust');
+				this.add('-activate', this.effectState.target, 'ability: Thrust');
 				move.forceSwitch = true;
 			}
 		},

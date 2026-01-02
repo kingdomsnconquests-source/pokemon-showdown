@@ -22197,4 +22197,27 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: { boost: { def: 1 } },
 		contestType: "Beautiful",
 	},
+	arena: {
+		num: -8,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Arena",
+		pp: 10,
+		priority: 0,
+		flags: { mirror: 1, metronome: 1 },
+		pseudoWeather: 'arena',
+		secondary: null,
+		condition: {
+			duration: 5,
+			onSourceAfterFaint(length, target, source, effect) {
+				if (!source.hasType('Fighting')) return;
+				if (source.hasType('Fighting') && effect && effect.effectType === 'Move') {
+					this.boost({ atk: length, spa: length }, source);
+				}
+			},
+		},
+		target: "all",
+		type: "Fighting",
+	}
 };

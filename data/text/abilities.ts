@@ -2318,6 +2318,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	conqueror: {
 		name: "Conqueror",
 		shortDesc: "Raises Attack, Defense, and Speed by 5% for each fainted opponent.",
+		activate: "  [POKEMON]  is inspired to conquer the battlefield!",
 	},
 	daze: {
 		name: "Daze",
@@ -2326,7 +2327,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	decoy: {
 		name: "Decoy",
 		shortDesc: "Once per switch-in, swaps with an ally targeted by an opponent's special move.",
-		activate: "  [POKEMON] protected its ally!",
+		activate: "  [POKEMON]  protected its ally!",
 	},
 	deepsleep: {
 		name: "Deep Sleep",
@@ -2375,6 +2376,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	hero: {
 		name: "Hero",
 		shortDesc: "Fainted Allies - Fainted Foes > 1: On switch-in, +1 Atk and Def.",
+		activate: "  [POKEMON]  is inspired to turn the tide of battle!",
 	},
 	highrise: {
 		name: "High-Rise",
@@ -2400,6 +2402,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	lastbastion: {
 		name: "Last Bastion",
 		shortDesc: "Last Pokemon standing in the party: +1 Atk, Def, SpA, SpD on switch-in.",
+		activate: "  [POKEMON]  is the last bastion of its team!",
 	},
 	lifeforce: {
 		name: "Life Force",
@@ -2420,6 +2423,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	melee: {
 		name: "Melee",
 		shortDesc: "After ally attacks, deal a follow-up hit that deals damage equal to 1/16 Attack.",
+		damage: "  [POKEMON]  attacked with during the commotion!",
 	},
 	moodmaker: {
 		name: "Mood Maker",
@@ -2428,6 +2432,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	nomad: {
 		name: "Nomad",
 		shortDesc: "This Pokemon's first attacking move that lands deals 2x damage.",
+		activate: "  [POKEMON]  readies a strong attack!",
 	},
 	nurse: {
 		name: "Nurse",
@@ -2448,6 +2453,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	powernap: {
 		name: "Power Nap",
 		shortDesc: "When below 1/3 HP, this Pokemon falls asleep for 3 turns and fully restores HP.",
+		heal: "  [POKEMON]  took a power nap!",
 	},
 	pride: {
 		name: "Pride",
@@ -2456,6 +2462,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	runup: {
 		name: "Run Up",
 		shortDesc: "This Pokemon's first attacking move that lands deals 1.5x damage.",
+		activate: "  [POKEMON]  readies a strong attack!",
 	},
 	sandpit: {
 		name: "Sand Pit",
@@ -2463,7 +2470,8 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	sequence: {
 		name: "Sequence",
-		shortDesc: "This Pokemon damage increases by 50% per Electric ally on the field."
+		shortDesc: "This Pokemon damage increases by 50% per Electric ally on the field.",
+		activate: "  [POKEMON]  surges with electricity!",
 	},
 	shackle: {
 		name: "Shackle",
@@ -2488,6 +2496,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	spiritconquest: {
 		name: "Spirit (Conquest)",
 		shortDesc: "If below 1/3 HP, fully restores HP and gains +1 Attack.",
+		heal: "  [POKEMON] 's spirit is restored!",
 	},
 	sponge: {
 		name: "Sponge",
@@ -2500,14 +2509,17 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	stealth: {
 		name: "Stealth",
 		shortDesc: "Type-Favoured Weather/Terrain active: move accuracy targeting this Pokemon multiplied by 0.9x.",
+		activate: "  [POKEMON] is hiding in its favoured environment!",
 	},
 	tenacity: {
 		name: "Tenacity",
 		shortDesc: "Contact: 10% chance to inflict the must recharge effect on attacker.",
+		activate: " [POKEMON] stunned [SOURCE] !",
 	},
 	thrust: {
 		name: "Thrust",
 		shortDesc: "This Pokemon's attacking moves always go last and switch out the target if they hit.",
+		activate: "  [POKEMON] pushes the target out!",
 	},
 	vanguard: {
 		name: "Vanguard",
