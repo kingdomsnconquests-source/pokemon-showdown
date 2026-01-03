@@ -1052,7 +1052,13 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				this.add('-message', `${pokemon.name} is risen by the magnetic field!`);
 				pokemon.addVolatile('magnetrise');
 			}
-		}
+		},
+		onResidualOrder: 7,
+		onResidual(pokemon) {
+			if (!pokemon.volatiles['magnetrise']) {
+				pokemon.addVolatile('magnetrise');
+			}
+		},
 	},
 	aurora: {
 		name: 'Aurora',

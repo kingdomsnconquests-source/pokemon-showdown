@@ -22210,11 +22210,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		secondary: null,
 		condition: {
 			duration: 5,
-			onSourceAfterFaint(length, target, source, effect) {
-				if (!source.hasType('Fighting')) return;
-				if (source.hasType('Fighting') && effect && effect.effectType === 'Move') {
-					this.boost({ atk: length, spa: length }, source);
-				}
+			onAfterMoveSecondarySelf(pokemon, target, move) {
+				if (!target || target.fainted || target.hp <= 0) this.boost({ atk: 1, spa: 1 }, pokemon, pokemon, move);
 			},
 		},
 		target: "all",
