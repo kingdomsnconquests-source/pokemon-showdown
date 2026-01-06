@@ -337,6 +337,12 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		damage: "  The dragon force rages!",
 		heal: "  [POKEMON] is rejuvenated by the dragon force!",
 	},
+	aurora: {
+		weatherName: "Aurora",
+		start: "  A myriad of lights appear above the battlefield!",
+		end: "  The lights fade out!",
+		upkeep: "  (The lights are shimmering.)",
+	},
 
 	// terrain
 	electricterrain: {
@@ -369,11 +375,6 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		end: "  The sharp rocks disappeared from the battlefield!",
 		damage: "  [POKEMON] is hurt by the rocky terrain!",
 	},
-	arenaterrain: {
-		start: "  The battlefield turned into an arena!",
-		end: "  The arena disappeared from the battlefield!",
-		boost: "  [POKEMON] is empowered by the roar of the crowd!",
-	},
 	silkyterrain: {
 		start: "  A webs spread across the battlefield!",
 		end: "  The webs disappeared from the battlefield!",
@@ -384,6 +385,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	arena: {
 		start: "  The battlefield turns into an arena! A crowd waits for action...",
 		end: "  The battlefield returns to normal. The crowd disperses...",
+		boost: "  The crowd roars as a bell is rung! [POKEMON]   is motivated!"
 	},
 	gravity: {
 		start: "  Gravity intensified!",

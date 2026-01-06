@@ -37,18 +37,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Ambition National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'NatDex Mod', 'Evasion Abilities Clause', 'Terastal Clause', 'Data Preview'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
-		],
-
-	},
-	{
-		name: "[Gen 9] Ambition National Dex Triples",
-		mod: 'gen9',
-		gameType: 'triples',
-		ruleset: ['NatDex Mod', 'Evasion Abilities Clause', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -58,12 +47,60 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// Kingdom-Specific Formats
 	///////////////////////////////////////////////////////////////////
 	{
+		name: "[Gen 9] Aurora National Dex Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Aurora');
+			this.field.weather = 'aurora' as ID;
+			this.field.weatherState = { id: 'aurora' };
+		},
+	},
+	{
+		name: "[Gen 9] Aurora National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Aurora');
+			this.field.weather = 'aurora' as ID;
+			this.field.weatherState = { id: 'aurora' };
+		},
+	},
+	{
 		name: "[Gen 9] Avia National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Windy');
+			this.field.weather = 'windy' as ID;
+			this.field.weatherState = { id: 'windy' };
+		},
+	},
+	{
+		name: "[Gen 9] Avia National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Windy');
@@ -78,6 +115,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Silky Terrain');
+			this.field.terrain = 'silkyterrain' as ID;
+			this.field.terrainState = { id: 'silkyterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Chrysalia National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Silky Terrain');
@@ -92,6 +146,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Rocky Terrain');
+			this.field.terrain = 'rockyterrain' as ID;
+			this.field.terrainState = { id: 'rockyterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Cragspur National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Rocky Terrain');
@@ -106,6 +177,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Dragon Force');
+			this.field.weather = 'dragonforce' as ID;
+			this.field.weatherState = { id: 'dragonforce' };
+		},
+	},
+	{
+		name: "[Gen 9] Dragnor National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Dragon Force');
@@ -120,6 +208,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Rain Dance');
+			this.field.weather = 'raindance' as ID;
+			this.field.weatherState = { id: 'raindance' };
+		},
+	},
+	{
+		name: "[Gen 9] Fontaine National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Rain Dance');
@@ -134,6 +239,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Grassy Terrain');
+			this.field.terrain = 'grassyterrain' as ID;
+			this.field.terrainState = { id: 'grassyterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Greenleaf National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Grassy Terrain');
@@ -148,6 +270,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Sunny Day');
+			this.field.weather = 'sunnyday' as ID;
+			this.field.weatherState = { id: 'sunnyday' };
+		},
+	},
+	{
+		name: "[Gen 9] Ignis National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Sunny Day');
@@ -162,6 +301,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Psychic Terrain');
+			this.field.terrain = 'psychicterrain' as ID;
+			this.field.terrainState = { id: 'psychicterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Illusio National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Psychic Terrain');
@@ -176,6 +332,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Snowscape');
+			this.field.weather = 'snowscape' as ID;
+			this.field.weatherState = { id: 'snowscape' };
+		},
+	},
+	{
+		name: "[Gen 9] Nixtorm National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Snowscape');
@@ -190,6 +363,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Arena');
+			this.field.addPseudoWeather('arena');
+		},
+	},
+	{
+		name: "[Gen 9] Pugilis National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Arena');
@@ -203,6 +392,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Spooky');
+			this.field.weather = 'spooky' as ID;
+			this.field.weatherState = { id: 'spooky' };
+		},
+	},
+	{
+		name: "[Gen 9] Spectra National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Spooky');
@@ -217,6 +423,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Sandstorm');
+			this.field.weather = 'sandstorm' as ID;
+			this.field.weatherState = { id: 'sandstorm' };
+		},
+	},
+	{
+		name: "[Gen 9] Terrera National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Sandstorm');
@@ -231,6 +454,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-weather', 'Magnetic Field');
+			this.field.weather = 'magneticfield' as ID;
+			this.field.weatherState = { id: 'magneticfield' };
+		},
+	},
+	{
+		name: "[Gen 9] Valora National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-weather', 'Magnetic Field');
@@ -245,6 +485,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Electric Terrain');
+			this.field.terrain = 'electricterrain' as ID;
+			this.field.terrainState = { id: 'electricterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Violight National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Electric Terrain');
@@ -259,6 +516,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+		onBegin() {
+			this.add('-fieldstart', 'move: Toxic Terrain');
+			this.field.terrain = 'toxicterrain' as ID;
+			this.field.terrainState = { id: 'toxicterrain' };
+		},
+	},
+	{
+		name: "[Gen 9] Viperia National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Toxic Terrain');
@@ -273,6 +547,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
+		],
+	},
+	{
+		name: "[Gen 9] Yaksha National Dex Doubles",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview', '!Team Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
 	},
 	// S/V Singles

@@ -22133,22 +22133,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		contestType: "Beautiful",
 	},
 // Conquest Moves for Terrains
-	arenaterrain: {
-		num: -4,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Arena Terrain",
-		pp: 10,
-		priority: 0,
-		flags: { nonsky: 1, metronome: 1 },
-		terrain: 'arenaterrain',
-		secondary: null,
-		target: "all",
-		type: "Fighting",
-		zMove: { boost: { def: 1 } },
-		contestType: "Beautiful",
-	},
 	rockyterrain: {
 		num: -5,
 		accuracy: true,
@@ -22209,9 +22193,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pseudoWeather: 'arena',
 		secondary: null,
 		condition: {
-			duration: 5,
+			duration: 0,
 			onAfterMoveSecondarySelf(pokemon, target, move) {
-				if (!target || target.fainted || target.hp <= 0) this.boost({ atk: 1, spa: 1 }, pokemon, pokemon, move);
+				if (!target || target.fainted || target.hp <= 0) {
+					this.boost({ atk: 1, spa: 1 }, pokemon, pokemon, move);
+				}
 			},
 		},
 		target: "all",

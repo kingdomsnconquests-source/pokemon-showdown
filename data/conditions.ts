@@ -985,7 +985,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		effectType: 'Terrain',
 		duration: 5,
 		onSwitchIn(pokemon) {
-			if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('travelerscharm')) return;
+			if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('travelerscharm') || pokemon.hasType('Rock')) return;
 			const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 			this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
 		},
@@ -1033,7 +1033,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				this.add('-message', `${pokemon.name} is soaked by watery energy!`);
 				this.damage(pokemon.maxhp * (2 ** typeModWater) / 16);
 			} else if (result === 3) {
-				this.heal(pokemon.maxhp / 16);
+				this.heal(pokemon.maxhp / 8);
 				pokemon.cureStatus();
 				pokemon.removeVolatile('confusion');
 			} else {

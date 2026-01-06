@@ -2545,4 +2545,215 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		name: "Vile Vial",
 		shortDesc: "If held by a Venomicon, its Poison- and Flying-type attacks have 1.2x power.",
 	},
+
+	// Conquest items
+
+	ashengrace: {
+		name: "Ashen Grace",
+		shortDesc: "The holder restores 1/8 max HP each turn in a sandstorm."
+	},
+	ceruleangrace: {
+		name: "Cerulean Grace",
+		shortDesc: "The holder restores 1/8 max HP each turn in rain."
+	},
+	crimsongrace: {
+		name: "Crimson Grace",
+		shortDesc: "The holder restores 1/8 max HP each turn in harsh sunlight."
+	},
+	emeraldgrace: {
+		name: "Emerald Grace",
+		shortDesc: "The holder restores 1/8 max HP each turn in grassy terrain."
+	},
+	indigograce: {
+		name: "Indigo Grace",
+		shortDesc: "The holder restores 1/8 max HP each turn while poisoned, instead of taking damage."
+	},
+	ivorygrace: {
+		name: "Ivory Grace",
+		shortDesc: "The holder restores 1/8 max HP each turn in snow."
+	},
+	ponigiri: {
+		name: "Ponigiri",
+		shortDesc: "No effect."
+	},
+	redponigiri: {
+		name: "Red Ponigiri",
+		shortDesc: "No effect."
+	},
+	blueponigiri: {
+		name: "Blue Ponigiri",
+		shortDesc: "No effect."
+	},
+	purpleponigiri: {
+		name: "Purple Ponigiri",
+		shortDesc: "No effect."
+	},
+	burnblock: {
+		name: "Burn Block",
+		shortDesc: "If brn, this item is consumed. Cure brn and become immune to brn for 3 turns."
+	},
+	freezeblock: {
+		name: "Freeze Block",
+		shortDesc: "If frz, this item is consumed. Cure frz and become immune to frz for 3 turns."
+	},
+	paralyzblock: {
+		name: "Paralyz Block",
+		shortDesc: "If par, this item is consumed. Cure par and become immune to par for 3 turns."
+	},
+	poisonblock: {
+		name: "Poison Block",
+		shortDesc: "If psn/tox, this item is consumed. Cure psn/tox and become immune for 3 turns."
+	},
+	sleepblock: {
+		name: "Sleep Block",
+		shortDesc: "If slp, this item is consumed. Cure slp and become immune to slp for 3 turns."
+	},
+	omniblock: {
+		name: "Omni Block",
+		shortDesc: "If affected by status conditions, this item is consumed. Become immune to status conditions for 3 turns."
+	},
+	couplink: {
+		name: "Couplink",
+		shortDesc: "No effect."
+	},
+	excellink: {
+		name: "Excellink",
+		shortDesc: "No effect."
+	},
+	idyllink: {
+		name: "Idyllink",
+		shortDesc: "No effect."
+	},
+	doubleplay: {
+		name: "Double Play",
+		shortDesc: "After using a move, this item is consumed to gain +1 priority on the next turn."
+	},
+	hachimaki: {
+		name: "Hachimaki",
+		shortDesc: "The holder becomes trapped and will faint in 4 turns but gains +2 Atk and SpA. Unusable by Ghost-types."
+	},
+	noisemaker: {
+		name: "Noisemaker",
+		shortDesc: "Upon a damaging hit, the attacker is afflicted with embargo. Consumed after use."
+	},
+	sirensong: {
+		name: "Siren Song",
+		shortDesc: "On switch-in, the holder gains the Follow Me effect."
+	},
+	sniperlens: {
+		name: "Sniper lens",
+		shortDesc: "The holder's next attack is a critical hit. Consumed upon entry."
+	},
+	sylphwings: {
+		name: "Sylph Wings",
+		shortDesc: "See Bright Powder."
+	},
+	ballofrage: {
+		name: "Ball of Rage",
+		shortDesc: "When struck by a critical hit, this item is consumed and the user gains +3 Atk."
+	},
+	generator: {
+		name: "Generator",
+		shortDesc: "Raises holder's Spe by 1 if hit by an Electric-type attack. Single use.",
+	},
+	guardiancharm: {
+		name: "Guardian Charm",
+		shortDesc: "If this Pokemon is the last unfainted Pokemon in the party, +3 Atk, Def, SpA, and SpD."
+	},
+	targetcharm: {
+		name: "Target Charm",
+		shortDesc: "Raises this Pokemon's critical hit ratio by 2. Consumed upon entry."
+	},
+	unifiercrystal: {
+		name: "Unifier Crystal",
+		shortDesc: "If held by a Aggron or Registeel, the holder's Atk and Def is raised by 1 stage. Once per battle.",
+	},
+	warriorcrystal: {
+		name: "Warrior Crystal",
+		shortDesc: "If held by a Metagross or Dialga, the holder's Atk and SpA is raised by 1 stage. Once per battle.",
+	},
+	conquerorcrystal: {
+		name: "Conqueror Crystal",
+		shortDesc: "If held by a Hydreigon or Zekrom, the holder's Def and SpA is raised by 1 stage. Once per battle.",
+	},
+	chilipowder: {
+		name: "Chili Powder",
+		shortDesc: "Upon fainting to an attacking move, burns the attacker and its allies."
+	},
+	cursedflute: {
+		name: "Cursed Flute",
+		shortDesc: "Upon fainting to an attacking move, confuses the attacker and its allies."
+	},
+	discharger: {
+		name: "Discharger",
+		shortDesc: "Upon fainting to an attacking move, paralyzes the attacker and its allies."
+	},
+	dryice: {
+		name: "Dry Ice",
+		shortDesc: "Upon fainting to an attacking move, freezes the attacker and its allies."
+	},
+	sleeptightsalts: {
+		name: "Sleeptight Salts",
+		shortDesc: "Upon fainting to an attacking move, sleeps the attacker and its allies."
+	},
+	cheeringconch: {
+		name: "Cheering Conch",
+		shortDesc: "30% chance to raise the power of special move by 50%."
+	},
+	warfan: {
+		name: "War Fan",
+		shortDesc: "30% chance to raise the power of physical move by 50%."
+	},
+	fogmachine: {
+		name: "Fog Machine",
+		shortDesc: "The holder is immune to critical hits."
+	},
+	herosmantle: {
+		name: "Hero's Mantle",
+		shortDesc: "See Focus Band."
+	},
+	paddedcloak: {
+		name: "Padded Cloak",
+		shortDesc: "The holder is immune to brn and frz."
+	},
+	luckycharm: {
+		name: "Lucky Charm",
+		shortDesc: "See Lum Berry. However, not an 'eaten' item."
+	},
+	jigglypuffcharm: {
+		name: "Jigglypuff Charm",
+		shortDesc: "When held by a member of the Igglybuff family, the holder is immune to status conditions."
+	},
+	largesack: {
+		name: "Large Sack",
+		shortDesc: "When an item is used by an opponent, the holder consumes this item to obtain the opponent's."
+	},
+	luckycoin: {
+		name: "Lucky Coin",
+		shortDesc: "No effect in battle."
+	},
+	magicballoon: {
+		name: "Magic Balloon",
+		shortDesc: "See Air Balloon"
+	},
+	metalmirror: {
+		name: "Metal Mirror",
+		shortDesc: "When hit by a special move, the attacker takes damage equal to 1/6 of their max HP."
+	},
+	travelerscharm: {
+		name: "Traveler's Charm",
+		shortDesc: "See Heavy-Duty Boots."
+	},
+	weakspotlens: {
+		name: "Weak Spot Lens",
+		shortDesc: "See Expert Belt."
+	},
+	powerwristband: {
+		name: "Power Wristband",
+		shortDesc: "Raises the damage dealt by the holder's attacking moves by 1.5x. Breaks upon being hit."
+	},
+	ironbrace: {
+		name: "Iron Brace",
+		shortDesc: "Reduces the damage taken from attacking moves by approx. 33%. Breaks upon being hit."
+	},
 };

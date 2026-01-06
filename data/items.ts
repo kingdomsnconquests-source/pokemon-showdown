@@ -9041,7 +9041,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				this.effectState.target.useItem();
 				const item = pokemon.lastItem;
 				pokemon.lastItem = '';
-				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sacjk', '[of] ' + this.effectState.target);
+				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sack', '[of] ' + this.effectState.target);
 				this.effectState.target.setItem(item, source, item);
 			}
 		},
