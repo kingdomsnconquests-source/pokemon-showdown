@@ -2610,7 +2610,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	omniblock: {
 		name: "Omni Block",
-		shortDesc: "If affected by status conditions, this item is consumed. Become immune to status conditions for 3 turns."
+		shortDesc: "Used to cure any status condition. After, become immune to status for 3 turns."
 	},
 	couplink: {
 		name: "Couplink",
@@ -2630,7 +2630,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	hachimaki: {
 		name: "Hachimaki",
-		shortDesc: "The holder becomes trapped and will faint in 4 turns but gains +2 Atk and SpA. Unusable by Ghost-types."
+		shortDesc: "The holder becomes trapped and will faint in 4 turns but gains +2 Atk and SpA."
 	},
 	noisemaker: {
 		name: "Noisemaker",
@@ -2666,15 +2666,15 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	unifiercrystal: {
 		name: "Unifier Crystal",
-		shortDesc: "If held by a Aggron or Registeel, the holder's Atk and Def is raised by 1 stage. Once per battle.",
+		shortDesc: "If held by a Aggron or Registeel, the holder's Atk and Def is raised by 1 stage.",
 	},
 	warriorcrystal: {
 		name: "Warrior Crystal",
-		shortDesc: "If held by a Metagross or Dialga, the holder's Atk and SpA is raised by 1 stage. Once per battle.",
+		shortDesc: "If held by a Metagross or Dialga, the holder's Atk and SpA is raised by 1 stage.",
 	},
 	conquerorcrystal: {
 		name: "Conqueror Crystal",
-		shortDesc: "If held by a Hydreigon or Zekrom, the holder's Def and SpA is raised by 1 stage. Once per battle.",
+		shortDesc: "If held by a Hydreigon or Zekrom, the holder's Def and SpA is raised by 1 stage.",
 	},
 	chilipowder: {
 		name: "Chili Powder",

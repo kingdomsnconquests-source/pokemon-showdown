@@ -8720,10 +8720,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		name: "Hachimaki",
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
+			if (pokemon.hasType('Ghost')) return;
 			if (!pokemon.hasType('Ghost'))
 				pokemon.useItem();
 				pokemon.addVolatile('perishsong');
 				pokemon.addVolatile('trapped');
+				pokemon.addVolatile('hachimaki');
 				this.boost({ atk: 2, spa: 2 });
 		},
 		num: -23,
@@ -9035,15 +9037,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	largesack: {
 		name: "Large Sack",
-		onAnyTakeItem(item, pokemon, source, move) {
+		onAfterTakeItem(item, pokemon) {
 			if (this.effectState.target === pokemon) return;
 			if (!pokemon.isAlly(this.effectState.target)) {
 				this.effectState.target.useItem();
 				const item = pokemon.lastItem;
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sack', '[of] ' + this.effectState.target);
-				this.effectState.target.setItem(item, source, item);
-			}
+				this.effectState.target.setItem(item, pokemon, item);
+			}	
 		},
 		num: -47,
 		gen: 9

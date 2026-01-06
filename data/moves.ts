@@ -22196,6 +22196,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			duration: 0,
 			onAfterMoveSecondarySelf(pokemon, target, move) {
 				if (!target || target.fainted || target.hp <= 0) {
+					this.add('-activate', pokemon, "move: Arena")
 					this.boost({ atk: 1, spa: 1 }, pokemon, pokemon, move);
 				}
 			},

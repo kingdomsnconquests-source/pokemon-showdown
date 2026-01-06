@@ -217,6 +217,13 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-activate', target, 'trapped');
 		},
 	},
+	hachimaki: {
+		name: 'hachimaki',
+		noCopy: true,
+		onTryMove(source, target, move) {
+			if (source === this.effectState.target && move.selfSwitch) return null;
+		}
+	},
 	trapper: {
 		name: 'trapper',
 		noCopy: true,

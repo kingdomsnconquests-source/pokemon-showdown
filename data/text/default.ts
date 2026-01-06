@@ -385,7 +385,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	arena: {
 		start: "  The battlefield turns into an arena! A crowd waits for action...",
 		end: "  The battlefield returns to normal. The crowd disperses...",
-		boost: "  The crowd roars as a bell is rung! [POKEMON]   is motivated!"
+		activate: "  The crowd roars as a bell is rung! [POKEMON]   is motivated!"
 	},
 	gravity: {
 		start: "  Gravity intensified!",

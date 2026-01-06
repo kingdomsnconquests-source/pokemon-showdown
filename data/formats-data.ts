@@ -1057,11 +1057,11 @@ natDexTier: "Illegal",
 	},
 	articuno: {
 		tier: "CQ",
-natDexTier: "CQ",
+		natDexTier: "CQ",
 	},
 	articunogalar: {
-		tier: "Illegal",
-natDexTier: "Illegal",
+		tier: "CQ",
+		natDexTier: "CQ",
 	},
 	zapdos: {
 		tier: "Illegal",
@@ -2875,8 +2875,8 @@ natDexTier: "Illegal",
 		natDexTier: "CQ",
 	},
 	lilliganthisui: {
-		tier: "Illegal",
-		natDexTier: "Illegal",
+		tier: "CQ",
+		natDexTier: "CQ",
 	},
 	basculin: {
 		tier: "Illegal",
