@@ -3453,6 +3453,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
+		unbanlist: [
+			'All Pokemon'
+		]
 	},
 	{
 		name: "[Gen 9] PCP Custom Game",
