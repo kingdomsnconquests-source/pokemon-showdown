@@ -260,6 +260,7 @@ export class Pokemon {
 	shieldBoost: boolean;
 	crystalBoost: boolean;
 	spiritRestored: boolean;
+	pseudoTriggered: boolean;
 	syrupTriggered: boolean;
 	stellarBoostedTypes: string[];
 
@@ -478,6 +479,7 @@ export class Pokemon {
 		this.shieldBoost = false;
 		this.crystalBoost = false;
 		this.spiritRestored = false;
+		this.pseudoTriggered = false;
 		this.syrupTriggered = false;
 		this.stellarBoostedTypes = [];
 		this.isStarted = false;

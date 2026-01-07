@@ -60,7 +60,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (this.effectState.busted) {
+			if (this.effectState.busted && !pokemon.pseudoTriggered) {
+				pokemon.pseudoTriggered = true,
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
