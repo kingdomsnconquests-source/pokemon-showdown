@@ -2,9 +2,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	partiallytrapped: {
 		inherit: true,
 		durationCallback(target, source) {
-            if (this.effectState.sourceEffect.id === 'blackhole' || this.effectState.sourceEffect.id === 'touchtrap') {
-				return 2;
-			} else if (source?.hasItem('gripclaw')) return 8;
+			if (source?.hasItem('gripclaw')) return 8;
 			return this.random(5, 7);
 		},
 		onResidual(pokemon) {

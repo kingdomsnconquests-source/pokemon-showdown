@@ -36,9 +36,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	pseudowood: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (effect?.effectType === 'Move') {
+			if (source === this.effectState.target && target.pseudoTriggered) return;
+			if (effect?.effectType === 'Move' && !target.pseudoTriggered) {
 				this.add('-activate', target, 'ability: Pseudo Wood');
-				this.effectState.busted = true;
+				target.pseudoTriggered = true;
 				return 0;
 			}
 		},
@@ -60,8 +61,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (this.effectState.busted && !pokemon.pseudoTriggered) {
-				pokemon.pseudoTriggered = true,
+			if (!pokemon.pseudoTriggered) return;
+			if (pokemon.pseudoTriggered) {
+				this.add('-message', "The Pokemon's false exterior absorbed the hit!")
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
@@ -73,6 +75,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	sharpshooter: {
 		onModifyPriority(priority, source, target, move) {
 			if (move.flags['bullet']) {
+				this.add('-message', "The Sharpshooter draws quickly!")
 				return priority + 1
 			}
 		},
