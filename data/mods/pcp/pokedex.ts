@@ -60,6 +60,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: { hp: 90, atk: 117, def: 103, spa: 55, spd: 65, spe: 70 },
 		abilities: { 0: "Levitate" },
 	},
+	sudowoodo: {
+		inherit: true,
+		abilities: { 0: "Sturdy", 1: "Rock Head", H: "Pseudo Wood" },
+	},
 	swanna: {
 		inherit: true,
 		baseStats: { hp: 75, atk: 107, def: 74, spa: 107, spd: 74, spe: 98 },
@@ -74,6 +78,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: { hp: 90, atk: 95, def: 90, spa: 60, spd: 90, spe: 101 },
 		abilities: { 0: "Illuminate", 1: "Compound Eyes", H: "Analytic" },
+	},
+	wishiwashischool: {
+		inherit: true,
+		abilities: { 0: "Schooling", H: "Intimidate" }
 	},
 	zebstrika: {
 		inherit: true,

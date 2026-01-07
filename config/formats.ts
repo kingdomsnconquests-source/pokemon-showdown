@@ -3455,6 +3455,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] PCP Custom Game",
+		mod: 'pcp',
+		searchShow: false,
+		debug: true,
+		battle: { trunc: Math.trunc },
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Data Preview', 'Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+	{
 		name: "[Gen 9] Monster Hunter Random Battle",
 		desc: `A Gen 9 solomod where each Pokemon is based on a monster from the Monster Hunter franchise.`,
 		mod: 'monsterhunter',

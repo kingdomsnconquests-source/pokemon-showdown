@@ -33,6 +33,42 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon gains the defensive properties of the Steel-type.",
 		desc: "This Pokemon gains the defensive properties of the Steel-type.",
 	},
+	pseudowood: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect?.effectType === 'Move') {
+				this.add('-activate', target, 'ability: Pseudo Wood');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, source, move) {
+			if (!target) return;
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || move.category === 'Status') return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (this.effectState.busted) {
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Pseudo Wood",
+		shortDesc: "Once per battle, an attack against this Pokemon deals 1/8 max HP damage.",
+		desc: "Once per battle, this Pokemon's false exterior can absorb a hit for 1/8 max HP damage."
+	},
 	sharpshooter: {
 		onModifyPriority(priority, source, target, move) {
 			if (move.flags['bullet']) {

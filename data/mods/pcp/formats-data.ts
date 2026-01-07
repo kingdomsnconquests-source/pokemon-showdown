@@ -55,6 +55,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		tier: "OU",
 	},
+	sudowoodo: {
+		natDexTier: "OU",
+		tier: "OU"
+	},
 	swanna: {
 		natDexTier: "OU",
 		tier: "OU",
@@ -66,6 +70,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	watchog: {
 		natDexTier: "OU",
 		tier: "OU",
+	},
+	wishiwashischool: {
+		natDexTier: "OU",
+		tier: "OU"
 	},
 	zebstrika: {
 		natDexTier: "OU",
