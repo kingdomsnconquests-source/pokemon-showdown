@@ -35,6 +35,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	lunatone: {
 		inherit: true,
+		types: ["Rock", "Ghost"],
 		baseStats: { hp: 90, atk: 55, def: 65, spa: 117, spd: 103, spe: 70 },
 		abilities: { 0: "Levitate" },
 	},
@@ -57,6 +58,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	solrock: {
 		inherit: true,
+		types: ["Rock", "Fire"],
 		baseStats: { hp: 90, atk: 117, def: 103, spa: 55, spd: 65, spe: 70 },
 		abilities: { 0: "Levitate" },
 	},
