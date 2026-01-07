@@ -9037,15 +9037,23 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	largesack: {
 		name: "Large Sack",
-		onAfterTakeItem(item, pokemon) {
+		onStart(pokemon) {
+			if (this.effectState.target === pokemon) {
+				pokemon.useItem();
+				pokemon.addVolatile('largesack');
+			}
+		},
+		condition: {
+			onAnyTakeItem(item, pokemon, source, move) {
 			if (this.effectState.target === pokemon) return;
 			if (!pokemon.isAlly(this.effectState.target)) {
-				this.effectState.target.useItem();
 				const item = pokemon.lastItem;
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sack', '[of] ' + this.effectState.target);
 				this.effectState.target.setItem(item, pokemon, item);
-			}	
+				pokemon.removeVolatile('largesack');
+				}	
+			},
 		},
 		num: -47,
 		gen: 9

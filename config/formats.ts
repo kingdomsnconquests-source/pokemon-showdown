@@ -3444,6 +3444,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "Pet Mods",
 	},
 	{
+		name: "[Gen 9] PCP",
+		desc: `A Gen 9 mod composed of PCP's custom buffs and reworks.`,
+		mod: 'pcp',
+		searchShow: true,
+		ruleset: ['Standard NatDex', 'Data Preview', 'Terastal Clause'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+	},
+	{
 		name: "[Gen 9] Monster Hunter Random Battle",
 		desc: `A Gen 9 solomod where each Pokemon is based on a monster from the Monster Hunter franchise.`,
 		mod: 'monsterhunter',
