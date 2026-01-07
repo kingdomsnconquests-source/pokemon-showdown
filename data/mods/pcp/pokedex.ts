@@ -77,6 +77,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	zebstrika: {
 		inherit: true,
+		types: ["Fairy"],
 		baseStats: { hp: 75, atk: 125, def: 63, spa: 100, spd: 63, spe: 116 },
 		abilities: { 0: "Reckless", 1: "Motor Drive", H: "Sap Sipper" },
 	},
