@@ -9050,7 +9050,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				const item = pokemon.lastItem;
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sack', '[of] ' + this.effectState.pokemon);
-				this.effectState.target.setItem(item, pokemon, item);
+				this.effectState.pokemon.setItem(item, pokemon, item);
 				pokemon.removeVolatile('largesack');
 				}	
 			},
