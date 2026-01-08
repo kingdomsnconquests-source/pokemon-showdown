@@ -9045,11 +9045,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		condition: {
 			onAnyTakeItem(item, pokemon, source, move) {
-			if (this.effectState.target === pokemon) return;
-			if (!pokemon.isAlly(this.effectState.target)) {
+			if (this.effectState.pokemon === pokemon) return;
+			if (!pokemon.isAlly(this.effectState.pokemon)) {
 				const item = pokemon.lastItem;
 				pokemon.lastItem = '';
-				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sack', '[of] ' + this.effectState.target);
+				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sack', '[of] ' + this.effectState.pokemon);
 				this.effectState.target.setItem(item, pokemon, item);
 				pokemon.removeVolatile('largesack');
 				}	
