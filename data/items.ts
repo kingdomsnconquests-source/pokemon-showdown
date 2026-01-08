@@ -9044,16 +9044,25 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			}
 		},
 		condition: {
-			onAnyTakeItem(item, pokemon, source, move) {
-			if (this.effectState.target === pokemon) return;
-			if (!pokemon.isAlly(this.effectState.target)) {
-				const item = pokemon.lastItem;
-				this.effectState.target.setItem(item, pokemon, item);
-				this.effectState.target.removeVolatile('largesack');
-				pokemon.lastItem = '';
-				this.add('-item', pokemon, this.dex.items.get(item), '[from] item: Large Sack', '[of] ' + this.effectState.target);
-				}	
-			},
+			duration: 0,
+			onAfterMoveSecondarySelf(source, target, move) {
+				if (!move || source.switchFlag === true || !move.hitTargets || source.item || source.volatiles['gem'] ||
+					move.id === 'fling' || move.category === 'Status') return;
+				const hitTargets = move.hitTargets;
+				this.speedSort(hitTargets);
+				for (const pokemon of hitTargets) {
+					if (pokemon !== source && source.volatiles['largesack']) {
+						const yourItem = pokemon.takeItem(source);
+						if (!yourItem) continue;
+						if (!source.setItem(yourItem)) {
+							pokemon.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+							continue;
+						}
+						this.add('-item', source, yourItem, '[from] item: Large Sack', `[of] ${pokemon}`);
+						return;
+					}
+				}
+			}
 		},
 		num: -47,
 		gen: 9
