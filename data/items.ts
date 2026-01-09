@@ -9040,6 +9040,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			if (this.effectState.target === pokemon) {
 				pokemon.useItem();
+				this.add('-item', pokemon, 'Large Sack');
 				pokemon.addVolatile('largesack');
 			}
 		},

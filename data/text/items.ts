@@ -2726,7 +2726,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	largesack: {
 		name: "Large Sack",
-		shortDesc: "When an item is used by an opponent, the holder consumes this item to obtain the opponent's."
+		shortDesc: "Consumed upon entry. The holder steals the item from the target after attacking."
 	},
 	luckycoin: {
 		name: "Lucky Coin",

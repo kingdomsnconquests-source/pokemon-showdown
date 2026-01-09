@@ -24,6 +24,26 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "KnC: Ambition Standard Formats",
 	},
 	{
+		name: "[Gen 9] ND Ambition Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+
+	},
+	{
+		name: "[Gen 9] NatDex Ambition Singles",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+
+	},
+	{
 		name: "[Gen 9] Ambition National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -46,6 +66,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	// Kingdom-Specific Formats
 	///////////////////////////////////////////////////////////////////
+	{
+		section: "Aurora",
+	},
 	{
 		name: "[Gen 9] Aurora National Dex Singles",
 		mod: 'gen9',
@@ -76,6 +99,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.weather = 'aurora' as ID;
 			this.field.weatherState = { id: 'aurora' };
 		},
+	},
+	{
+		section: "Avia",
 	},
 	{
 		name: "[Gen 9] Avia National Dex Singles",
@@ -109,6 +135,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Chrysalia",
+	},
+	{
 		name: "[Gen 9] Chrysalia National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -138,6 +167,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.terrain = 'silkyterrain' as ID;
 			this.field.terrainState = { id: 'silkyterrain' };
 		},
+	},
+	{
+		section: "Cragspur",
 	},
 	{
 		name: "[Gen 9] Cragspur National Dex Singles",
@@ -171,6 +203,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Dragnor",
+	},
+	{
 		name: "[Gen 9] Dragnor National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -200,6 +235,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.weather = 'dragonforce' as ID;
 			this.field.weatherState = { id: 'dragonforce' };
 		},
+	},
+	{
+		section: "Fontaine",
 	},
 	{
 		name: "[Gen 9] Fontaine National Dex Singles",
@@ -233,6 +271,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Greenleaf",
+	},
+	{
 		name: "[Gen 9] Greenleaf National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -262,6 +303,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.terrain = 'grassyterrain' as ID;
 			this.field.terrainState = { id: 'grassyterrain' };
 		},
+	},
+	{
+		section: "Ignis",
 	},
 	{
 		name: "[Gen 9] Ignis National Dex Singles",
@@ -295,6 +339,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Illusio",
+	},
+	{
 		name: "[Gen 9] Illusio National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -324,6 +371,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.terrain = 'psychicterrain' as ID;
 			this.field.terrainState = { id: 'psychicterrain' };
 		},
+	},
+	{
+		section: "Nixtorm",
 	},
 	{
 		name: "[Gen 9] Nixtorm National Dex Singles",
@@ -357,6 +407,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Pugilis",
+	},
+	{
 		name: "[Gen 9] Pugilis National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -384,6 +437,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.add('-fieldstart', 'move: Arena');
 			this.field.addPseudoWeather('arena');
 		},
+	},
+	{
+		section: "Spectra",
 	},
 	{
 		name: "[Gen 9] Spectra National Dex Singles",
@@ -417,6 +473,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Terrera",
+	},
+	{
 		name: "[Gen 9] Terrera National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -446,6 +505,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.weather = 'sandstorm' as ID;
 			this.field.weatherState = { id: 'sandstorm' };
 		},
+	},
+	{
+		section: "Valora",
 	},
 	{
 		name: "[Gen 9] Valora National Dex Singles",
@@ -479,6 +541,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Violight",
+	},
+	{
 		name: "[Gen 9] Violight National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -508,6 +573,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.field.terrain = 'electricterrain' as ID;
 			this.field.terrainState = { id: 'electricterrain' };
 		},
+	},
+	{
+		section: "Viperia",
 	},
 	{
 		name: "[Gen 9] Viperia National Dex Singles",
@@ -541,6 +609,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		section: "Yaksha",
+	},
+	{
 		name: "[Gen 9] Yaksha National Dex Singles",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview', '!Team Preview'],
@@ -565,6 +636,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////////
 	{
 		section: "S/V Singles",
+		column: 1
 	},
 	{
 		name: "[Gen 9] Random Battle",
@@ -706,6 +778,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	{
 		section: "S/V Doubles",
+		column: 1
 	},
 	{
 		name: "[Gen 9] Random Doubles Battle",
@@ -828,6 +901,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	{
 		section: "Unofficial Metagames",
+		column: 1
 	},
 	{
 		name: "[Gen 9] 1v1",
