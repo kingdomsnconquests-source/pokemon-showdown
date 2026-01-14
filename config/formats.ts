@@ -30,31 +30,21 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		]
 
 	},
 	{
-		name: "[Gen 9] NatDex Ambition Singles",
-		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
-		],
-
-	},
-	{
-		name: "[Gen 9] Ambition National Dex Singles",
-		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
-		],
-
-	},
-	{
-		name: "[Gen 9] Ambition National Dex Doubles",
+		name: "[Gen 9] ND Ambition Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
@@ -62,6 +52,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		]
 
 	},
 	// Kingdom-Specific Formats
@@ -78,6 +77,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Aurora');
 			this.field.weather = 'aurora' as ID;
@@ -93,6 +101,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Aurora');
@@ -112,6 +129,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Windy');
 			this.field.weather = 'windy' as ID;
@@ -127,6 +153,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Windy');
@@ -146,6 +181,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Silky Terrain');
 			this.field.terrain = 'silkyterrain' as ID;
@@ -161,6 +205,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Silky Terrain');
@@ -180,6 +233,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Rocky Terrain');
 			this.field.terrain = 'rockyterrain' as ID;
@@ -195,6 +257,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Rocky Terrain');
@@ -214,6 +285,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Dragon Force');
 			this.field.weather = 'dragonforce' as ID;
@@ -229,6 +309,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Dragon Force');
@@ -248,6 +337,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Rain Dance');
 			this.field.weather = 'raindance' as ID;
@@ -263,6 +361,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Rain Dance');
@@ -282,6 +389,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Grassy Terrain');
 			this.field.terrain = 'grassyterrain' as ID;
@@ -297,6 +413,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Grassy Terrain');
@@ -316,6 +441,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Sunny Day');
 			this.field.weather = 'sunnyday' as ID;
@@ -331,6 +465,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Sunny Day');
@@ -350,6 +493,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Psychic Terrain');
 			this.field.terrain = 'psychicterrain' as ID;
@@ -365,6 +517,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Psychic Terrain');
@@ -384,6 +545,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Snowscape');
 			this.field.weather = 'snowscape' as ID;
@@ -399,6 +569,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Snowscape');
@@ -418,6 +597,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Arena');
 			this.field.addPseudoWeather('arena');
@@ -432,6 +620,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Arena');
@@ -450,6 +647,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Spooky');
 			this.field.weather = 'spooky' as ID;
@@ -465,6 +671,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Spooky');
@@ -484,6 +699,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Sandstorm');
 			this.field.weather = 'sandstorm' as ID;
@@ -499,6 +723,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Sandstorm');
@@ -518,6 +751,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-weather', 'Magnetic Field');
 			this.field.weather = 'magneticfield' as ID;
@@ -533,6 +775,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Magnetic Field');
@@ -552,6 +803,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Electric Terrain');
 			this.field.terrain = 'electricterrain' as ID;
@@ -567,6 +827,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Electric Terrain');
@@ -586,6 +855,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Toxic Terrain');
 			this.field.terrain = 'toxicterrain' as ID;
@@ -601,6 +879,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
+		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Toxic Terrain');
@@ -620,6 +907,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		]
 	},
 	{
 		name: "[Gen 9] Yaksha National Dex Doubles",
@@ -631,6 +927,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm'
 		],
+		unbanlist: [
+			'Dragalgite',
+			'Emboarite',
+			'Froslassite',
+			'Raichunite X',
+			'Scolipite',
+			'Scraftinite',
+			'Staraptite'
+		]
 	},
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////

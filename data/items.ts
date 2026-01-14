@@ -9165,4 +9165,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: -54,
 		gen: 9
 	},
+	wingedboots: {
+		name: "Winged Boots",
+		onStart(pokemon) {
+			pokemon.useItem();	
+		},
+		boosts: {
+			spe: 1
+		},
+		num: -55,
+		gen: 9
+	}
 };
