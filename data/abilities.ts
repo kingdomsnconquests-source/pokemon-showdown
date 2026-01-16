@@ -5811,7 +5811,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify([speMod[this.effectState.conquered], 1]);
 			}
 		},
-		flags: {},
+		flags: { breakable: 1 },
 		name: "Conqueror",
 		rating: 4,
 		num: -12,
@@ -6306,7 +6306,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
-		flags: {},
+		flags: { breakable: 1 },
 		name: "Pride",
 		rating: 3,
 		num: -45,
@@ -6360,9 +6360,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -48,
 	},
 	shackle: {
-		onSourceDamagingHit(damage, target, source, move) {
+		onModifyMove(move, pokemon, target) {
+			if (this.effectState.target === target) return;
 			if (move.category !== 'Status' && move.flags['contact']) {
-				this.boost({ spe: -1 }, target, source);
+				this.boost({ spe: -1 }, target, pokemon);
 			}
 		},
 		flags: {},

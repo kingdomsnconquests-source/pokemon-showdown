@@ -2756,4 +2756,8 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		name: "Iron Brace",
 		shortDesc: "Reduces the damage taken from attacking moves by approx. 33%. Breaks upon being hit."
 	},
+	wingedboots: {
+		name: "Winged Boots",
+		shortDesc: "On switch-in, raises the holder's Speed by 1 stage. Consumed after use."
+	}
 };

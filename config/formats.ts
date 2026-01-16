@@ -47,7 +47,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND Ambition Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -71,7 +71,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Aurora National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -96,7 +96,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Aurora National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -123,7 +123,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Avia National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -148,7 +148,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Avia National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -175,7 +175,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Chrysalia National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -200,7 +200,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Chrysalia National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -227,7 +227,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Cragspur National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -252,7 +252,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Cragspur National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -279,7 +279,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Dragnor National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -304,7 +304,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Dragnor National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -331,7 +331,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Fontaine National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -356,7 +356,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Fontaine National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -383,7 +383,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Greenleaf National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -408,7 +408,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Greenleaf National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -435,7 +435,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Ignis National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -460,7 +460,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Ignis National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -487,7 +487,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Illusio National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -512,7 +512,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Illusio National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -539,7 +539,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Nixtorm National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -564,7 +564,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Nixtorm National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -591,7 +591,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Pugilis National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -615,7 +615,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Pugilis National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -641,7 +641,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Spectra National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -666,7 +666,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Spectra National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -693,7 +693,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Terrera National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -718,7 +718,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Terrera National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -745,7 +745,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Valora National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -770,7 +770,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Valora National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -797,7 +797,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Violight National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -822,7 +822,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Violight National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -849,7 +849,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Viperia National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -874,7 +874,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Viperia National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -901,7 +901,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Yaksha National Dex Singles",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', '!Team Preview'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
@@ -921,7 +921,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Yaksha National Dex Doubles",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Preview', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', '!Team Preview'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
