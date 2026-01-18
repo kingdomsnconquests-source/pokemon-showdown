@@ -5663,7 +5663,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onAnyBeforeMove(target, source, move) {
+			onFoeTryMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5671,9 +5671,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Physical moves only
 				if (!move || move.category !== 'Physical') return;
 
-				// Doubles only
-				const side = holder.side;
-				if (side.active.length !== 2) return;
+				// Fail in formats where you don't control allies
+				if (this.format.gameType !== 'doubles' && this.format.gameType !== 'triples') return;
 
 				// Ally must be the other slot
 				if (target === holder) return;
@@ -5841,7 +5840,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onAnyBeforeMove(target, source, move) {
+			onFoeTryMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5849,9 +5848,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Special moves only
 				if (!move || move.category !== 'Special') return;
 
-				// Doubles only
-				const side = holder.side;
-				if (side.active.length !== 2) return;
+				// Fail in formats where you don't control allies
+				if (this.format.gameType !== 'doubles' && this.format.gameType !== 'triples') return;
 
 				// Ally must be the other slot
 				if (target === holder) return;
