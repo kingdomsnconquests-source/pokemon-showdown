@@ -5663,7 +5663,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onAllyBeforeMove(target, source, move) {
+			onFoeBeforeMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5676,7 +5676,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (side.active.length !== 2) return;
 
 				// Ally must be the other slot
-				if (target === holder) return;
+				if (target === holder || !target.isAlly(holder)) return;
 
 				const allyPos = target.position;
 				const holderPos = holder.position;
@@ -5684,10 +5684,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Sanity checks
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
-
-				if (source.isAlly(holder)) return;
-
-				if (target === holder) return;
 
 				this.add('-activate', holder, 'ability: Bodyguard');
 				this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
@@ -5843,12 +5839,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onAllyBeforeMove(target, source, move) {
+			onFoeBeforeMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
 
-				// Physical moves only
+				// Special moves only
 				if (!move || move.category !== 'Special') return;
 
 				// Doubles only
@@ -5856,7 +5852,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (side.active.length !== 2) return;
 
 				// Ally must be the other slot
-				if (target === holder) return;
+				if (target === holder || !target.isAlly(holder)) return;
 
 				const allyPos = target.position;
 				const holderPos = holder.position;
@@ -5864,10 +5860,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Sanity checks
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
-
-				if (source.isAlly(holder)) return;
-
-				if (target === holder) return;
 
 				this.add('-activate', holder, 'ability: Decoy');
 				this.swapPosition(holder, allyPos, '[from] ability: Decoy');
@@ -6452,11 +6444,34 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	spiritconquest: {
 		onDamage(damage, target, source, effect) {
-			if (target.spiritRestored) return;
-			if (target.hp <= target.maxhp / 3) {
-				target.spiritRestored = true;
-				this.heal(target.baseMaxhp, target, target);
-				this.boost({ atk: 1 }, target, target)
+			if (
+				effect.effectType === "Move" &&
+				!effect.multihit &&
+				!(effect.hasSheerForce && source.hasAbility('sheerforce'))
+			) {
+				this.effectState.checkedSpirit = false;
+			} else {
+				this.effectState.checkedSpirit = true;
+			}
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedSpirit;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedSpirit = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3 && !target.spiritRestored) {
+				this.boost({ atk: 1 }, target, target);
+				this.heal(target.maxhp, target, target);
 			}
 		},
 		flags: {},
