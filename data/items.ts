@@ -8723,9 +8723,9 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (pokemon.hasType('Ghost')) return;
 			if (!pokemon.hasType('Ghost'))
 				pokemon.useItem();
-				pokemon.addVolatile('perishsong');
 				pokemon.addVolatile('trapped');
 				pokemon.addVolatile('hachimaki');
+				pokemon.addVolatile('perishsong');
 				this.boost({ atk: 2, spa: 2 });
 		},
 		num: -23,

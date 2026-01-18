@@ -5685,11 +5685,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
 
-				this.add('-activate', holder, 'ability: Bodyguard');
-				this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
+				if (!target.isAlly(holder) && holder !== target) {
+					this.add('-activate', holder, 'ability: Bodyguard');
+					this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
 
-				// Consume the effect (once per switch-in)
-				delete holder.volatiles['bodyguard'];
+					// Consume the effect (once per switch-in)
+					delete holder.volatiles['bodyguard'];
+				}
 			},
 		},
 		flags: {},
@@ -5861,11 +5863,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
 
-				this.add('-activate', holder, 'ability: Decoy');
-				this.swapPosition(holder, allyPos, '[from] ability: Decoy');
+				if (!target.isAlly && holder !== target) return;
+
+				this.add('-activate', holder, 'ability: Bodyguard');
+				this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
 
 				// Consume the effect (once per switch-in)
-				delete holder.volatiles['decoy'];
+				delete holder.volatiles['bodyguard'];
 			},
 		},
 		flags: {},
@@ -6080,7 +6084,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add('-ability', pokemon, 'Frighten', 'boost');
+					this.add('-ability', pokemon, 'Interference', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
@@ -6249,7 +6253,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	perception: {
 		onTryHit(target, source, move) {
 			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
-				this.add('-activate', target, 'ability: Telepathy');
+				this.add('-activate', target, 'ability: Perception');
 				return null;
 			}
 		},
@@ -6363,7 +6367,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifyMove(move, pokemon, target) {
 			if (this.effectState.target === target) return;
 			if (move.category !== 'Status' && move.flags['contact']) {
-				this.boost({ spe: -1 }, target, pokemon);
+				this.boost({ spe: -1 }, target, this.effectState.target);
 			}
 		},
 		flags: {},
@@ -6444,6 +6448,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	spiritconquest: {
 		onAnyDamage(damage, target, source, effect) {
+			if (target !== this.effectState.target) return;
 			if (target.spiritRestored) return;
 			if (target.hp <= target.maxhp / 3) {
 				target.spiritRestored = true;

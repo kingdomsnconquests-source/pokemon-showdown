@@ -222,7 +222,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		noCopy: true,
 		onTryMove(source, target, move) {
 			if (source === this.effectState.target && move.selfSwitch) return null;
-		}
+		},
 	},
 	trapper: {
 		name: 'trapper',

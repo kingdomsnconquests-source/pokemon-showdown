@@ -2423,7 +2423,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	melee: {
 		name: "Melee",
 		shortDesc: "After ally attacks, deal a follow-up hit that deals damage equal to 1/16 Attack.",
-		damage: "  [POKEMON]  attacked with during the commotion!",
+		damage: "  [POKEMON]  was attacked during the commotion!",
 	},
 	moodmaker: {
 		name: "Mood Maker",
