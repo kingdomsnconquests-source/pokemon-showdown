@@ -5663,7 +5663,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onFoeTryMove(target, source, move) {
+			onFoeBeforeMove(source, target, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5840,7 +5840,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onFoeTryMove(target, source, move) {
+			onFoeBeforeMove(source, target, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5860,6 +5860,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Sanity checks
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
+				
 				if (!source.isAlly(holder)) {
 					this.add('-activate', holder, 'ability: Decoy');
 					this.swapPosition(holder, allyPos, '[from] ability: Decoy');
