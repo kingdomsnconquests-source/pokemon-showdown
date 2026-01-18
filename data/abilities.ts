@@ -5676,7 +5676,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (side.active.length !== 2) return;
 
 				// Ally must be the other slot
-				if (target === holder || !target.isAlly(holder)) return;
+				if (target === holder) return;
 
 				const allyPos = target.position;
 				const holderPos = holder.position;
@@ -5684,12 +5684,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Sanity checks
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
+				
+				if (!source.isAlly(holder)) {
+					this.add('-activate', holder, 'ability: Bodyguard');
+					this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
 
-				this.add('-activate', holder, 'ability: Bodyguard');
-				this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
-
-				// Consume the effect (once per switch-in)
-				delete holder.volatiles['bodyguard'];
+					// Consume the effect (once per switch-in)
+					delete holder.volatiles['bodyguard'];
+				}
 			},
 		},
 		flags: {},
@@ -5852,7 +5854,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (side.active.length !== 2) return;
 
 				// Ally must be the other slot
-				if (target === holder || !target.isAlly(holder)) return;
+				if (target === holder) return;
 
 				const allyPos = target.position;
 				const holderPos = holder.position;
@@ -5860,12 +5862,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Sanity checks
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
+				if (!source.isAlly(holder)) {
+					this.add('-activate', holder, 'ability: Decoy');
+					this.swapPosition(holder, allyPos, '[from] ability: Decoy');
 
-				this.add('-activate', holder, 'ability: Decoy');
-				this.swapPosition(holder, allyPos, '[from] ability: Decoy');
-
-				// Consume the effect (once per switch-in)
-				delete holder.volatiles['decoy'];
+					// Consume the effect (once per switch-in)
+					delete holder.volatiles['decoy'];
+				}
 			},
 		},
 		flags: {},
