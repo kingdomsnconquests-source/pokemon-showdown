@@ -35,8 +35,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Chili Powder',
 			'Discharger',
 			'Dry Ice',
-			'Chili Powder',
-			'Discharger'
 		],
 		unbanlist: [
 			'Dragalgite',
