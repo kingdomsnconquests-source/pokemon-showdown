@@ -5663,7 +5663,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onFoeBeforeMove(target, source, move) {
+			onAnyBeforeMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5839,7 +5839,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onFoeBeforeMove(target, source, move) {
+			onAnyBeforeMove(target, source, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -6472,6 +6472,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3 && !target.spiritRestored) {
 				this.boost({ atk: 1 }, target, target);
 				this.heal(target.maxhp, target, target);
+				target.spiritRestored = true;
 			}
 		},
 		flags: {},
