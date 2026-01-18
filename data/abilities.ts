@@ -5685,13 +5685,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
 
-				if (!target.isAlly(holder) && holder !== target) {
-					this.add('-activate', holder, 'ability: Bodyguard');
-					this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
+				if (!target.isAlly(holder)) return;
 
-					// Consume the effect (once per switch-in)
-					delete holder.volatiles['bodyguard'];
-				}
+				if (target === holder) return;
+
+				this.add('-activate', holder, 'ability: Bodyguard');
+				this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
+
+				// Consume the effect (once per switch-in)
+				delete holder.volatiles['bodyguard'];
 			},
 		},
 		flags: {},
@@ -5863,13 +5865,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
 
-				if (!target.isAlly && holder !== target) return;
+				if (!target.isAlly(holder)) return;
 
-				this.add('-activate', holder, 'ability: Bodyguard');
-				this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
+				if (target === holder) return;
+
+				this.add('-activate', holder, 'ability: Decoy');
+				this.swapPosition(holder, allyPos, '[from] ability: Decoy');
 
 				// Consume the effect (once per switch-in)
-				delete holder.volatiles['bodyguard'];
+				delete holder.volatiles['decoy'];
 			},
 		},
 		flags: {},
@@ -6448,9 +6452,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	spiritconquest: {
 		onAnyDamage(damage, target, source, effect) {
-			if (target !== this.effectState.target) return;
 			if (target.spiritRestored) return;
-			if (target.hp <= target.maxhp / 3) {
+			if (target === this.effectState.target && target.hp <= target.maxhp / 3) {
 				target.spiritRestored = true;
 				this.heal(target.baseMaxhp, target, target);
 				this.boost({ atk: 1 }, target, target)
