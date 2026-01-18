@@ -5685,7 +5685,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
 
-				if (!target.isAlly(holder)) return;
+				if (source.isAlly(holder)) return;
 
 				if (target === holder) return;
 
@@ -5865,7 +5865,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (allyPos === holderPos) return;
 				if (holder.fainted || target.fainted) return;
 
-				if (!target.isAlly(holder)) return;
+				if (source.isAlly(holder)) return;
 
 				if (target === holder) return;
 
@@ -6453,7 +6453,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	spiritconquest: {
 		onDamage(damage, target, source, effect) {
 			if (target.spiritRestored) return;
-			if (target === this.effectState.target && target.hp <= target.maxhp / 3) {
+			if (target.hp <= target.maxhp / 3) {
 				target.spiritRestored = true;
 				this.heal(target.baseMaxhp, target, target);
 				this.boost({ atk: 1 }, target, target)
