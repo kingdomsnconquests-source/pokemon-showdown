@@ -32,7 +32,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Guardian Charm',
 			"Sleeptight Salts",
-			'Dry Ice',
 			'Chili Powder',
 			'Discharger',
 			'Dry Ice',
