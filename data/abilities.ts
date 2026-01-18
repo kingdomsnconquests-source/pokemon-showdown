@@ -5663,7 +5663,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onFoeTryMove(source, target, move) {
+			onFoeRedirectTargetPriority: 1,
+			onFoeRedirectTarget(target, source, source2, move) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target) && move.category === 'Physical') {
+					if (move.smartTarget) move.smartTarget = false;
+					return this.effectState.target;
+				}
+			},
+			onBeforeMove(source, target, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
@@ -5840,7 +5847,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		condition: {
 			noCopy: true,
-			onFoeTryMove(source, target, move) {
+			onFoeRedirectTargetPriority: 1,
+			onFoeRedirectTarget(target, source, source2, move) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target) && move.category === 'Special') {
+					if (move.smartTarget) move.smartTarget = false;
+					return this.effectState.target;
+				}
+			},
+			onFoeBeforeMove(source, target, move) {
 				// target = ally being hit
 				// this.effectState.target = ability holder
 				const holder = this.effectState.target;
