@@ -6267,7 +6267,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -43,
 	},
 	powernap: {
-		onAnyDamage(damage, target, source, effect) {
+		onDamage(damage, target, source, effect) {
 			if (target.hp <= target.maxhp / 3 && !target.volatiles['powernap'] && target.status !== 'slp') {
 				target.setStatus('slp', target);
 				target.statusState.time = 3;
@@ -6451,7 +6451,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -52
 	},
 	spiritconquest: {
-		onAnyDamage(damage, target, source, effect) {
+		onDamage(damage, target, source, effect) {
 			if (target.spiritRestored) return;
 			if (target === this.effectState.target && target.hp <= target.maxhp / 3) {
 				target.spiritRestored = true;
