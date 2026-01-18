@@ -2292,7 +2292,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	bodyguard: {
 		name: "Bodyguard",
-		shortDesc: "Once per switch-in, swaps with an ally targeted by an opponent's physical move.",
+		shortDesc: "Once per switch-in, this Pokemon redirects a Physical attack made against an ally.",
 		activate: "  [POKEMON] protected its ally!",
 	},
 	bonanza: {
@@ -2326,8 +2326,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	decoy: {
 		name: "Decoy",
-		shortDesc: "Once per switch-in, swaps with an ally targeted by an opponent's special move.",
-		activate: "  [POKEMON]  protected its ally!",
+		shortDesc: "Once per switch-in, this Pokemon redirects a Special attack made against an ally.",
 	},
 	deepsleep: {
 		name: "Deep Sleep",

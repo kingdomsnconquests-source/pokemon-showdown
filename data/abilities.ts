@@ -5667,36 +5667,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			onFoeRedirectTarget(target, source, source2, move) {
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target) && move.category === 'Physical') {
 					if (move.smartTarget) move.smartTarget = false;
+					delete this.effectState.target.volatiles['bodyguard'];
+					this.add('-activate', this.effectState.target, 'ability: Bodyguard');
 					return this.effectState.target;
-				}
-			},
-			onBeforeMove(source, target, move) {
-				// target = ally being hit
-				// this.effectState.target = ability holder
-				const holder = this.effectState.target;
-
-				// Physical moves only
-				if (!move || move.category !== 'Physical') return;
-
-				// Fail in formats where you don't control allies
-				if (this.format.gameType !== 'doubles' && this.format.gameType !== 'triples') return;
-
-				// Ally must be the other slot
-				if (target === holder) return;
-
-				const allyPos = target.position;
-				const holderPos = holder.position;
-
-				// Sanity checks
-				if (allyPos === holderPos) return;
-				if (holder.fainted || target.fainted) return;
-				
-				if (!source.isAlly(holder)) {
-					this.add('-activate', holder, 'ability: Bodyguard');
-					this.swapPosition(holder, allyPos, '[from] ability: Bodyguard');
-
-					// Consume the effect (once per switch-in)
-					delete holder.volatiles['bodyguard'];
 				}
 			},
 		},
@@ -5851,36 +5824,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			onFoeRedirectTarget(target, source, source2, move) {
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target) && move.category === 'Special') {
 					if (move.smartTarget) move.smartTarget = false;
+					delete this.effectState.target.volatiles['decoy'];
+					this.add('-activate', this.effectState.target, 'ability: Bodyguard');
 					return this.effectState.target;
-				}
-			},
-			onFoeBeforeMove(source, target, move) {
-				// target = ally being hit
-				// this.effectState.target = ability holder
-				const holder = this.effectState.target;
-
-				// Special moves only
-				if (!move || move.category !== 'Special') return;
-
-				// Fail in formats where you don't control allies
-				if (this.format.gameType !== 'doubles' && this.format.gameType !== 'triples') return;
-
-				// Ally must be the other slot
-				if (target === holder) return;
-
-				const allyPos = target.position;
-				const holderPos = holder.position;
-
-				// Sanity checks
-				if (allyPos === holderPos) return;
-				if (holder.fainted || target.fainted) return;
-
-				if (!source.isAlly(holder)) {
-					this.add('-activate', holder, 'ability: Decoy');
-					this.swapPosition(holder, allyPos, '[from] ability: Decoy');
-
-					// Consume the effect (once per switch-in)
-					delete holder.volatiles['decoy'];
 				}
 			},
 		},
