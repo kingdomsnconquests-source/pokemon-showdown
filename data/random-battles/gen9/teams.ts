@@ -2359,7 +2359,7 @@ export class RandomTeams {
 				ivs,
 				nature,
 				level,
-				happiness,
+				happiness,1
 				shiny,
 			};
 			if (this.gen === 9) {
