@@ -734,9 +734,9 @@ export class BattleActions {
 						boost = this.battle.clampIntRange(boost - boosts['evasion'], -6, 6);
 					}
 					if (boost > 0) {
-						accuracy = this.battle.trunc(accuracy * (3 + boost) / 3);
+						accuracy = this.battle.trunc(accuracy * ((3 + boost) / 3) * (pokemon.getStat('spe')/ target.getStat('spe')));
 					} else if (boost < 0) {
-						accuracy = this.battle.trunc(accuracy * 3 / (3 - boost));
+						accuracy = this.battle.trunc(accuracy * ((3 - boost) / 3) * (pokemon.getStat('spe')/ target.getStat('spe')));
 					}
 				}
 			}
@@ -1645,31 +1645,39 @@ export class BattleActions {
 		if (!basePower) return basePower === 0 ? undefined : basePower;
 		basePower = this.battle.clampIntRange(basePower, 1);
 
-		let critMult;
-		let critRatio = this.battle.runEvent('ModifyCritRatio', source, target, move, move.critRatio || 0);
-		if (this.battle.gen <= 5) {
-			critRatio = this.battle.clampIntRange(critRatio, 0, 5);
-			critMult = [0, 16, 8, 4, 3, 2];
-		} else {
-			critRatio = this.battle.clampIntRange(critRatio, 0, 4);
-			if (this.battle.gen === 6) {
-				critMult = [0, 16, 8, 2, 1];
+		// Checking for the move's Critical Hit possibility. We check if it's a 100% crit move, otherwise we calculate the chance.
+		let isCrit = move.willCrit || false;
+		if (!isCrit) {
+			// In gen 1, the critical chance is based on speed.
+			// First, we get the base speed, divide it by 2 and floor it. This is our current crit chance.
+			let critChance = Math.floor(this.dex.species.get(source.set.species).baseStats['spe'] / 2);
+
+			// Now we check for focus energy volatile.
+			if (source.volatiles['focusenergy']) {
+				// If it exists, crit chance is divided by 2 again and floored.
+				critChance = Math.floor(critChance / 2);
 			} else {
-				critMult = [0, 24, 8, 2, 1];
+				// Normally, without focus energy, crit chance is multiplied by 2 and capped at 255 here.
+				critChance = this.battle.clampIntRange(critChance * 2, 1, 255);
+			}
+
+			// Now we check for the move's critical hit ratio.
+			if (move.critRatio === 1) {
+				// Normal hit ratio, we divide the crit chance by 2 and floor the result again.
+				critChance = Math.floor(critChance / 2);
+			} else if (move.critRatio === 2) {
+				// High crit ratio, we multiply the result so far by 4 and cap it at 255.
+				critChance = this.battle.clampIntRange(critChance * 4, 1, 255);
+			}
+
+			// Last, we check deppending on ratio if the move critical hits or not.
+			// We compare our critical hit chance against a random number between 0 and 255.
+			// If the random number is lower, we get a critical hit. This means there is always a 1/255 chance of not hitting critically.
+			if (critChance > 0) {
+				isCrit = this.battle.randomChance(critChance, 256);
 			}
 		}
-
-		const moveHit = target.getMoveHitData(move);
-		moveHit.crit = move.willCrit || false;
-		if (move.willCrit === undefined) {
-			if (critRatio) {
-				moveHit.crit = this.battle.randomChance(1, critMult[critRatio]);
-			}
-		}
-
-		if (moveHit.crit) {
-			moveHit.crit = this.battle.runEvent('CriticalHit', target, null, move);
-		}
+		if (isCrit) target.getMoveHitData(move).crit = true;
 
 		// happens after crit calculation
 		basePower = this.battle.runEvent('BasePower', source, target, move, basePower, true);
@@ -1708,7 +1716,7 @@ export class BattleActions {
 		let ignoreNegativeOffensive = !!move.ignoreNegativeOffensive;
 		let ignorePositiveDefensive = !!move.ignorePositiveDefensive;
 
-		if (moveHit.crit) {
+		if (isCrit) {
 			ignoreNegativeOffensive = true;
 			ignorePositiveDefensive = true;
 		}
