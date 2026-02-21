@@ -22203,5 +22203,32 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},
 		target: "all",
 		type: "Fighting",
-	}
+	},
+// HSR Moves
+	shardsword: {
+		num: -9001,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			const maxHP = pokemon.maxhp;
+			const bp = Math.floor(maxHP / 4) + 1;
+			return bp;
+		},
+		category: "Physical",
+		name: "Shard Sword",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		onModifyMove(move, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				move.drain = [1, 4];
+			}
+			else if (pokemon.hp > pokemon.maxhp / 4) {
+				move.recoil = [1, 2];
+			}
+		},
+		target: "normal",
+		type: "Dark",
+	},
 };

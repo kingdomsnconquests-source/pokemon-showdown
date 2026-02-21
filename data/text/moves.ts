@@ -7612,4 +7612,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 			shortDesc: "Nearly always goes first. Always crits.",
 		},
 	},
+	shardsword: {
+		name: "Shard Sword",
+		shortDesc: "HP < 1/2 maxHP: 1/4 Drain. Otherwise, 1/2 Recoil. Base Power is equal to 1/4 max HP.",
+	}
 };

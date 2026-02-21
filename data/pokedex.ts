@@ -20980,4 +20980,17 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		gen: 5,
 	},
+// HSR Characters
+	blade: {
+		num: -9001,
+		name: "Blade",
+		types: ["Dark", "Fighting"],
+		gender: "M",
+		baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
+		abilities: { 0: "Shuhu's Gift" },
+		heightm: 1.8,
+		weightkg: 80,
+		color: "Black",
+		eggGroups: ["Undiscovered"],
+	}
 };

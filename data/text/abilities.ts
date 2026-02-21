@@ -2531,5 +2531,10 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	waverider: {
 		name: "Wave Rider",
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Water move; Water immunity.",
-	}
+	},
+	shuhusgift: {
+		name: "Shuhu's Gift",
+		shortDesc: "Heals for 1/8 HP while below 1/2 HP and loses 1/8 HP while above 1/2 HP.",
+		activate: "  [POKEMON] 's is affected by Shuhu's Gift!",
+	},
 };

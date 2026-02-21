@@ -6566,5 +6566,21 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Wave Rider",
 		rating: 3,
 		num: -61
+	},
+	shuhusgift: {
+		onEnd(pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				this.add('-activate', pokemon, 'ability: Shuhu\'s Gift');
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else if (pokemon.hp <= pokemon.maxhp / 2) {
+				this.add('-activate', pokemon, 'ability: Shuhu\'s Gift');
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		flags: {},
+		name: "Shuhu's Gift",
+		rating: 0,
+		num: -9001,
 	}
 };
