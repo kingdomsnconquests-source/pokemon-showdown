@@ -22220,6 +22220,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: null,
+        onTryMove() {
+            this.attrLastMove('[still]'); // necessary for the animation (i think?)
+        },
+        onPrepareHit(target, source) {
+            this.add('-anim', source, 'Sacrerd Sword', target); // user uses the tackle animation on the target
+        }, 
 		onModifyMove(move, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				move.drain = [1, 4];

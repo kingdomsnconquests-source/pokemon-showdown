@@ -6568,7 +6568,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -61
 	},
 	shuhusgift: {
-		onEnd(pokemon) {
+		onResidualOrder: 28,
+		onResidual(pokemon) {
 			if (pokemon.hp > pokemon.maxhp / 2) {
 				this.add('-activate', pokemon, 'ability: Shuhu\'s Gift');
 				this.damage(pokemon.baseMaxhp / 8);
