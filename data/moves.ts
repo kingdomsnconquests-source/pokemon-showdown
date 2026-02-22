@@ -22228,13 +22228,60 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
         }, 
 		onModifyMove(move, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
-				move.drain = [1, 4];
+				move.drain = [1, 2];
 			}
-			else if (pokemon.hp > pokemon.maxhp / 4) {
+			else if (pokemon.hp > pokemon.maxhp / 2) {
 				move.recoil = [1, 2];
 			}
 		},
 		target: "normal",
 		type: "Dark",
+	},
+	lightningrush: {
+		num: -9002,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Lightning Rush",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		onTryMove(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			if (pokemon.hp > pokemon.maxhp / 10) {
+				this.damage(pokemon.maxhp / 10, pokemon);
+			}
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Charge', target);
+			this.add('-anim', source, 'Wild Charge', target);
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	pulseblast: {
+		num: -9003,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Pulse Blast",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: null,
+		overrideOffensiveStat: 'atk',
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			if (target.volatiles['markofcounter']) {
+				this.add('-anim', source, 'Dragon Pulse', target);
+			} else {
+				this.add('-anim', source, 'Flash Cannon', target);
+			}
+		},
+		target: "normal",
+		type: "Steel",
 	},
 };

@@ -6583,5 +6583,43 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Shuhu's Gift",
 		rating: 0,
 		num: -9001,
-	}
+	},
+	painandanger: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			return this.chainModify(this.clampIntRange(1 + (1 - pokemon.hp / pokemon.maxhp), 0, 1.5));
+		},
+		flags: {},
+		name: "Pain and Anger",
+		rating: 0,
+		num: -9002,
+	},
+	markofcounter: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			this.add('-activate', source, 'ability: Mark of Counter');
+			source.addVolatile('markofcounter');
+		},
+		condition: {
+			noCopy: true,
+			duration: 2,
+			onSourceModifyDamage(damage, source, target, move) {
+				if (source.hasAbility('markofcounter')) {
+					return this.chainModify(1.5);
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (source.hasAbility('markofcounter')) {
+					source.removeVolatile('markofcounter');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'ability: Mark of Counter');
+			}
+		},
+		flags: {},
+		name: "Mark of Counter",
+		rating: 0,
+		num: -9003,
+	},
 };
