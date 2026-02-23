@@ -6586,8 +6586,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	painandanger: {
 		onBasePowerPriority: 21,
-		onBasePower(basePower, pokemon, target, move) {
-			return this.chainModify(this.clampIntRange(1 + (1 - pokemon.hp / pokemon.maxhp), 0, 1.5));
+		onBasePower(basePower, source, target, move) {
+			if (this.effectState.target !== source) return;
+				return this.chainModify(1 + (1 - source.hp / source.maxhp));
 		},
 		flags: {},
 		name: "Pain and Anger",
@@ -6597,7 +6598,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	markofcounter: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			this.add('-activate', source, 'ability: Mark of Counter');
+			this.add('-activate', target, 'ability: Mark of Counter');
 			source.addVolatile('markofcounter');
 		},
 		condition: {
