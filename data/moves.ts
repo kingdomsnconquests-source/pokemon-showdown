@@ -22284,4 +22284,44 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Steel",
 	},
+	diggertronarm: {
+		num: -9004,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Diggertron Arm",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		 onPrepareHit(target, source) {
+			this.add('-anim', source, 'headlongrush', target);
+		},
+		target: "normal",
+		type: "Ground",
+	},
+	transcendentflash: {
+		num: -9005,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Transcendent Flash",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		overrideOffensiveStat: 'hp',
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'moonlight', target);
+			this.add('-anim', source, 'airslash', target);
+		},
+		target: "normal",
+		type: "Ice",
+	}
 };

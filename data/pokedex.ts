@@ -21017,4 +21017,28 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 	},
+	hook: {
+		num: -9004,
+		name: "Hook",
+		types: ["Fire", "Ground"],
+		gender: "F",
+		baseStats: { hp: 130, atk: 110, def: 90, spa: 40, spd: 60, spe: 55 },
+		abilities: { 0: "Oil to the Flames" },
+		heightm: 1.1,
+		weightkg: 40,
+		color: "Yellow",
+		eggGroups: ["Undiscovered"],
+	},
+	jingliu: {
+		num: -9005,
+		name: "Jingliu",
+		types: ["Ice", "Ghost"],
+		gender: "F",
+		baseStats: { hp: 140, atk: 120, def: 40, spa: 30, spd: 110, spe: 65 },
+		abilities: { 0: "Frost Wraith" },
+		heightm: 1.7,
+		weightkg: 65,
+		color: "Blue",
+		eggGroups: ["Undiscovered"],
+	}
 };

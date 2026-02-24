@@ -6606,7 +6606,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			duration: 2,
 			onSourceModifyDamage(damage, source, target, move) {
 				if (source.hasAbility('markofcounter')) {
-					return this.chainModify(1.5);
+					return this.chainModify(1.3);
 				}
 			},
 			onDamagingHit(damage, target, source, move) {
@@ -6622,5 +6622,42 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Mark of Counter",
 		rating: 0,
 		num: -9003,
+	},
+	oiltotheflames: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, source, target, move) {
+			if (target.status === 'brn') {
+				this.debug('Oil to the Flames boost');
+				return this.chainModify(1.3);
+			}
+		},
+		flags: {},
+		name: "Oil to the Flames",
+		rating: 0,
+		num: -9004,
+	},
+	frostwraith: {
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.id === 'transcendentflash' && !pokemon.volatiles['frostwraith']) {
+				pokemon.addVolatile('frostwraith');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectState.transcendentFlashCounter = 1;
+			},
+			onModifyCritRatio(critRatio) {
+				return + this.effectState.transcendentFlashCounter;
+			},
+			onAfterMoveSecondarySelf(pokemon, target, move) {
+				if (move.id === 'transcendentflash' && this.effectState.transcendentFlashCounter < 2) {
+					this.effectState.transcendentFlashCounter++;
+				}
+			},
+		},
+		flags: {},
+		name: "Frost Wraith",
+		rating: 0,
+		num: -9005,
 	},
 };
