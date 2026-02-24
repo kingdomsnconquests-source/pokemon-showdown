@@ -22212,6 +22212,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePowerCallback(pokemon, target) {
 			const maxHP = pokemon.maxhp;
 			const bp = Math.floor(maxHP / 4) + 1;
+			this.debug(`BP for ${maxHP}/4 + 1 = ${bp}`);
 			return bp;
 		},
 		category: "Physical",
@@ -22306,13 +22307,18 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	transcendentflash: {
 		num: -9005,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			const maxHP = pokemon.maxhp;
+			const bp = Math.floor(maxHP / 5) + 1;
+			this.debug(`BP for ${maxHP}/5 = ${bp}`);
+			return bp;
+		},
 		category: "Physical",
 		name: "Transcendent Flash",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
-		overrideOffensiveStat: 'hp',
 		secondary: null,
 		onTryMove() {
 			this.attrLastMove('[still]');

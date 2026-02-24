@@ -226,7 +226,7 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	/**
 	 * Physical moves use attack stat modifiers, special moves use special attack stat modifiers.
 	 */
-	overrideOffensiveStat?: StatID;
+	overrideOffensiveStat?: StatIDExceptHP;
 	/**
 	 * Pokemon for the defense stat. Ability and Item damage modifiers still come from the real defender.
 	 */
