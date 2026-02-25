@@ -20980,6 +20980,19 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		gen: 5,
 	},
+// Fire Emblem Characters
+	marth: {
+		num: -8001,
+		name: "Marth",
+		types: ["Sword"],
+		gender: "M",
+		baseStats: { hp: 78, atk: 90, def: 70, spa: 50, spd: 60, spe: 80 },
+		abilities: { 0: "Sharpness" },
+		heightm: 1.7,
+		weightkg: 68,
+		color: "Blue",
+		eggGroups: ["Undiscovered"],
+	},
 // HSR Characters
 	blade: {
 		num: -9001,

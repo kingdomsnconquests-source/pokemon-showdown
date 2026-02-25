@@ -22287,19 +22287,23 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	diggertronarm: {
 		num: -9004,
-		accuracy: 100,
+		accuracy: 80,
 		basePower: 100,
 		category: "Physical",
 		name: "Diggertron Arm",
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
-		secondary: null,
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
 		 onPrepareHit(target, source) {
 			this.add('-anim', source, 'headlongrush', target);
+			this.add('-anim', target, 'explosion', source);
 		},
 		target: "normal",
 		type: "Ground",
