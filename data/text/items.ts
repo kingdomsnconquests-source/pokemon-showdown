@@ -2574,7 +2574,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	ponigiri: {
 		name: "Ponigiri",
-		shortDesc: "No effect."
+		shortDesc: "Consumed on switch-in. Raises the holder's highest stat by 1.2x until switched out."
 	},
 	redponigiri: {
 		name: "Red Ponigiri",
@@ -2630,7 +2630,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	hachimaki: {
 		name: "Hachimaki",
-		shortDesc: "The holder becomes trapped and will faint in 4 turns but gains +2 Atk and SpA."
+		shortDesc: "The holder becomes trapped and will faint in 4 turns but gains +1 Atk and SpA."
 	},
 	noisemaker: {
 		name: "Noisemaker",
@@ -2658,7 +2658,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	guardiancharm: {
 		name: "Guardian Charm",
-		shortDesc: "If this Pokemon is the last unfainted Pokemon in the party, +3 Atk, Def, SpA, and SpD."
+		shortDesc: "If this Pokemon is the last unfainted Pokemon in the party, +1 Atk, Def, SpA, and SpD."
 	},
 	targetcharm: {
 		name: "Target Charm",
@@ -2683,23 +2683,28 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	chilipowder: {
 		name: "Chili Powder",
-		shortDesc: "Upon fainting to an attacking move, burns the attacker and its allies."
+		shortDesc: "Upon fainting to an attacking move, burns the attacker and its allies.",
+		activate: "The chili powder burns the opposing side!"
 	},
 	cursedflute: {
 		name: "Cursed Flute",
-		shortDesc: "Upon fainting to an attacking move, confuses the attacker and its allies."
+		shortDesc: "Upon fainting to an attacking move, confuses the attacker and its allies.",
+		activate: "The cursed flute confuses the opposing side!"
 	},
 	discharger: {
 		name: "Discharger",
-		shortDesc: "Upon fainting to an attacking move, paralyzes the attacker and its allies."
+		shortDesc: "Upon fainting to an attacking move, paralyzes the attacker and its allies.",
+		activate: "The discharger paralyzes the opposing side!"
 	},
 	dryice: {
 		name: "Dry Ice",
-		shortDesc: "Upon fainting to an attacking move, freezes the attacker and its allies."
+		shortDesc: "Upon fainting to an attacking move, freezes the attacker and its allies.",
+		activate: "The dry ice freezes the opposing side!"
 	},
 	sleeptightsalts: {
 		name: "Sleeptight Salts",
-		shortDesc: "Upon fainting to an attacking move, sleeps the attacker and its allies."
+		shortDesc: "Upon fainting to an attacking move, sleeps the attacker and its allies.",
+		activate: "The sleeptight salts put the opposing side to sleep!"
 	},
 	warfan: {
 		name: "War Fan",
@@ -2712,7 +2717,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	herosmantle: {
 		name: "Hero's Mantle",
-		shortDesc: "See Focus Band."
+		shortDesc: "The holder has a 50% chance to reduce damage received by 30%."
 	},
 	paddedcloak: {
 		name: "Padded Cloak",
@@ -2761,5 +2766,29 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	wingedboots: {
 		name: "Winged Boots",
 		shortDesc: "On switch-in, raises the holder's Speed by 1 stage. Consumed after use."
+	},
+	dumbbell: {
+		name: "Dumbbell",
+		shortDesc: "Raises the power of Special moves below 60 power by a flat 20."
+	},
+	strategytome: {
+		name: "Strategy Tome",
+		shortDesc: "Raises the power of Physical moves with 60 or more power by a flat 20."
+	},
+	magicmirror: {
+		name: "Magic Mirror",
+		shortDesc: "Consumed on switch-in. Gain the effects of magic bounce until switched out."
+	},
+	staffofcourage: {
+		name: "Staff of Courage",
+		shortDesc: "The holder is healed for an 1/8 of the average of the holder's Atk and SpA."
+	},
+	staffofpurpose: {
+		name: "Staff of Purpose",
+		shortDesc: "The holder is healed for an 1/8 of the average of the holder's Def and SpD."
+	},
+	twicelucky: {
+		name: "Twice Lucky",
+		shortDesc: "Consumed on switch-in. The holder gains the effects of serene grace until switched out."
 	}
 };

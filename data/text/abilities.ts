@@ -2503,7 +2503,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	sprint: {
 		name: "Sprint",
-		shortDesc: "This Pokemon's Speed is multiplied by 1.5x.",
+		shortDesc: "This Pokemon's Speed is multiplied by 1.3x.",
 	},
 	stealth: {
 		name: "Stealth",
@@ -2522,7 +2522,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	vanguard: {
 		name: "Vanguard",
-		shortDesc: "This Pokemon deals 1.5x damage if it acts before the target.",
+		shortDesc: "This Pokemon deals 1.3x damage if it acts before the target.",
 	},
 	warmblanket: {
 		name: "Warm Blanket",	
