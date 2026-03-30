@@ -22204,6 +22204,71 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Fighting",
 	},
+// Vivosaur Skills
+	elementalcombo: {
+		num: -8000,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Elemental Combo",
+		pp: 15,
+		priority: 0,
+		multihit: 2,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			let type = types[0];
+			if (type === '???' && types[1]) type = types[1];
+			move.type = type;
+		},
+		target: "normal",
+		type: "Normal",
+	},
+	elementalfury: {
+		num: -8001,
+		accuracy: 100,
+		basePower: 30,
+		category: "Physical",
+		name: "Elemental Fury",
+		pp: 15,
+		priority: 0,
+		multihit: 3,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			let type = types[0];
+			if (type === '???' && types[1]) type = types[1];
+			move.type = type;
+		},
+		onModifyMove(move, pokemon) {
+			if (move.hit === 3) {
+				move.category = "Special";
+			}
+		},
+		target: "normal",
+		type: "Normal",
+	},
+	elementalbreath: {
+		num: -8002,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Elemental Breath",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: null,
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			let type = types[0];
+			if (type === '???' && types[1]) type = types[1];
+			move.type = type;
+		},
+		target: "normal",
+		type: "Normal",
+	},
 // HSR Moves
 	shardsword: {
 		num: -9001,

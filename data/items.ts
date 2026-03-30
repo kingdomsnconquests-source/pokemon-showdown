@@ -8504,6 +8504,41 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	ponigiri: {
 		name: "Ponigiri",
+		onStart(pokemon) {
+			pokemon.eatItem();
+			pokemon.addVolatile('ponigiri');
+		},
+		condition: {
+			duration: 0,
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk') return;
+				return this.chainModify(1.2);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def') return;
+				return this.chainModify(1.2);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa') return;
+				return this.chainModify(1.2);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd') return;
+				return this.chainModify(1.2);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe') return;
+				return this.chainModify(1.2);
+			},
+		},
 		num: -9,
 		gen: 9
 	},
@@ -8726,7 +8761,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				pokemon.addVolatile('trapped');
 				pokemon.addVolatile('hachimaki');
 				pokemon.addVolatile('perishsong');
-				this.boost({ atk: 2, spa: 2 });
+				this.boost({ atk: 1, spa: 1 });
 		},
 		num: -23,
 		gen: 9
@@ -8813,7 +8848,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			const aliveAllies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted);
 			if (aliveAllies.length < 2) {
 				this.add('-activate', pokemon, 'item: Guardian Charm');
-				this.boost({ atk: 3, def: 3, spa: 3, spd: 3 }, pokemon, pokemon);
+				this.boost({ atk: 1, def: 1, spa: 1, spd: 1 }, pokemon, pokemon);
 			}
 		},
 		num: -30,
@@ -8936,6 +8971,17 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: -38,
 		gen: 9
 	},
+	dumbbell: {
+		name: "Dumbbell",
+		onBasePowerPriority: 16,
+		onBasePower(basePower, source, target, move) {
+			if (move.category === 'Physical' && move.basePower <= 60) {
+				return basePower + 20;
+			}
+		},
+		num: -47,
+		gen: 9
+	},
 	sleeptightsalts: {
 		name: "Sleeptight Salts",
 		onDamagingHitOrder: 1,
@@ -8956,8 +9002,9 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		name: "Cheering Conch",
 		onBasePowerPriority: 16,
 		onBasePower(basePower, user, target, move) {
-			if (move.category === 'Special' && this.randomChance(3, 10)) {
-				return this.chainModify(1.5);
+			if (move.category === 'Special' && this.randomChance(5, 10)) {
+				this.add('-activate', user, 'item: Cheering Conch');
+				return this.chainModify(1.3);
 			}
 		},
 		num: -40,
@@ -8967,8 +9014,9 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		name: "War Fan",
 		onBasePowerPriority: 16,
 		onBasePower(basePower, user, target, move) {
-			if (move.category === 'Physical' && this.randomChance(3, 10)) {
-				return this.chainModify(1.5);
+			if (move.category === 'Physical' && this.randomChance(5, 10)) {
+				this.add('-activate', user, 'item: War Fan');
+				return this.chainModify(1.3);
 			}
 		},
 		num: -41,
@@ -8982,11 +9030,10 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	herosmantle: {
 		name: "Hero's Mantle",
-		onDamagePriority: -40,
-		onDamage(damage, target, source, effect) {
-			if (this.randomChance(1, 10) && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add("-activate", target, "item: Focus Band");
-				return target.hp - 1;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.randomChance(5, 10)) {
+				this.add("-activate", target, "item: Hero's Mantle");
+				return this.chainModify(0.7);
 			}
 		},
 		num: -43,
@@ -9102,6 +9149,42 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: -49,
 		gen: 9
 	},
+	magicmirror: {
+		name: "Magic Mirror",
+		onStart(pokemon) {
+			pokemon.useItem();
+			this.add('-item', pokemon, 'Magic Mirror');
+			pokemon.addVolatile('magicmirror');
+		},
+		condition: {
+			duration: 0,
+			noCopy: true,
+			onTryHitPriority: 1,
+			onTryHit(target, source, move) {
+				if (target === source || move.hasBounced || !move.flags['reflectable'] || target.isSemiInvulnerable()) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, target, { target: source });
+				return null;
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable'] || target.isSemiInvulnerable()) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, this.effectState.target, { target: source });
+				move.hasBounced = true; // only bounce once in free-for-all battles
+				return null;
+			},
+		},
+		num: -49,
+		gen: 9
+	},
 	metalmirror: {
 		name: "Metal Mirror",
 		fling: {
@@ -9167,13 +9250,64 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	wingedboots: {
 		name: "Winged Boots",
-		onStart(pokemon) {
-			pokemon.useItem();	
-		},
-		boosts: {
-			spe: 1
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(1.2);
 		},
 		num: -55,
+		gen: 9
+	},
+	staffofcourage: {
+		name: "Staff of Courage",
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			this.heal((pokemon.getStat('atk') + pokemon.getStat('def')) / 16);
+		},
+		num: -56,
+		gen: 9
+	},
+	staffofpurpose: {
+		name: "Staff of Purpose",
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			this.heal((pokemon.getStat('def') + pokemon.getStat('spd')) / 16);
+		},
+		num: -57,
+		gen: 9
+	},
+	strategytome: {
+		name: "Strategy Tome",
+		onBasePowerPriority: 16,
+		onBasePower(basePower, source, target, move) {
+			if (move.category === 'Special' && move.basePower <= 60) {
+				return basePower + 20;
+			}
+		},
+		num: -58,
+		gen: 9
+	},
+	twicelucky: {
+		name: "Twice Lucky",
+		onStart(pokemon) {
+			pokemon.useItem();
+			pokemon.addVolatile('twicelucky');
+		},
+		condition: {
+			duration: 0,
+			noCopy: true,
+			onModifyMovePriority: -2,
+			onModifyMove(move) {
+				if (move.secondaries) {
+					this.debug('doubling secondary chance');
+					for (const secondary of move.secondaries) {
+						if (secondary.chance) secondary.chance *= 2;
+					}
+				}
+				if (move.self?.chance) move.self.chance *= 2;
+			},
+		},
+		num: -59,
 		gen: 9
 	}
 };

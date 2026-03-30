@@ -1,3 +1,5 @@
+import { PLAYER_SYMBOL } from '../server/user-groups';
+
 export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 	bug: {
 		damageTaken: {

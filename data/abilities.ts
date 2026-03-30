@@ -6455,7 +6455,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	sprint: {
 		onModifySpe(spe, pokemon) {
-			this.chainModify(1.5)
+			this.chainModify(1.3)
 		},
 		flags: {},
 		name: "Sprint",
@@ -6533,7 +6533,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.category !== 'Status' && target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Vanguard damage boost');
-				return move.basePower * 1.5;
+				return move.basePower * 1.3;
 			}
 		},
 		flags: {},

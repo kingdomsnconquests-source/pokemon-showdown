@@ -2676,6 +2676,11 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		name: "Conqueror Crystal",
 		shortDesc: "If held by a Hydreigon or Zekrom, the holder's Def and SpA is raised by 1 stage.",
 	},
+	cheeringconch: {
+		name: "Cheering Conch",
+		shortDesc: "50% chance to raise the power of special move by 30%.",
+		activate: "The cheering conch boosted [POKEMON]'s special attack!"
+	},
 	chilipowder: {
 		name: "Chili Powder",
 		shortDesc: "Upon fainting to an attacking move, burns the attacker and its allies."
@@ -2696,13 +2701,10 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		name: "Sleeptight Salts",
 		shortDesc: "Upon fainting to an attacking move, sleeps the attacker and its allies."
 	},
-	cheeringconch: {
-		name: "Cheering Conch",
-		shortDesc: "30% chance to raise the power of special move by 50%."
-	},
 	warfan: {
 		name: "War Fan",
-		shortDesc: "30% chance to raise the power of physical move by 50%."
+		shortDesc: "50% chance to raise the power of physical move by 30%.",
+		activate: "The war fan boosted [POKEMON]'s attack!"
 	},
 	fogmachine: {
 		name: "Fog Machine",
