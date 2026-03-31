@@ -9261,7 +9261,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			this.heal((pokemon.getStat('atk') + pokemon.getStat('def')) / 16);
+			this.heal((pokemon.getStat('atk', false, false) + pokemon.getStat('def', false, false)) / 16);
 		},
 		num: -56,
 		gen: 9
@@ -9271,7 +9271,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			this.heal((pokemon.getStat('def') + pokemon.getStat('spd')) / 16);
+			this.heal((pokemon.getStat('def', false, false) + pokemon.getStat('spd', false, false)) / 16);
 		},
 		num: -57,
 		gen: 9

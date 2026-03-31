@@ -160,21 +160,24 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onBeforeMovePriority: 3,
 		onBeforeMove(pokemon) {
-			pokemon.volatiles['confusion'].time--;
-			if (!pokemon.volatiles['confusion'].time) {
-				pokemon.removeVolatile('confusion');
-				return;
+			const moves = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				const move = this.dex.moves.get(moveid);
+				if (move.flags['nosleeptalk'] || move.flags['charge'] || (move.isZ && move.basePower !== 1) || move.isMax) {
+					continue;
+				}
+				moves.push(moveid);
 			}
-			this.add('-activate', pokemon, 'confusion');
-			if (!this.randomChance(33, 100)) {
-				return;
+			let randomMove = '';
+			if (moves.length) randomMove = this.sample(moves);
+			if (!randomMove) {
+				return false;
 			}
-			this.activeTarget = pokemon;
-			const damage = this.actions.getConfusionDamage(pokemon, 40);
-			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
-			const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
-			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
-			return false;
+			this.actions.useMove(randomMove, pokemon);
+		},
+		onModifyMove(move) {
+			move.target === 'randomNormal';
 		},
 	},
 	flinch: {
