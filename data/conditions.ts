@@ -158,8 +158,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
 		},
-		onBeforeMovePriority: 3,
-		onBeforeMove(pokemon) {
+		onTryMove(pokemon, target, move) {
 			const moves = [];
 			for (const moveSlot of pokemon.moveSlots) {
 				const moveid = moveSlot.id;
@@ -174,6 +173,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (!randomMove) {
 				return false;
 			}
+			this.add('activate', pokemon, 'confusion');
 			this.actions.useMove(randomMove, pokemon);
 		},
 		onModifyMove(move) {

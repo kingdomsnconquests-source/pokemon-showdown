@@ -222,7 +222,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		end: "  [POKEMON] snapped out of its confusion!",
 		endFromItem: "  [POKEMON]'s [ITEM] snapped it out of its confusion!",
 		alreadyStarted: "  [POKEMON] is already confused!",
-		activate: "  [POKEMON] is confused!",
+		activate: "  [POKEMON] used a random move!",
 		damage: "It hurt itself in its confusion!",
 	},
 	drain: {
