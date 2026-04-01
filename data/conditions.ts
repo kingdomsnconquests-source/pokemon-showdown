@@ -166,7 +166,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				return;
 			}
 			this.add('-activate', pokemon, 'confusion');
-			if (!this.randomChance(67, 100)) {
+			if (!this.randomChance(33, 100)) {
 				return;
 			}
 			this.activeTarget = pokemon;
@@ -175,18 +175,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
 			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
 			return false;
-		},
-		onModifyMovePriority: -1,
-		onModifyMove(move, pokemon) {
-			pokemon.volatiles['confusion'].time--;
-			if (!pokemon.volatiles['confusion'].time) {
-				pokemon.removeVolatile('confusion');
-				return;
-			}
-			const r = this.random(100);
-			if (r < 50) {
-				move.target = 'randomNormal';
-			}
 		},
 	},
 	flinch: {
