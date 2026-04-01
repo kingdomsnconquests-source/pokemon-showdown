@@ -158,26 +158,35 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
 		},
-		onTryMove(pokemon, target, move) {
-			const moves = [];
-			for (const moveSlot of pokemon.moveSlots) {
-				const moveid = moveSlot.id;
-				const move = this.dex.moves.get(moveid);
-				if (move.flags['nosleeptalk'] || move.flags['charge'] || (move.isZ && move.basePower !== 1) || move.isMax) {
-					continue;
-				}
-				moves.push(moveid);
+		onBeforeMovePriority: 3,
+		onBeforeMove(pokemon) {
+			pokemon.volatiles['confusion'].time--;
+			if (!pokemon.volatiles['confusion'].time) {
+				pokemon.removeVolatile('confusion');
+				return;
 			}
-			let randomMove = '';
-			if (moves.length) randomMove = this.sample(moves);
-			if (!randomMove) {
-				return false;
+			this.add('-activate', pokemon, 'confusion');
+			if (!this.randomChance(67, 100)) {
+				return;
 			}
-			this.add('activate', pokemon, 'confusion');
-			this.actions.useMove(randomMove, pokemon);
+			this.activeTarget = pokemon;
+			const damage = this.actions.getConfusionDamage(pokemon, 40);
+			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+			const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
+			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+			return false;
 		},
-		onModifyMove(move) {
-			move.target === 'randomNormal';
+		onModifyMovePriority: -1,
+		onModifyMove(move, pokemon) {
+			pokemon.volatiles['confusion'].time--;
+			if (!pokemon.volatiles['confusion'].time) {
+				pokemon.removeVolatile('confusion');
+				return;
+			}
+			const r = this.random(100);
+			if (r < 50) {
+				move.target = 'randomNormal';
+			}
 		},
 	},
 	flinch: {
