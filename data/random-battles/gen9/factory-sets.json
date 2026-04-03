@@ -2,10 +2,9 @@
 	"Uber": {},
 	"OU": {
 		"Arbok": {
-			"weight": 1,
 			"sets": [{
-				"species": "Arbok",
 				"weight": 1,
+				"species": "Arbok",
 				"item": ["Choice Band"],
 				"ability": ["Frighten"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
@@ -13,8 +12,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Gunk Shot"], ["Knock Off"], ["Earthquake"], ["Psychic Fangs"]]
 			}, {
-				"species": "Arbok",
 				"weight": 1,
+				"species": "Arbok",
 				"item": ["Winged Boots"],
 				"ability": ["Intimidate"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
@@ -22,8 +21,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Coil"], ["Gunk Shot"], ["Earthquake"], ["Knock Off"]]
 			}, {
-				"species": "Arbok",
 				"weight": 1,
+				"species": "Arbok",
 				"item": ["Winged Boots"],
 				"ability": ["Intimidate"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
@@ -33,10 +32,9 @@
 			}]
 		},
 		"vaporeon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Vaporeon",
 				"weight": 1,
+				"species": "Vaporeon",
 				"item": ["Heavy-Duty Boots"],
 				"ability": ["Water Absorb"],
 				"evs": {"hp": 252, "def": 252, "spd": 4},
@@ -44,8 +42,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Wish"], ["Flip Turn"], ["Toxic"], ["Protect"]]
 			}, {
-				"species": "Vaporeon",
 				"weight": 1,
+				"species": "Vaporeon",
 				"item": ["Staff of Purpose"],
 				"ability": ["Water Rider"],
 				"evs": {"def": 252, "spd": 252, "spa": 4},
@@ -53,8 +51,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Calm Mind"], ["Acid Armor"], ["Scald"], ["Ice Beam"]]
 			}, {
-				"species": "Vaporeon",
 				"weight": 1,
+				"species": "Vaporeon",
 				"item": ["Leftovers"],
 				"ability": ["Water Absorb"],
 				"evs": {"hp": 252, "def": 252, "spd": 4},
@@ -64,10 +62,9 @@
 			}]
 		},
 		"jolteon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Jolteon",
 				"weight": 1,
+				"species": "Jolteon",
 				"item": ["Choice Scarf"],
 				"ability": ["Vanguard"],
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
@@ -75,8 +72,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Thunderbolt"], ["Shadow Ball"], ["Volt Switch"], ["Alluring Voice"]]
 			}, {
-				"species": "Jolteon",
 				"weight": 1,
+				"species": "Jolteon",
 				"item": ["Life Orb"],
 				"ability": ["Sprint"],
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
@@ -84,8 +81,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Thunderbolt"], ["Hidden Power [Ice]"], ["Volt Switch"], ["Calm Mind"]]
 			}, {
-				"species": "Jolteon",
 				"weight": 1,
+				"species": "Jolteon",
 				"item": ["Light Clay"],
 				"ability": ["Sprint"],
 				"evs": {"spa": 252, "def": 4, "spe": 252},
@@ -95,10 +92,9 @@
 			}]
 		},
 		"flareon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Flareon",
 				"weight": 1,
+				"species": "Flareon",
 				"item": ["Staff of Courage"],
 				"ability": ["Flash Fire"],
 				"evs": {"hp": 252, "atk": 4,"spa": 252},
@@ -106,8 +102,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Calm Mind"], ["Flamethrower"], ["Scorching Sands"], ["Will-O-Wisp"]]
 			}, {
-				"species": "Flareon",
 				"weight": 1,
+				"species": "Flareon",
 				"item": ["Heavy-Duty Boots"],
 				"ability": ["Spirit (Conquest)"],
 				"evs": {"atk": 252, "def": 4,"spe": 252},
@@ -115,8 +111,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Flare Blitz"], ["Double-Edge"], ["Trailblaze"], ["Quick Attack"]]
 			}, {
-				"species": "Flareon",
 				"weight": 1,
+				"species": "Flareon",
 				"item": ["Staff of Courage"],
 				"ability": ["Spirit (Conquest)"],
 				"evs": {"hp": 252, "atk": 252, "spa": 4},
@@ -126,10 +122,9 @@
 			}]
 		},
 		"espeon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Espeon",
 				"weight": 1,
+				"species": "Espeon",
 				"item": ["Winged Boots"],
 				"ability": ["Mountaineer"],
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
@@ -137,8 +132,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Calm Mind"], ["Draining Kiss"], ["Stored Power"], ["Morning Sun"]]
 			}, {
-				"species": "Espeon",
 				"weight": 1,
+				"species": "Espeon",
 				"item": ["Ponigiri"],
 				"ability": ["Mountaineer"],
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
@@ -146,8 +141,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Trailblaze"], ["Draining Kiss"], ["Shadow Ball"], ["Psychic"]]
 			}, {
-				"species": "Espeon",
 				"weight": 1,
+				"species": "Espeon",
 				"item": ["Choice Scarf"],
 				"ability": ["Mountaineer"],
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
@@ -157,10 +152,9 @@
 			}]
 		},
 		"umbreon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Umbreon",
 				"weight": 1,
+				"species": "Umbreon",
 				"item": ["Staff of Purpose"],
 				"ability": ["Shackle"],
 				"evs": {"hp": 252, "def": 252, "spd": 4},
@@ -168,8 +162,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Calm Mind"], ["Stored Power"], ["Dark Pulse"], ["Moonlight"]]
 			}, {
-				"species": "Umbreon",
 				"weight": 1,
+				"species": "Umbreon",
 				"item": ["Leftovers"],
 				"ability": ["Shackle"],
 				"evs": {"hp": 252, "def": 252, "spd": 4},
@@ -177,8 +171,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Foul Play"], ["Toxic"], ["Wish"], ["Protect"]]
 			}, {
-				"species": "Umbreon",
 				"weight": 1,
+				"species": "Umbreon",
 				"item": ["Staff of Purpose"],
 				"ability": ["Shackle"],
 				"evs": {"hp": 252, "def": 4, "spd": 252},
@@ -188,10 +182,9 @@
 			}]
 		},
 		"leafeon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Leafeon",
 				"weight": 1,
+				"species": "Leafeon",
 				"item": ["Staff of Courage"],
 				"ability": ["Life Force"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
@@ -199,8 +192,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Leaf Blade"], ["Knock Off"], ["Swords Dance"], ["Trailblaze"]]
 			}, {
-				"species": "Leafeon",
 				"weight": 1,
+				"species": "Leafeon",
 				"item": ["Choice Band"],
 				"ability": ["Run Up"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
@@ -208,8 +201,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Leaf Blade"], ["Knock Off"], ["Double-Edge"], ["X-Scissor"]]
 			}, {
-				"species": "Leafeon",
 				"weight": 1,
+				"species": "Leafeon",
 				"item": ["Staff of Purpose"],
 				"ability": ["Life Force"],
 				"evs": {"hp": 252, "def": 4, "spd": 252},
@@ -219,10 +212,9 @@
 			}]
 		},
 		"glaceon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Glaceon",
 				"weight": 1,
+				"species": "Glaceon",
 				"item": ["Choice Specs"],
 				"ability": ["Skater"],
 				"evs": {"spa": 252, "def": 4, "spe": 252},
@@ -230,8 +222,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Freeze-Dry"], ["Alluring Voice"], ["Hyper Voice"], ["Shadow Ball"]]
 			}, {
-				"species": "Glaceon",
 				"weight": 1,
+				"species": "Glaceon",
 				"item": ["Heavy-Duty Boots"],
 				"ability": ["Skater"],
 				"evs": {"spa": 252, "def": 4, "spd": 252},
@@ -239,8 +231,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Calm Mind"], ["Freeze-Dry"], ["Shadow Ball"], ["Alluring Voice"]]
 			}, {
-				"species": "Glaceon",
 				"weight": 1,
+				"species": "Glaceon",
 				"item": ["Staff of Purpose"],
 				"ability": ["Frostbite"],
 				"evs": {"hp": 252, "def": 4, "spd": 252},
@@ -250,10 +242,9 @@
 			}]
 		},
 		"sylveon": {
-			"weight": 1,
 			"sets": [{
-				"species": "Sylveon",
 				"weight": 1,
+				"species": "Sylveon",
 				"item": ["Life Orb"],
 				"ability": ["Sponge"],
 				"evs": {"spa": 252, "def": 4, "spe": 252},
@@ -261,8 +252,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Moonblast"], ["Mystical Fire"], ["Psyshock"], ["Trailblaze"]]
 			}, {
-				"species": "Sylveon",
 				"weight": 1,
+				"species": "Sylveon",
 				"item": ["Staff of Purpose"],
 				"ability": ["Sponge"],
 				"evs": {"hp": 252, "def": 252, "spd": 4},
@@ -270,8 +261,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Calm Mind"], ["Substitute"], ["Moonblast"], ["Mystical Fire"]]
 			}, {
-				"species": "Sylveon",
 				"weight": 1,
+				"species": "Sylveon",
 				"item": ["Heavy-Duty Boots"],
 				"ability": ["Sponge"],
 				"evs": {"hp": 252, "def": 4, "spa": 252},
@@ -281,10 +272,9 @@
 			}]
 		},
 		"gardevoir": {
-			"weight": 1,
 			"sets": [{
-				"species": "Gardevoir",
 				"weight": 1,
+				"species": "Gardevoir",
 				"item": ["Winged Boots"],
 				"ability": ["Instinct"],
 				"evs": {"def": 4, "spa": 252, "spe": 252},
@@ -292,8 +282,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Shadow Ball"], ["Aura Sphere"], ["Moonblast"], ["Psyshock"]]
 			}, {
-				"species": "Gardevoir",
 				"weight": 1,
+				"species": "Gardevoir",
 				"item": ["Choice Specs"],
 				"ability": ["Instinct"],
 				"evs": {"def": 4, "spa": 252, "spe": 252},
@@ -301,8 +291,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Trick"], ["Psychic"], ["Moonblast"], ["Mystical Fire"]]
 			}, {
-				"species": "Gardevoir",
 				"weight": 1,
+				"species": "Gardevoir",
 				"item": ["Life Orb"],
 				"ability": ["Instinct"],
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
@@ -312,10 +302,9 @@
 			}]
 		},
 		"gallade": {
-			"weight": 1,
 			"sets": [{
-				"species": "Gallade",
 				"weight": 1,
+				"species": "Gallade",
 				"item": ["Winged Boots"],
 				"ability": ["Conqueror"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
@@ -323,8 +312,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Swords Dance"], ["Close Combat"], ["Knock Off"], ["Earthquake"]]
 			}, {
-				"species": "Gallade",
 				"weight": 1,
+				"species": "Gallade",
 				"item": ["Life Orb"],
 				"ability": ["Conqueror"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
@@ -332,8 +321,8 @@
 				"teraType": ["Normal"],
 				"moves": [["Agility"], ["Swords Dance"], ["Sacred Sword"], ["Zen Headbutt"]]
 			}, {
-				"species": "Gallade",
 				"weight": 1,
+				"species": "Gallade",
 				"item": ["Guardian Charm"],
 				"ability": ["Conqueror"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
