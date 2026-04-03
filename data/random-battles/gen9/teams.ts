@@ -2499,7 +2499,7 @@ export class RandomTeams {
 
 		if (!this.factoryTier) {
 			// this.factoryTier = this.sample(['Uber', 'OU', 'UU', 'RU', 'NU', 'PU', 'LC']);
-			this.factoryTier = this.sample(['Uber', 'OU', 'UU', 'RU', 'NU', 'PU']);
+			this.factoryTier = this.sample(['Uber', 'OU', 'UU', 'RU', 'NU', 'PU', 'CQ']);
 		}
 
 		const tierValues: { [k: string]: number } = {
@@ -2508,7 +2508,7 @@ export class RandomTeams {
 			UU: 3, RUBL: 3,
 			RU: 2, NUBL: 2,
 			NU: 1, PUBL: 1,
-			PU: 0,
+			PU: 0, CQ: 3,
 		};
 
 		const pokemon = [];
@@ -2525,12 +2525,13 @@ export class RandomTeams {
 			resistances: {},
 		};
 		const resistanceAbilities: { [k: string]: string[] } = {
-			dryskin: ['Water'], waterabsorb: ['Water'], stormdrain: ['Water'],
+			dryskin: ['Water'], waterabsorb: ['Water'], stormdrain: ['Water'], waverider: ['Water'],
 			flashfire: ['Fire'], heatproof: ['Fire'], waterbubble: ['Fire'], wellbakedbody: ['Fire'],
 			lightningrod: ['Electric'], motordrive: ['Electric'], voltabsorb: ['Electric'],
 			sapsipper: ['Grass'],
 			thickfat: ['Ice', 'Fire'],
 			eartheater: ['Ground'], levitate: ['Ground'],
+			skater: ['Ice']
 		};
 		const movesLimited: { [k: string]: string } = {
 			stealthrock: 'stealthRock',
