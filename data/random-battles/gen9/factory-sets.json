@@ -1,5 +1,6 @@
 {
-	"CQ": {
+	"Uber": {},
+	"OU": {
 		"Arbok": {
 			"weight": 1,
 			"sets": [{
@@ -341,5 +342,9 @@
 				"moves": [["Close Combat"], ["Earthquake"], ["Knock Off"], ["Ice Punch"]]
 			}]
 		}
-	}
+	},
+	"UU": {},
+	"RU": {},
+	"NU": {},
+	"PU": {}
 }

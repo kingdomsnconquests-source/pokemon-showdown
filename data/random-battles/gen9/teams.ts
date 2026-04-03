@@ -2499,7 +2499,7 @@ export class RandomTeams {
 
 		if (!this.factoryTier) {
 			// this.factoryTier = this.sample(['Uber', 'OU', 'UU', 'RU', 'NU', 'PU', 'LC']);
-			this.factoryTier = this.sample(['Uber', 'OU', 'UU', 'RU', 'NU', 'PU', 'CQ']);
+			this.factoryTier = this.sample(['Uber', 'OU', 'UU', 'RU', 'NU', 'PU']);
 		}
 
 		const tierValues: { [k: string]: number } = {
@@ -2508,7 +2508,7 @@ export class RandomTeams {
 			UU: 3, RUBL: 3,
 			RU: 2, NUBL: 2,
 			NU: 1, PUBL: 1,
-			PU: 0, CQ: 3,
+			PU: 0
 		};
 
 		const pokemon = [];
