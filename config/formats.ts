@@ -30,19 +30,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		team: 'randomBSSFactory',
 		bestOfDefault: true,
 		ruleset: ['Standard NatDex', 'Terastal Clause'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			'Guardian Charm',
-			"Sleeptight Salts",
-			'Chili Powder',
-			'Discharger',
-			'Dry Ice',
-		],
-		unbanlist: [
-			'Chimechite',
-			'Emboarite',
-		]
 	},
 	{
 		name: "[Gen 9] ND Ambition Singles",
