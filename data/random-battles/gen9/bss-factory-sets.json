@@ -1,6 +1,6 @@
 {
     "arbok": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Arbok",
@@ -22,7 +22,7 @@
         }]
     },
     "vaporeon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Vaporeon",
@@ -44,7 +44,7 @@
         }]
     },
     "jolteon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Jolteon",
@@ -66,7 +66,7 @@
         }]
     },
     "flareon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Flareon",
@@ -88,7 +88,7 @@
         }]
     },
     "espeon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Espeon",
@@ -110,7 +110,7 @@
         }]
     },
     "umbreon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Umbreon",
@@ -132,7 +132,7 @@
         }]
     },
     "leafeon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Leafeon",
@@ -154,7 +154,7 @@
         }]
     },
     "glaceon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Glaceon",
@@ -172,11 +172,11 @@
             "evs": {"hp": 252, "def": 4, "spd": 252},
             "nature": ["Calm"],
             "teraType": ["Normal"],
-            "moves": [["Barrier"], ["Calm Mind"], ["Ice Beam"], ["Hidden Power [Electric]"]]
+            "moves": [["Barrier"], ["Calm Mind"], ["Ice Beam"], ["Hidden Power Electric"]]
         }]
     },
     "sylveon": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Sylveon",
@@ -198,7 +198,7 @@
         }]
     },
     "gardevoir": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Gardevoir",
@@ -220,7 +220,7 @@
         }]
     },
     "gallade": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Gallade",
@@ -242,7 +242,7 @@
         }]
     },
     "gyarados": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Gyarados",
@@ -264,7 +264,7 @@
         }]
     },
     "raichu": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Raichu",
@@ -285,8 +285,8 @@
             "moves": [["Nuzzle"], ["Volt Switch"], ["Knock Off"], ["Volt Tackle"]]
         }]
     },
-    "raichu-alola": {
-        "weight": 1,
+    "raichualola": {
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Raichu-Alola",
@@ -308,7 +308,7 @@
         }]
     },
     "quagsire": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Quagsire",
@@ -330,7 +330,7 @@
         }]
     },
     "clodsire": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Clodsire",
@@ -352,7 +352,7 @@
         }]
     },
     "wigglytuff": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Wigglytuff",
@@ -374,7 +374,7 @@
         }]
     },
     "crobat": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Crobat",
@@ -405,7 +405,7 @@
          }]
     },
     "staraptor": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Staraptor",
@@ -437,7 +437,7 @@
          }]
     },
     "bibarel": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Bibarel",
@@ -459,7 +459,7 @@
         }]
     },
     "scolipede": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Scolipede",
@@ -481,7 +481,7 @@
         }]
     },
     "luxray": {
-        "weight": 1,
+        "weight": 10,
         "sets": [{
             "weight": 50,
             "species": "Luxray",
