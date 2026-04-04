@@ -4134,7 +4134,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] BSS Factory",
 		desc: `Randomized 3v3 Singles featuring Pok&eacute;mon and movesets popular in Battle Stadium Singles.`,
 		mod: 'gen9',
-		searchShow: false,
 		team: 'randomBSSFactory',
 		bestOfDefault: true,
 		ruleset: ['Flat Rules', 'VGC Timer'],
