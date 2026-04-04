@@ -376,7 +376,7 @@
     "crobat": {
         "weight": 10,
         "sets": [{
-            "weight": 50,
+            "weight": 33,
             "species": "Crobat",
             "item": ["Choice Band"],
             "ability": ["Sponge"],
@@ -385,7 +385,7 @@
             "teraType": ["Normal"],
             "moves": [["Brave Bird"], ["Cross Poison"], ["U-turn"], ["Crunch"]]
         }, {
-            "weight": 50,
+            "weight": 33,
             "species": "Crobat",
             "item": ["Choice Specs"],
             "ability": ["Shadow Dash"],
@@ -394,7 +394,7 @@
             "teraType": ["Normal"],
             "moves": [["Sludge Bomb"], ["Dark Pulse"], ["Shadow Ball"], ["U-Turn"]]
         }, {
-            "weight": 50,
+            "weight": 34,
             "species": "Crobat",
             "item": ["Heavy-Duty Boots"],
             "ability": ["Inner Focus"],
@@ -407,7 +407,7 @@
     "staraptor": {
         "weight": 10,
         "sets": [{
-            "weight": 50,
+            "weight": 33,
             "species": "Staraptor",
             "item": ["Choice Scarf"],
             "ability": ["Vanguard"],
@@ -416,7 +416,7 @@
             "teraType": ["Normal"],
             "moves": [["Brave Bird"], ["Close Combat"], ["U-turn"], ["Double-Edge"]]
         }, {
-            "weight": 50,
+            "weight": 33,
             "species": "Staraptor",
             "item": ["Hachimaki"],
             "ability": ["Hero"],
@@ -426,7 +426,7 @@
             "moves": [["Brave Bird"], ["Close Combat"], ["U-turn"], ["Double-Edge"]]
         },
          {
-            "weight": 50,
+            "weight": 34,
             "species": "Staraptor",
             "item": ["Heavy-Duty Boots"],
             "ability": ["Intimidate"],
@@ -500,6 +500,200 @@
             "nature": ["Jolly"],
             "teraType": ["Normal"],
             "moves": [["Supercell Slam"], ["Ice Fang"], ["Thunder Wave"], ["Volt Switch"]]
+        }]
+    },
+    "chandelure": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Chandelure",
+            "item": ["Crimson Grace"],
+            "ability": ["Warm Blanket"],
+            "evs": {"hp": 252, "spa": 252, "spd": 4},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Sunny Day"], ["Flamethrower"], ["Energy Ball"], ["Shadow Ball"]]
+        }, {
+            "weight": 50,
+            "species": "Chandelure",
+            "item": ["Winged Boots"],
+            "ability": ["Flash Fire"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Energy Ball"], ["Shadow Ball"], ["Flamethrower"], ["Psyshock"]]
+        }]
+    },
+    "gigalith": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Gigalith",
+            "item": ["Cursed Flute"],
+            "ability": ["Explode"],
+            "evs": {"hp": 252, "atk": 252, "def": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Stealth Rock"], ["Earthquake"], ["Stone Edge"], ["Superpower"]]
+        }, {
+            "weight": 50,
+            "species": "Gigalith",
+            "item": ["Double Play"],
+            "ability": ["Explode"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Stealth Rock"], ["Earthquake"], ["Stone Edge"], ["Explosion"]]
+        }]
+    },
+    "lilligant": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Lilligant",
+            "item": ["Staff of Courage"],
+            "ability": ["Life Force"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Substitute"], ["Quiver Dance"], ["Energy Ball"], ["Hidden Power Fire"]]
+        }, {
+            "weight": 50,
+            "species": "Lilligant",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Life Force"],
+            "evs": {"spa": 252, "def": 4, "spd": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Sleep Powder"], ["Synthesis"], ["Aromatherapy"], ["Leaf Storm"]]
+        }]
+    },
+    "lilliganthisui": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Lilligant-Hisui",
+            "item": ["Staff of Courage"],
+            "ability": ["Life Force"],
+            "evs": {"atk": 252, "spd": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Substitute"], ["Victory Dance"], ["Close Combat"], ["Leaf Blade"]]
+        }, {
+            "weight": 33,
+            "species": "Lilligant-Hisui",
+            "item": ["Choice Band"],
+            "ability": ["High-Rise"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Axe Kick"], ["Leaf Blade"], ["Triple Axel"], ["Poison Jab"]]
+        }, {
+            "weight": 34,
+            "species": "Lilligant-Hisui",
+            "item": ["Choice Scarf"],
+            "ability": ["Run Up"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Close Combat"], ["Leaf Blade"], ["Triple Axel"], ["Poison Jab"]]
+        }]
+    },
+    "ampharos": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Ampharos",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Interference"],
+            "evs": {"hp": 252, "spd": 24, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Thunderbolt"], ["Thunder Wave"], ["Heal Bell"], ["Volt Switch"]]
+        }, {
+            "weight": 33,
+            "species": "Ampharos",
+            "item": ["Staff of Purpose"],
+            "ability": ["Interference"],
+            "evs": {"hp": 252, "atk": 4, "spd": 252},
+            "nature": ["Careful"],
+            "teraType": ["Normal"],
+            "moves": [["Thunder Punch"], ["Ice Punch"], ["Curse"], ["Thunder Wave"]]
+        }, {
+            "weight": 34,
+            "species": "Ampharos",
+            "item": ["Ampharosite"],
+            "ability": ["Interference"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Hidden Power Fire"], ["Thunderbolt"], ["Dragon Pulse"], ["Volt Switch"]]
+        }]
+    },
+    "whimsicott": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Whimsicott",
+            "item": ["Focus Sash"],
+            "ability": ["Mountaineer"],
+            "evs": {"hp": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Defog"], ["U-Turn"], ["Taunt"], ["Moonblast"]]
+        }, {
+            "weight": 50,
+            "species": "Whimsicott",
+            "item": ["Double Play"],
+            "ability": ["Mountaineer"],
+            "evs": {"hp": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Encore"], ["U-Turn"], ["Moonblast"], ["Knock Off"]]
+        }]
+    },
+    "lucario": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Lucario",
+            "item": ["Choice Band"],
+            "ability": ["Sprint"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Close Combat"], ["Meteor Mash"], ["Extreme Speed"], ["Bullet Punch"]]
+        }, {
+            "weight": 33,
+            "species": "Lucario",
+            "item": ["Iron Brace"],
+            "ability": ["Sprint"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Swords Dance"], ["Close Combat"], ["Meteor Mash"], ["Extreme Speed"]]
+        }, {
+            "weight": 34,
+            "species": "Lucario",
+            "item": ["Iron Brace"],
+            "ability": ["Sprint"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Nasty Plot"], ["Aura Sphere"], ["Dark Pulse"], ["Flash Cannon"]]
+        }]
+    },
+    "chimecho": {
+        "weight": 10,
+        "sets": [{
+            "weight": 100,
+            "species": "Chimecho",
+            "item": ["Chimechite"],
+            "ability": ["Levitate"],
+            "evs": {"hp": 252, "def": 252, "spd": 4},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Calm Mind"], ["Stored Power"], ["Draining Kiss"], ["Psyshock"]]
         }]
     }
 }
