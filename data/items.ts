@@ -8504,8 +8504,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	ponigiri: {
 		name: "Ponigiri",
-		onStart(pokemon) {
-			pokemon.eatItem();
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
 			pokemon.addVolatile('ponigiri');
 		},
 		condition: {
@@ -8517,44 +8521,29 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, pokemon) {
 				if (this.effectState.bestStat !== 'atk') return;
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, pokemon) {
 				if (this.effectState.bestStat !== 'def') return;
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(spa, pokemon) {
 				if (this.effectState.bestStat !== 'spa') return;
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(spd, pokemon) {
 				if (this.effectState.bestStat !== 'spd') return;
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
-				return this.chainModify(1.2);
+				return this.chainModify(1.5);
 			},
 		},
 		num: -9,
-		gen: 9
-	},
-	redponigiri: {
-		name: "Red Ponigiri",
-		num: -10,
-		gen: 9
-	},
-	blueponigiri: {
-		name: "Blue Ponigiri",
-		num: -11,
-		gen: 9
-	},
-	purpleponigiri: {
-		name: "Purple Ponigiri",
-		num: -12,
 		gen: 9
 	},
 	burnblock: {
@@ -9250,8 +9239,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	wingedboots: {
 		name: "Winged Boots",
+		onStart(pokemon) {
+			pokemon.addVolatile('wingedboots');
+		},
 		onModifySpe(spe, pokemon) {
-			return this.chainModify(1.2);
+			return this.chainModify(1.3);
+		},
+		onDamagingHit(damage, target, source, move) {
+			target.useItem();
+			target.removeVolatile('wingedboots');
 		},
 		num: -55,
 		gen: 9

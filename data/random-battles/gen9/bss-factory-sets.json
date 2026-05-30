@@ -591,7 +591,7 @@
         }, {
             "weight": 34,
             "species": "Lilligant-Hisui",
-            "item": ["Choice Scarf"],
+            "item": ["Winged Boots"],
             "ability": ["Run Up"],
             "evs": {"atk": 252, "def": 4, "spe": 252},
             "nature": ["Adamant"],
@@ -695,5 +695,200 @@
             "teraType": ["Normal"],
             "moves": [["Calm Mind"], ["Stored Power"], ["Draining Kiss"], ["Psyshock"]]
         }]
+    },
+    "forretress": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Forretress",
+            "item": ["Staff of Purpose"],
+            "ability": ["Explode"],
+            "evs": {"hp": 4, "atk": 252, "spd": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Curse"], ["Body Press"], ["Gyro Ball"], ["Stone Edge"]]
+        }, {
+            "weight": 33,
+            "species": "Forretress",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Sturdy"],
+            "evs": {"hp": 252, "def": 252, "spd": 4},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Stealth Rock"], ["Spikes"], ["Body Press"], ["Rapid Spin"]]
+        }, {
+            "weight": 34,
+            "species": "Forretress",
+            "item": ["Rocky Helmet"],
+            "ability": ["Jagged Edge"],
+            "evs": {"hp": 252, "def": 252, "spd": 4},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Iron Defense"], ["Body Press"], ["Rest"], ["Sleep Talk"]]
+        }]
+    },
+    "persian": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Persian",
+            "item": ["Choice Band"],
+            "ability": ["High-Rise"],
+            "evs": {"hp": 4, "atk": 252, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Double-Edge"], ["Knock Off"], ["U-Turn"], ["Switcheroo"]]
+        }, {
+            "weight": 50,
+            "species": "Persian",
+            "item": ["Leftovers"],
+            "ability": ["Mountaineer"],
+            "evs": {"hp": 252, "def": 4, "spe": 252},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Taunt"], ["Knock Off"], ["Toxic"], ["U-Turn"]]
+        }]
+    },
+    "persianalola": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Persian-Alola",
+            "item": ["Staff of Courage"],
+            "ability": ["Mountaineer"],
+            "evs": {"hp": 4, "atk": 252, "spd": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Curse"], ["Double-Edge"], ["Knock off"], ["Gunk Shot"]]
+        }, {
+            "weight": 50,
+            "species": "Persian-Alola",
+            "item": ["Winged Boots"],
+            "ability": ["Climber"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Hypnosis"], ["Nasty Plot"], ["Dark Pulse"], ["Hyper Voice"]]
+        }]
+    },
+    "perrserker": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Perrserker",
+            "item": ["Focus Sash"],
+            "ability": ["Mountaineer"],
+            "evs": {"hp": 4, "atk": 252, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Stealth Rock"], ["Iron Head"], ["Knock Off"], ["U-Turn"]]
+        }, {
+            "weight": 50,
+            "species": "Forretress",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Frighten"],
+            "evs": {"hp": 4, "atk": 252, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Swords Dance"], ["Iron Head"], ["Knock Off"], ["Play Rough"]]
+        }]
+    },
+    "walrein": {
+        "weight": 10,
+        "sets": [{
+            "weight": 100,
+            "species": "Walrein",
+            "item": ["Staff of Purpose"],
+            "ability": ["Tenacity"],
+            "evs": {"hp": 252, "atk": 4, "spd": 252},
+            "nature": ["Careful"],
+            "teraType": ["Normal"],
+            "moves": [["Curse"], ["Body Press"], ["Liquidation"], ["Avalanche"]]
+        }]
+    },
+    "gothitelle": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Gothitelle",
+            "item": ["Staff of Purpose"],
+            "ability": ["Calming"],
+            "evs": {"hp": 252, "def": 252, "spa": 4},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Calm Mind"], ["Stored Power"], ["Focus Blast"], ["Thunderbolt"]]
+        }, {
+            "weight": 50,
+            "species": "Gothitelle",
+            "item": ["Choice Specs"],
+            "ability": ["Instinct"],
+            "evs": {"hp": 252, "spa": 252, "spd": 4},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Psychic"], ["Trick"], ["Focus Blast"], ["Thunderbolt"]]
+        }]
+    },
+    "krookodile": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Krookodile",
+            "item": ["Leftovers"],
+            "ability": ["Disgust"],
+            "evs": {"hp": 252, "atk": 252, "def": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Knock Off"], ["Earthquake"], ["Stealth Rock"], ["Gunk Shot"]]
+        }, {
+            "weight": 33,
+            "species": "Krookodile",
+            "item": ["Staff of Purpose"],
+            "ability": ["Intimidate"],
+            "evs": {"hp": 252, "atk": 4, "spd": 252},
+            "nature": ["Careful"],
+            "teraType": ["Normal"],
+            "moves": [["Knock Off"], ["Earthquake"], ["Gunk Shot"], ["Bulk Up"]]
+        }, {
+            "weight": 34,
+            "species": "Krookodile",
+            "item": ["Staff of Courage"],
+            "ability": ["Moxie"],
+            "evs": {"hp": 4, "atk": 252, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Knock Off"], ["Earthquake"], ["Gunk Shot"], ["Bulk Up"]]
+        }]
+    },
+    "dusknoir": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Dusknoir",
+            "item": ["Staff of Purpose"],
+            "ability": ["Black Hole"],
+            "evs": {"hp": 252, "def": 252, "spd": 4},
+            "nature": ["Impish"],
+            "teraType": ["Normal"],
+            "moves": [["Hex"], ["Calm Mind"], ["Will-O-Wisp"], ["Destiny Bond"]]
+        }, {
+            "weight": 33,
+            "species": "Dusknoir",
+            "item": ["Rocky Helmet"],
+            "ability": ["Black Hole"],
+            "evs": {"hp": 252, "def": 252, "spd": 4},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Rest"], ["Sleep Talk"], ["Night Shade"], ["Will-O-Wisp"]]
+        }, {
+            "weight": 34,
+            "species": "Dusknoir",
+            "item": ["Magic Mirror"],
+            "ability": ["Black Hole"],
+            "evs": {"hp": 252, "def": 4, "spd": 252},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Rest"], ["Sleep Talk"], ["Night Shade"], ["Toxic"]]
+        }]
     }
+
 }
