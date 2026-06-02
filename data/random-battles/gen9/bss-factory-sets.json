@@ -889,6 +889,363 @@
             "teraType": ["Normal"],
             "moves": [["Rest"], ["Sleep Talk"], ["Night Shade"], ["Toxic"]]
         }]
+    },
+    "musharna": {
+        "weight": 10,
+        "sets": [{
+            "weight": 100,
+            "species": "Musharna",
+            "item": ["Staff of Purpose"],
+            "ability": ["Calming"],
+            "evs": {"hp": 252, "def": 252, "spd": 4},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Calm Mind"], ["Stored Power"], ["Moonblast"], ["Moonlight"]]
+        }]
+    },
+    "zebstrika": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Zebstrika",
+            "item": ["Choice Band"],
+            "ability": ["Sprint"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Wild Charge"], ["High Horsepower"], ["Double-Edge"], ["Low Kick"]]
+        }, {
+            "weight": 50,
+            "species": "Zebstrika",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Sprint"],
+            "evs": {"atk": 252, "spd": 4, "spe": 252},
+            "nature": ["Lonely"],
+            "teraType": ["Normal"],
+            "moves": [["Wild Charge"], ["Volt Switch"], ["High Horsepower"], ["Thunder Wave"]]
+        }]
+    },
+    "dragonite": {
+        "weight": 10,
+        "sets": [{
+            "weight": 100,
+            "species": "Dragonite",
+            "item": ["Guardian Charm"],
+            "ability": ["Last Bastion"],
+            "evs": {"atk": 252, "spd": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Extreme Speed"], ["Earthquake"], ["Ice Spinner"], ["Dual Wingbeat"]]
+        }]
+    },
+    "tyranitar": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Tyranitar",
+            "item": ["Guardian Charm"],
+            "ability": ["Last Bastion"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Pursuit"], ["Earthquake"], ["Stone Edge"], ["Knock Off"]]
+        }, {
+            "weight": 33,
+            "species": "Tyranitar",
+            "item": ["Chople Berry"],
+            "ability": ["Frighten"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Stealth Rock"], ["Pursuit"], ["Knock Off"], ["Stone Edge"]]
+        }, {
+            "weight": 34,
+            "species": "Tyranitar",
+            "item": ["Staff of Courage"],
+            "ability": ["Frighten"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Dragon Dance"], ["Knock Off"], ["Earthquake"], ["Stone Edge"]]
+        }]
+    },
+    "metagross": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Metagross",
+            "item": ["War Fan"],
+            "ability": ["Thrust"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Stealth Rock"], ["Knock Off"], ["Heavy Slam"], ["Psychic Fangs"]]
+        }, {
+            "weight": 33,
+            "species": "Metagross",
+            "item": ["Warrior Crystal"],
+            "ability": ["Clear Body"],
+            "evs": {"atk": 252, "spd": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Bullet Punch"], ["Earthquake"], ["Agility"], ["Ice Punch"]]
+        }, {
+            "weight": 34,
+            "species": "Metagross",
+            "item": ["Hachimaki"],
+            "ability": ["Clear Body"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Bullet Punch"], ["Earthquake"], ["Psychic Fangs"], ["Ice Punch"]]
+        }]
+    },
+    "garchomp": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Garchomp",
+            "item": ["Rocky Helmet"],
+            "ability": ["Tenacity"],
+            "evs": {"hp": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Stealth Rock"], ["Dragon Tail"], ["Earthquake"], ["Stone Edge"]]
+        }, {
+            "weight": 33,
+            "species": "Garchomp",
+            "item": ["Winged Boots"],
+            "ability": ["Tenacity"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Swords Dance"], ["Earthquake"], ["Stone Edge"], ["Outrage"]]
+        }, {
+            "weight": 34,
+            "species": "Garchomp",
+            "item": ["Choice Band"],
+            "ability": ["Tenacity"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Earthquake"], ["Outrage"], ["Stone Edge"], ["Poison Jab"]]
+        }]
+    },
+    "toxicroak": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Toxicroak",
+            "item": ["Hachimaki"],
+            "ability": ["Hero"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Close Combat"], ["Sucker Punch"], ["Poison Jab"], ["Thunder Punch"]]
+        }, {
+            "weight": 33,
+            "species": "Toxicroak",
+            "item": ["Guardian Charm"],
+            "ability": ["Hero"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Close Combat"], ["Sucker Punch"], ["Gunk Shot"], ["Thunder Punch"]]
+        }, {
+            "weight": 34,
+            "species": "Toxicroak",
+            "item": ["Choice Scarf"],
+            "ability": ["Hero"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Close Combat"], ["Knock Off"], ["Poison Jab"], ["Thunder Punch"]]
+        }]
+    },
+    "hydreigon": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Hydreigon",
+            "item": ["Conqueror Crystal"],
+            "ability": ["Levitate"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Draco Meteor"], ["Dark Pulse"], ["Flamethrower"], ["Flash Cannon"]]
+        }, {
+            "weight": 33,
+            "species": "Hydreigon",
+            "item": ["Winged Boots"],
+            "ability": ["Levitate"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Draco Meteor"], ["Dark Pulse"], ["Flash Cannon"], ["U-Turn"]]
+        }, {
+            "weight": 34,
+            "species": "Hydreigon",
+            "item": ["Conqueror Crystal"],
+            "ability": ["Levitate"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Crunch"], ["Outrage"], ["Earthquake"], ["Ice Fang"]]
+        }]
+    },
+    "glalie": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Glalie",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Frighten"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Toxic"], ["Spikes"], ["Hex"], ["Ice Beam"]]
+        }, {
+            "weight": 33,
+            "species": "Glalie",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Frighten"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Toxic"], ["Spikes"], ["Ice Spinner"], ["Ice Shard"]]
+        }, {
+            "weight": 34,
+            "species": "Glalie",
+            "item": ["Glalitite"],
+            "ability": ["Frighten"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Double-Edge"], ["Ice Shard"], ["Explosion"], ["Trailblaze"]]
+        }]
+    },
+    "froslass": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Froslass",
+            "item": ["Focus Sash"],
+            "ability": ["Mountaineer"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Hex"], ["Ice Beam"], ["Will-O-Wisp", "Thunder Wave", "Toxic"], ["Thunderbolt"]]
+        }, {
+            "weight": 33,
+            "species": "Froslass",
+            "item": ["Focus Sash"],
+            "ability": ["Mountaineer"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Taunt"], ["Spikes"], ["Destiny Bond"], ["Shadow Ball"]]
+        }, {
+            "weight": 34,
+            "species": "Froslass",
+            "item": ["Focus Sash"],
+            "ability": ["Mountaineer"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Haze"], ["Shadow Ball"], ["Taunt"], ["Destiny Bond"]]
+        }]
+    },
+    "cinccino": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Cinccino",
+            "item": ["War Fan"],
+            "ability": ["Dodge"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Tidy Up"], ["Tail Slap"], ["Knock Off"], ["Encore"]]
+        }, {
+            "weight": 33,
+            "species": "Cinccino",
+            "item": ["Heavy-Duty Boots"],
+            "ability": ["Dodge"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Thunder Wave", "Toxic"], ["Return"], ["Knock off"], ["U-Turn"]]
+        }, {
+            "weight": 34,
+            "species": "Cinccino",
+            "item": ["Focus Sash"],
+            "ability": ["Dodge"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Tidy Up"], ["Return"], ["Play Rough"], ["Knock Off"]]
+        }]
+    },
+    "machamp": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Machamp",
+            "item": ["Assault Vest"],
+            "ability": ["Conqueror"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Bullet Punch"], ["Earthquake"], ["Knock Off"], ["Drain Punch"]]
+        }, {
+            "weight": 33,
+            "species": "Machamp",
+            "item": ["Dumbbell"],
+            "ability": ["Conqueror"],
+            "evs": {"atk": 252, "spd": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Power-Up Punch"], ["Bullet Punch"], ["Knock Off"], ["Superpower"]]
+        }, {
+            "weight": 34,
+            "species": "Machamp",
+            "item": ["Choice Band"],
+            "ability": ["Conqueror"],
+            "evs": {"hp": 252, "def": 4, "spd": 252},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Close Combat"], ["Bullet Punch"], ["Knock Off"], ["Ice Punch"]]
+        }]
+    },
+    "conkeldurr": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Conkeldurr",
+            "item": ["Focus Sash"],
+            "ability": ["Spirit (Conquest)"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Bulk Up"], ["Mach Punch"], ["Knock Off"], ["Hammer Arm"]]
+        }, {
+            "weight": 33,
+            "species": "Conkeldurr",
+            "item": ["Assault Vest"],
+            "ability": ["Thrust"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Power-Up Punch"], ["Drain Punch"], ["Hammer Arm"], ["Knock Off"]]
+        }, {
+            "weight": 34,
+            "species": "Conkeldurr",
+            "item": ["Dumbbell"],
+            "ability": ["Spirit (Conquest)"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Mach Punch"], ["Hammer Arm"], ["Endure"], ["Knock Off"]]
+        }]
     }
-
 }
