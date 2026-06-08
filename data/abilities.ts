@@ -5878,7 +5878,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (!target.hp && this.checkMoveMakesContact(move, source, target, true)) {
-				this.damage(source.getStat('atk') / 2, source, target);
+				this.damage(target.getStat('atk') / 2, source, target);
 			}
 		},
 		flags: {},

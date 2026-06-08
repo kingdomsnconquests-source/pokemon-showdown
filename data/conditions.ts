@@ -165,7 +165,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				pokemon.removeVolatile('confusion');
 				return;
 			}
-			this.add('-activate', pokemon, 'confusion');
 			if (!this.randomChance(33, 100)) {
 				return;
 			}

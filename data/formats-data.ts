@@ -545,16 +545,16 @@ natDexTier: "Illegal",
 natDexTier: "Illegal",
 	},
 	ponytagalar: {
-		tier: "Illegal",
-natDexTier: "Illegal",
+		tier: "CQ LC",
+natDexTier: "CQ LC",
 	},
 	rapidash: {
 		tier: "Illegal",
 natDexTier: "Illegal",
 	},
 	rapidashgalar: {
-		tier: "Illegal",
-natDexTier: "Illegal",
+		tier: "CQ",
+natDexTier: "CQ",
 	},
 	slowpoke: {
 		tier: "Illegal",

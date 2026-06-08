@@ -8505,7 +8505,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	ponigiri: {
 		name: "Ponigiri",
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
+			if (pokemon.hp <= pokemon.maxhp * 2 / 3) {
 				pokemon.eatItem();
 			}
 		},
@@ -9066,7 +9066,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			}
 			return false;
 		},
-		itemUser: ["Igglybuff","Jigglypuff", "Wigglytuff"],
+		itemUser: ["Igglybuff","Jigglypuff", "Wigglytuff", "Scream Tail"],
 		onTakeItem: false,
 		num: -46,
 		gen: 9
@@ -9102,11 +9102,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			}
 		},
 		num: -47,
-		gen: 9
-	},
-	luckycoin: {
-		name: "Lucky Coin",
-		num: -48,
 		gen: 9
 	},
 	magicballoon: {
@@ -9242,12 +9237,16 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onStart(pokemon) {
 			pokemon.addVolatile('wingedboots');
 		},
-		onModifySpe(spe, pokemon) {
-			return this.chainModify(1.3);
-		},
 		onDamagingHit(damage, target, source, move) {
 			target.useItem();
 			target.removeVolatile('wingedboots');
+		},
+		condition: {
+			duration: 0,
+			noCopy: true,
+			onModifySpe(spe, pokemon) {
+				return this.chainModify(1.3);
+			},
 		},
 		num: -55,
 		gen: 9

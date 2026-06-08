@@ -2383,7 +2383,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	hotblooded: {
 		name: "Hot Blooded",
-		shortDesc: "This Pokemon is healed 1/4 by Water, 1/8 by Rain; is hurt 1.25x by Fire, 1/8 by Sun.",
+		shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
 	},
 	instinct: {
 		name: "Instinct",

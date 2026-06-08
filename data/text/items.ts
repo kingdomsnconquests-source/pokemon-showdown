@@ -2574,19 +2574,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	ponigiri: {
 		name: "Ponigiri",
-		shortDesc: "Consumed on switch-in. Raises the holder's highest stat by 1.2x until switched out."
-	},
-	redponigiri: {
-		name: "Red Ponigiri",
-		shortDesc: "No effect."
-	},
-	blueponigiri: {
-		name: "Blue Ponigiri",
-		shortDesc: "No effect."
-	},
-	purpleponigiri: {
-		name: "Purple Ponigiri",
-		shortDesc: "No effect."
+		shortDesc: "Consumed when below 2/3 HP. Raises the holder's highest stat by 1.3x (1.5x for Speed) until switched out."
 	},
 	burnblock: {
 		name: "Burn Block",
@@ -2612,25 +2600,13 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		name: "Omni Block",
 		shortDesc: "Used to cure any status condition. After, become immune to status for 3 turns."
 	},
-	couplink: {
-		name: "Couplink",
-		shortDesc: "No effect."
-	},
-	excellink: {
-		name: "Excellink",
-		shortDesc: "No effect."
-	},
-	idyllink: {
-		name: "Idyllink",
-		shortDesc: "No effect."
-	},
 	doubleplay: {
 		name: "Double Play",
 		shortDesc: "After using a move, this item is consumed to gain +1 priority on the next turn."
 	},
 	hachimaki: {
 		name: "Hachimaki",
-		shortDesc: "The holder becomes trapped and will faint in 4 turns but gains +1 Atk and SpA."
+		shortDesc: "On switch-in, the holder is trapped, unable to use pivot moves, and faint in 4 turns but gains +1 Atk and SpA."
 	},
 	noisemaker: {
 		name: "Noisemaker",
@@ -2638,7 +2614,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	sirensong: {
 		name: "Siren Song",
-		shortDesc: "On switch-in, the holder gains the Follow Me effect."
+		shortDesc: "On switch-in, the holder gains the Follow Me effect for 1 turn."
 	},
 	sniperlens: {
 		name: "Sniper lens",
@@ -2658,7 +2634,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	guardiancharm: {
 		name: "Guardian Charm",
-		shortDesc: "If this Pokemon is the last unfainted Pokemon in the party, +1 Atk, Def, SpA, and SpD."
+		shortDesc: "If this Pokemon is the last unfainted Pokemon in a party > 1, +1 Atk, Def, SpA, and SpD."
 	},
 	targetcharm: {
 		name: "Target Charm",
@@ -2678,7 +2654,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	cheeringconch: {
 		name: "Cheering Conch",
-		shortDesc: "50% chance to raise the power of special move by 30%.",
+		shortDesc: "50% chance to raise the power of special moves by 30%.",
 		activate: "The cheering conch boosted [POKEMON]'s special attack!"
 	},
 	chilipowder: {
@@ -2735,10 +2711,6 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		name: "Large Sack",
 		shortDesc: "Consumed upon entry. The holder steals the item from the target after attacking."
 	},
-	luckycoin: {
-		name: "Lucky Coin",
-		shortDesc: "No effect in battle."
-	},
 	magicballoon: {
 		name: "Magic Balloon",
 		shortDesc: "See Air Balloon"
@@ -2765,19 +2737,19 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	wingedboots: {
 		name: "Winged Boots",
-		shortDesc: "On switch-in, raises the holder's Speed by 1 stage. Consumed after use."
+		shortDesc: "The holder's speed is raised by 30%. Breaks after being hit by an attack."
 	},
 	dumbbell: {
 		name: "Dumbbell",
-		shortDesc: "Raises the power of Special moves below 60 power by a flat 20."
+		shortDesc: "Raises the power of Physical moves 60 or below power by a flat 20."
 	},
 	strategytome: {
 		name: "Strategy Tome",
-		shortDesc: "Raises the power of Physical moves with 60 or more power by a flat 20."
+		shortDesc: "Raises the power of Special moves 60 or below power by a flat 20."
 	},
 	magicmirror: {
 		name: "Magic Mirror",
-		shortDesc: "Consumed on switch-in. Gain the effects of magic bounce until switched out."
+		shortDesc: "Consumed on switch-in. Gain the effects of Magic Bounce until switched out."
 	},
 	staffofcourage: {
 		name: "Staff of Courage",
@@ -2789,6 +2761,6 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	twicelucky: {
 		name: "Twice Lucky",
-		shortDesc: "Consumed on switch-in. The holder gains the effects of serene grace until switched out."
+		shortDesc: "Consumed on switch-in. The holder gains the effects of Serene Grace until switched out."
 	}
 };
