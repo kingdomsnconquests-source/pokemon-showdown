@@ -1248,6 +1248,369 @@
             "moves": [["Mach Punch"], ["Hammer Arm"], ["Endure"], ["Knock Off"]]
         }]
     },
+    "beartic": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Beartic",
+            "item": ["Choice Band"],
+            "ability": ["Frighten"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Icicle Crash"], ["Ice Shard"], ["Thunder Punch"], ["Earthquake"]]
+        }, {
+            "weight": 33,
+            "species": "Beartic",
+            "item": ["Staff of Courage"],
+            "ability": ["Tenacity"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Bulk Up"], ["Icicle Crash"], ["Ice Shard"], ["Earthquake"]]
+        }, {
+            "weight": 34,
+            "species": "Beartic",
+            "item": ["Dumbbell"],
+            "ability": ["Frighten"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Icicle Spear"], ["Ice Shard"], ["Power-Up Punch"], ["Earthquake"]]
+        }]
+    },
+    "samurott": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Samurott",
+            "item": ["Absorb Bulb"],
+            "ability": ["Wave Rider"],
+            "evs": {"spa": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Surf"], ["Grass Knot"], ["Ice Beam"], ["Flip Turn"]]
+        }, {
+            "weight": 33,
+            "species": "Samurott",
+            "item": ["War Fan"],
+            "ability": ["Conqueror"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Swords Dance"], ["Liquidation"], ["Aqua Jet"], ["X-Scissor "]]
+        }, {
+            "weight": 34,
+            "species": "Samurott",
+            "item": ["Choice Scarf"],
+            "ability": ["Conqueror"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Aqua Jet"], ["Liquidation"], ["Flip Turn"], ["Sacred Sword"]]
+        }]
+    },
+    "samurotthisui": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Samurott-Hisui",
+            "item": ["Double Play"],
+            "ability": ["Conqueror"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Ceaseless Edge"], ["Encore"], ["Flip Turn"], ["Knock Off"]]
+        }, {
+            "weight": 33,
+            "species": "Samurott-Hisui",
+            "item": ["Target Charm"],
+            "ability": ["Conqueror"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Swords Dance"], ["Aqua Cutter"], ["Night Slash"], ["Sucker Punch"]]
+        }, {
+            "weight": 34,
+            "species": "Samurott-Hisui",
+            "item": ["Choice Band"],
+            "ability": ["Conqueror"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Sacred Sword"], ["Knock Off"], ["Sucker Punch"], ["Liquidation"]]
+        }]
+    },
+    "charizard": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Charizard",
+            "item": ["Hachimaki"],
+            "ability": ["Hero"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Flare Blitz"], ["Earthquake"], ["Thunder Punch"], ["Crunch"]]
+        }, {
+            "weight": 33,
+            "species": "Charizard",
+            "item": ["Staff of Courage"],
+            "ability": ["Hero"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Belly Drum"], ["Earthquake"], ["Flare Blitz"], ["Protect"]]
+        }, {
+            "weight": 34,
+            "species": "Charizard",
+            "item": ["Guardian Charm"],
+            "ability": ["Last Bastion"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Swords Dance"], ["Earthquake"], ["Flare Blitz"], ["Roost"]]
+        }]
+    },
+    "gengar": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Gengar",
+            "item": ["Focus Sash"],
+            "ability": ["Levitate"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Toxic Spikes"], ["Shadow Ball"], ["Flamethrower"], ["Encore"]]
+        }, {
+            "weight": 33,
+            "species": "Gengar",
+            "item": ["Focus Sash"],
+            "ability": ["Levitate"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Nasty Plot"], ["Shadow Ball"], ["Sludge Bomb"], ["Flamethrower"]]
+        }, {
+            "weight": 34,
+            "species": "Gengar",
+            "item": ["Choice Specs"],
+            "ability": ["Levitate"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Trick"], ["Shadow Ball"], ["Flamethrower"], ["Sludge Bomb"]]
+        }]
+    },
+    "infernape": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Infernape",
+            "item": ["Choice Band"],
+            "ability": ["Conqueror"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Flare Blitz"], ["Close Combat"], ["Thunder Punch"], ["Mach Punch"]]
+        }, {
+            "weight": 33,
+            "species": "Infernape",
+            "item": ["Choice Specs"],
+            "ability": ["Climber"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Focus Blast"], ["Fire Blast"], ["Grass Knot"], ["Vacuum Wave"]]
+        }, {
+            "weight": 34,
+            "species": "Infernape",
+            "item": ["Strategy Tome"],
+            "ability": ["Climber"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Nasty Plot"], ["Focus Blast"], ["Fire Blast"], ["Vacuum Wave"]]
+        }]
+    },
+    "serperior": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Serperior",
+            "item": ["Emerald Grace"],
+            "ability": ["Grass Cloak"],
+            "evs": {"hp": 252, "def": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Grassy Terrain"], ["Toxic", "Leech Seed"], ["Protect", "Glare"], ["Energy Ball"]]
+        }, {
+            "weight": 33,
+            "species": "Serperior",
+            "item": ["Staff of Purpose"],
+            "ability": ["Grass Cloak"],
+            "evs": {"hp": 252, "def": 4, "spd": 252},
+            "nature": ["Careful"],
+            "teraType": ["Normal"],
+            "moves": [["Coil"], ["Leaf Blade"], ["Knock Off"], ["Grassy Terrain"]]
+        }, {
+            "weight": 34,
+            "species": "Serperior",
+            "item": ["Staff of Purpose"],
+            "ability": ["Grass Cloak"],
+            "evs": {"hp": 252, "def": 252, "spd": 4},
+            "nature": ["Bold"],
+            "teraType": ["Normal"],
+            "moves": [["Calm Mind"], ["Giga Drain"], ["Hidden Power Fire"], ["Grassy Terrain"]]
+        }]
+    },
+    "emboar": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Emboar",
+            "item": ["Focus Sash"],
+            "ability": ["Spirit (Conquest)"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Flame Charge"], ["Flare Blitz"], ["Close Combat"], ["Thunder Punch"]]
+        }, {
+            "weight": 33,
+            "species": "Emboar",
+            "item": ["Staff of Courage"],
+            "ability": ["Tenacity"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Bulk Up"], ["Flare Blitz"], ["Hammer Arm"], ["Thunder Punch"]]
+        }, {
+            "weight": 34,
+            "species": "Emboar",
+            "item": ["Guardian Charm"],
+            "ability": ["Spirit (Conquest)"],
+            "evs": {"hp": 252, "atk": 252, "spd": 4},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Flare Blitz"], ["Hammer Arm"], ["Thunder Punch"], ["Earthquake"]]
+        }]
+    },
+    "leavanny": {
+        "weight": 10,
+        "sets": [{
+            "weight": 50,
+            "species": "Leavanny",
+            "item": ["Winged Boots"],
+            "ability": ["Swarm"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Jolly"],
+            "teraType": ["Normal"],
+            "moves": [["Leaf Blade"], ["Knock Off"], ["Triple Axel"], ["Low Kick"]]
+        }, {
+            "weight": 50,
+            "species": "Leavanny",
+            "item": ["Ponigiri"],
+            "ability": ["Swarm"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Endure"], ["Leaf Blade"], ["Knock Off"], ["Triple Axel"]]
+        }]
+    },
+    "alakazam": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Alakazam",
+            "item": ["Life Orb"],
+            "ability": ["Life Force"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Psychic", "Psyshock"], ["Encore", "Taunt"], ["Focus Blast"], ["Energy Ball", "Shadow Ball"]]
+        }, {
+            "weight": 33,
+            "species": "Alakazam",
+            "item": ["Staff of Courage"],
+            "ability": ["Life Force"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Nasty Plot"], ["Psychic", "Psyshock"], ["Shadow Ball"], ["Focus Blast"]]
+        }, {
+            "weight": 34,
+            "species": "Alakazam",
+            "item": ["Staff of Purpose"],
+            "ability": ["Life Force"],
+            "evs": {"hp": 252, "def": 4, "spd": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Recover"], ["Barrier"], ["Night Shade"], ["Taunt"]]
+        }]
+    },
+    "sceptile": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Sceptile",
+            "item": ["Choice Specs"],
+            "ability": ["Sprint"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Leaf Storm"], ["Focus Blast"], ["Dragon Pulse"], ["Hidden Power Rock"]]
+        }, {
+            "weight": 33,
+            "species": "Sceptile",
+            "item": ["Leftovers"],
+            "ability": ["Sprint"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Substitute"], ["Leech Seed"], ["Toxic", "Synthesis"], ["Giga Drain"]]
+        }, {
+            "weight": 34,
+            "species": "Sceptile",
+            "item": ["Iron Brace"],
+            "ability": ["Sprint"],
+            "evs": {"atk": 252, "def": 4, "spe": 252},
+            "nature": ["Adamant"],
+            "teraType": ["Normal"],
+            "moves": [["Swords Dance"], ["Leaf Blade"], ["Crunch"], ["Earthquake"]]
+        }]
+    },
+    "empoleon": {
+        "weight": 10,
+        "sets": [{
+            "weight": 33,
+            "species": "Empoleon",
+            "item": ["Flame Orb"],
+            "ability": ["Pride"],
+            "evs": {"hp": 252, "def": 108,"spa": 148},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Surf"], ["Ice Beam"], ["Roost"], ["Protect"]]
+        }, {
+            "weight": 33,
+            "species": "Empoleon",
+            "item": ["Hero's Mantle"],
+            "ability": ["Pride"],
+            "evs": {"hp": 252, "spa": 4, "spd": 252},
+            "nature": ["Sassy"],
+            "teraType": ["Normal"],
+            "moves": [["Iron Defense"], ["Roost"], ["Scald"], ["Knock Off"]]
+        }, {
+            "weight": 34,
+            "species": "Empoleon",
+            "item": ["Staff of Purpose"],
+            "ability": ["Wave Rider"],
+            "evs": {"hp": 252, "spa": 252, "spd": 4},
+            "nature": ["Sassy"],
+            "teraType": ["Normal"],
+            "moves": [["Flip Turn", "Roost"], ["Scald"], ["Knock Off", "Haze"], ["Stealth Rock", "Defog"]]
+        }]
+    },
     "simisage": {
         "weight": 10,
         "sets": [{
