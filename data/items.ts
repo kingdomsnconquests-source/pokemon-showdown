@@ -8728,13 +8728,13 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			onStart(target) {
 				this.add('-start', target, 'item: Double Play');
 			},
+			onModifyPriority(priority, pokemon, target, move) {
+				if (pokemon.volatiles['doubleplay']) {
+					return priority + 1;
+				}
+			},
 			onEnd(target) {
 				this.add('-end', target, 'item: Double Play', '[silent]');
-			}
-		},
-		onModifyPriority(priority, pokemon, target, move) {
-			if (pokemon.volatiles['doubleplay']) {
-				return priority + 1;
 			}
 		},
 		num: -22,
@@ -9235,9 +9235,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	wingedboots: {
 		name: "Winged Boots",
 		onStart(pokemon) {
+			this.add('-item', pokemon, 'Winged Boots');
 			pokemon.addVolatile('wingedboots');
 		},
 		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Winged Boots');
 			target.useItem();
 			target.removeVolatile('wingedboots');
 		},

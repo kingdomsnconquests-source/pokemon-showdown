@@ -2629,7 +2629,7 @@
             "moves": [["Calm Mind"], ["Draining Kiss"], ["Giga Drain"], ["Psychic Noise"]]
         }]
     },
-    "rapidash-galar": {
+    "rapidashgalar": {
         "weight": 10,
         "sets": [{
             "weight": 50,
