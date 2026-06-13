@@ -8507,7 +8507,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp * 2 / 3) {
 				pokemon.addVolatile('ponigiri');
-				pokemon.eatItem();
+				pokemon.useItem();
 			}
 		},
 		num: -9,
@@ -9276,7 +9276,10 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		name: "Sun Totem",
 		onStart(pokemon) {
 			pokemon.useItem();
-			this.field.setWeather('sunnyday');
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				pokemon.useItem();
+				this.field.setWeather('sunnyday');
+			}
 		},
 		num: -60,
 		gen: 9
