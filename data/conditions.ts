@@ -1,6 +1,37 @@
 import { Ability } from '../sim/dex-abilities';
 
 export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
+	ponigiri: {
+		duration: 0,
+		noCopy: true,
+		onStart(pokemon, source, effect) {
+			this.effectState.bestStat = pokemon.getBestStat(false, true);
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (this.effectState.bestStat !== 'atk') return;
+			return this.chainModify(1.3);
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (this.effectState.bestStat !== 'def') return;
+			return this.chainModify(1.3);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (this.effectState.bestStat !== 'spa') return;
+			return this.chainModify(1.3);
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (this.effectState.bestStat !== 'spd') return;
+			return this.chainModify(1.3);
+		},
+		onModifySpe(spe, pokemon) {
+			if (this.effectState.bestStat !== 'spe') return;
+			return this.chainModify(1.5);
+		},
+	},
 	brn: {
 		name: 'brn',
 		effectType: 'Status',
