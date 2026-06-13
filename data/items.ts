@@ -8506,11 +8506,9 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		name: "Ponigiri",
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp * 2 / 3) {
+				pokemon.addVolatile('ponigiri');
 				pokemon.eatItem();
 			}
-		},
-		onEat(pokemon) {
-			pokemon.addVolatile('ponigiri');
 		},
 		num: -9,
 		gen: 9
@@ -9204,11 +9202,9 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	wingedboots: {
 		name: "Winged Boots",
 		onStart(pokemon) {
-			this.add('-item', pokemon, 'Winged Boots');
 			pokemon.addVolatile('wingedboots');
 		},
 		onDamagingHit(damage, target, source, move) {
-			this.add('-enditem', target, 'Winged Boots');
 			target.useItem();
 			target.removeVolatile('wingedboots');
 		},
@@ -9227,7 +9223,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			this.heal((pokemon.getStat('atk', false, false) + pokemon.getStat('spa', false, false)) / 16);
+			this.heal((pokemon.getStat('atk', false, false) + pokemon.getStat('spa', false, false)) / 32);
 		},
 		num: -56,
 		gen: 9
@@ -9237,7 +9233,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			this.heal((pokemon.getStat('def', false, false) + pokemon.getStat('spd', false, false)) / 16);
+			this.heal((pokemon.getStat('def', false, false) + pokemon.getStat('spd', false, false)) / 32);
 		},
 		num: -57,
 		gen: 9
@@ -9274,6 +9270,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			},
 		},
 		num: -59,
+		gen: 9
+	},
+	suntotem: {
+		name: "Sun Totem",
+		onStart(pokemon) {
+			pokemon.useItem();
+			this.field.setWeather('sunnyday');
+		},
+		num: -60,
 		gen: 9
 	}
 };

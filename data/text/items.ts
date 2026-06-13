@@ -2740,8 +2740,6 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	wingedboots: {
 		name: "Winged Boots",
 		shortDesc: "The holder's speed is raised by 30%. Breaks after being hit by an attack.",
-
-		start: "  [POKEMON] moves swifter with Winged Boots!",
 		end: "  [POKEMON]'s Winged Boots were creased!",
 	},
 	dumbbell: {

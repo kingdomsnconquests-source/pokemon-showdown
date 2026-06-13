@@ -6433,7 +6433,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3 && !target.spiritRestored) {
 				this.boost({ atk: 1 }, target, target);
-				this.heal(target.maxhp, target, target);
+				this.heal(target.maxhp / 3, target, target);
+				target.cureStatus();
 				target.spiritRestored = true;
 			}
 		},
