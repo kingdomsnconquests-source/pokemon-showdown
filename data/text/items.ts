@@ -2729,15 +2729,17 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	powerwristband: {
 		name: "Power Wristband",
-		shortDesc: "Raises the damage dealt by the holder's attacking moves by 1.5x. Breaks upon being hit."
+		shortDesc: "Raises the damage dealt by the holder's attacking moves by 1.5x. Breaks upon being hit.",
+		end: "  [POKEMON]'s power wristband was broken!"
 	},
 	ironbrace: {
 		name: "Iron Brace",
-		shortDesc: "Reduces the damage taken from attacking moves by approx. 33%. Breaks upon being hit."
+		shortDesc: "Reduces the damage taken from attacking moves by approx. 33%. Breaks upon being hit.",
+		end: "  [POKEMON]'s iron brace was broken!"
 	},
 	wingedboots: {
 		name: "Winged Boots",
-		shortDesc: "The holder's speed is raised by 30%. Breaks after being hit by an attack."
+		shortDesc: "The holder's speed is raised by 30%. Breaks after being hit by an attack.",
 
 		start: "  [POKEMON] moves swifter with Winged Boots!",
 		end: "  [POKEMON]'s Winged Boots were creased!",
