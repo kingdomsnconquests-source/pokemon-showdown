@@ -5637,6 +5637,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(1.3);
 			}
 		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.type === 'Water') {
+				this.debug('Aqua Boost boost');
+				return this.chainModify(1.3);
+			}
+		},
 		flags: {},
 		name: "Aqua Boost",
 		rating: 0,
@@ -5727,7 +5733,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onSourceModifyAccuracy(accuracy, target, source, move) {
 			if (source.getWeight() < target.getWeight() && typeof accuracy !== 'number') return;
 			this.debug('Climber - enhancing accuracy');
-			return this.chainModify(1.1);
+			return this.chainModify(1.4);
 		},
 		flags: {},
 		name: "Climber",
@@ -5894,6 +5900,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(1.3);
 			}
 		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.type === 'Fire') {
+				this.debug('Flame Boost boost');
+				return this.chainModify(1.3);
+			}
+		},
 		flags: {},
 		name: "Flame Boost",
 		rating: 0,
@@ -5994,7 +6006,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.hasCrashDamage || move.recoil) {
 				this.debug('High-Rise boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.2);
 			}
 		},
 		flags: {},
@@ -6148,6 +6160,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -37,
 	},
 	moodmaker: {
+		onAnyModifyCritRatio(critRatio, source, target, move) {
+			if (source.isAlly(this.effectState.target)) {
+				return critRatio + 1;
+			}
+		},
 		onAnyModifyAccuracyPriority: -1,
 		onAnyModifyAccuracy(accuracy, target, source) {
 			if (source.isAlly(this.effectState.target) && typeof accuracy === 'number') {

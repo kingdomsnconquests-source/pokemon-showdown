@@ -403,14 +403,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		duration: 2,
 		onBeforeMovePriority: 9,
 		onBeforeMove(pokemon) {
-			this.add('cant', pokemon, 'stunned');
-			pokemon.removeVolatile('stunned');
-			pokemon.removeVolatile('mustrecharge');
-			pokemon.removeVolatile('truant');
-			return null;
-		},
-		onAfterMove(pokemon) {
-			pokemon.removeVolatile('stunned');
+			pokemon.removeVolatile('stunned')
+			if (pokemon.removeVolatile('stunned')) {
+				this.add('cant', pokemon, 'stunned');
+				return false;
+			}
+			pokemon.addVolatile('stunned');
 		},
 	},
 	futuremove: {

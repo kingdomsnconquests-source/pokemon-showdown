@@ -242,6 +242,9 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	recharge: {
 		cant: "[POKEMON] must recharge!",
 	},
+	stunned: {
+		cant: "[POKEMON] is stunned!",
+	},
 	recoil: {
 		damage: "  [POKEMON] was damaged by the recoil!",
 	},

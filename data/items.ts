@@ -8743,20 +8743,10 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	sniperlens: {
 		name: "Sniper lens",
-		onBeforeMovePriority: -1,
-		onBeforeMove(source, target, move) {
-			if (move.category !== 'Status')
-				source.useItem();
-				source.addVolatile('sniperlens');
-		},
-		condition: {
-			onModifyCritRatio(critRatio) {
-				return critRatio + 4;
-			},
-			onAfterMoveSelf(source, target, move) {
-				if (move.category !== 'Status' && target.getMoveHitData(move).crit)
-					source.removeVolatile('sniperlens');
-					this.add('-end', source, 'Sniper Lens', '[silent]');
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				this.debug('Sniper boost');
+				return this.chainModify(1.3);
 			}
 		},
 		num: -26,
@@ -8812,14 +8802,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	targetcharm: {
 		name: "Target Charm",
-		onStart(pokemon) {
-			pokemon.useItem();
-			pokemon.addVolatile('targetcharm');
+		onModifyCritRatio(critRatio) {
+			return critRatio + 2;
 		},
-		condition: {
-			onModifyCritRatio(critRatio) {
-				return critRatio + 2;
-			}
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify([1.2, 1.5]);
 		},
 		num: -31,
 		gen: 9
@@ -8859,7 +8846,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			this.add('-activate', pokemon, 'item: Conqueror Crystal');
 			this.boost({ def: 1, spe: 1 }, pokemon);
 		},
-		itemUser: ["Hydreigon", "Zekrom"],
+		itemUser: ["Hydreigon", "Zekrom", "Iron Jugulis"],
 		num: -34,
 		gen: 9
 	},
@@ -9081,21 +9068,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				this.add('-item', target, 'Magic Balloon');
 			}
 		},
-		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
-		onDamagingHit(damage, target, source, move) {
-			this.add('-enditem', target, 'Magic Balloon');
-			target.item = '';
-			this.clearEffectState(target.itemState);
-			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('magicballoon'));
-		},
-		onAfterSubDamage(damage, target, source, effect) {
-			this.debug('effect: ' + effect.id);
-			if (effect.effectType === 'Move') {
-				this.add('-enditem', target, 'Magic Balloon');
-				target.item = '';
-				this.clearEffectState(target.itemState);
-				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('magicballoon'));
-			}
+		onModifySpe(pokemon) {
+			return this.chainModify(0.5)
 		},
 		num: -49,
 		gen: 9
@@ -9155,6 +9129,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 80,
 		},
+		onStart(pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					pokemon.useItem();
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', `[of] ${pokemon}`);
+				}
+			}
+		},
 		num: -51,
 		gen: 9
 	},
@@ -9165,7 +9148,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onModifyDamage(damage, source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod > 0) {
-				return this.chainModify([4915, 4096]);
+				return this.chainModify(1.25);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify(1.25);
 			}
 		},
 		num: -52,
@@ -9275,13 +9263,89 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	suntotem: {
 		name: "Sun Totem",
 		onStart(pokemon) {
-			pokemon.useItem();
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				pokemon.useItem();
-				this.field.setWeather('sunnyday');
-			}
+			this.field.setWeather('sunnyday');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
 		},
 		num: -60,
 		gen: 9
+	},
+	raintotem: {
+		name: "Rain Totem",
+		onStart(pokemon) {
+			this.field.setWeather('raindance');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
+		},
+		num: -61,
+		gen: 9	
+	},
+	snowtotem: {
+		name: "Snow Totem",
+		onStart(pokemon) {
+			this.field.setWeather('snowscape');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
+		},
+		num: -62,
+		gen: 9	
+	},
+	sandtotem: {
+		name: "Sand Totem",
+		onStart(pokemon) {
+			this.field.setWeather('sandstorm');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
+		},
+		num: -63,
+		gen: 9	
+	},
+	grassytotem: {
+		name: "Grassy Totem",
+		onStart(pokemon) {
+			this.field.setTerrain('grassyterrain');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
+		},
+		num: -64,
+		gen: 9	
+	},
+	electrictotem: {
+		name: "Electric Totem",
+		onStart(pokemon) {
+			this.field.setTerrain('electricterrain');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
+		},
+		num: -65,
+		gen: 9	
+	},
+	mistytotem: {
+		name: "Misty Totem",
+		onStart(pokemon) {
+			this.field.setTerrain('mistyterrain');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
+		},
+		num: -66,
+		gen: 9	
+	},
+	psychictotem: {
+		name: "Psychic Totem",
+		onStart(pokemon) {
+			this.field.setTerrain('psychicterrain');
+		},
+		onModifySpe (pokemon) {
+			this.chainModify(0.8);
+		},
+		num: -67,
+		gen: 9	
 	}
 };

@@ -2618,7 +2618,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	sniperlens: {
 		name: "Sniper lens",
-		shortDesc: "The holder's next attack is a critical hit. Consumed upon entry."
+		shortDesc: "The holder's critical hits deal 1.3x more damage."
 	},
 	sylphwings: {
 		name: "Sylph Wings",
@@ -2638,7 +2638,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	targetcharm: {
 		name: "Target Charm",
-		shortDesc: "Raises this Pokemon's critical hit ratio by 2. Consumed upon entry."
+		shortDesc: "The holder's critical hit ratio is raised by 2 but critical hits deal 20% less damage."
 	},
 	unifiercrystal: {
 		name: "Unifier Crystal",
@@ -2650,7 +2650,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	conquerorcrystal: {
 		name: "Conqueror Crystal",
-		shortDesc: "If held by a Hydreigon or Zekrom, the holder's Def and SpA is raised by 1 stage.",
+		shortDesc: "If held by a Hydreigon, Zekrom, or Iron Jugulis, the holder's Def and SpA is raised by 1 stage.",
 	},
 	cheeringconch: {
 		name: "Cheering Conch",
@@ -2713,7 +2713,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	magicballoon: {
 		name: "Magic Balloon",
-		shortDesc: "See Air Balloon"
+		shortDesc: "Holder is immune to Ground-type attacks but the holder's Speed is halved."
 	},
 	metalmirror: {
 		name: "Metal Mirror",
@@ -2721,11 +2721,11 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	travelerscharm: {
 		name: "Traveler's Charm",
-		shortDesc: "See Heavy-Duty Boots."
+		shortDesc: "On switch-in, if there are hazards on the field and the holder does not faint, this item is consumed to clear hazards on the holder's side."
 	},
 	weakspotlens: {
 		name: "Weak Spot Lens",
-		shortDesc: "See Expert Belt."
+		shortDesc: "Supereffective damage the holder deals and recieves is increased by 25%."
 	},
 	powerwristband: {
 		name: "Power Wristband",

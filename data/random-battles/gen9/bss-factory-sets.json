@@ -930,7 +930,7 @@
         "sets": [{
             "weight": 100,
             "species": "Dragonite",
-            "item": ["Guardian Charm"],
+            "item": ["Hachimaki"],
             "ability": ["Last Bastion"],
             "evs": {"atk": 252, "spd": 4, "spe": 252},
             "nature": ["Jolly"],
@@ -943,7 +943,7 @@
         "sets": [{
             "weight": 33,
             "species": "Tyranitar",
-            "item": ["Guardian Charm"],
+            "item": ["Sand Totem"],
             "ability": ["Last Bastion"],
             "evs": {"hp": 252, "atk": 252, "spd": 4},
             "nature": ["Adamant"],
@@ -988,7 +988,7 @@
             "evs": {"atk": 252, "spd": 4, "spe": 252},
             "nature": ["Jolly"],
             "teraType": ["Normal"],
-            "moves": [["Bullet Punch"], ["Earthquake"], ["Agility"], ["Ice Punch"]]
+            "moves": [["Heavy Slam"], ["Earthquake"], ["Agility"], ["Ice Punch"]]
         }, {
             "weight": 34,
             "species": "Metagross",
@@ -1045,7 +1045,7 @@
         }, {
             "weight": 33,
             "species": "Toxicroak",
-            "item": ["Guardian Charm"],
+            "item": ["War Fan"],
             "ability": ["Hero"],
             "evs": {"atk": 252, "def": 4, "spe": 252},
             "nature": ["Jolly"],
@@ -1364,12 +1364,12 @@
         }, {
             "weight": 34,
             "species": "Charizard",
-            "item": ["Guardian Charm"],
+            "item": ["Sun Totem"],
             "ability": ["Last Bastion"],
             "evs": {"atk": 252, "def": 4, "spe": 252},
-            "nature": ["Jolly"],
+            "nature": ["Timid"],
             "teraType": ["Normal"],
-            "moves": [["Swords Dance"], ["Earthquake"], ["Flare Blitz"], ["Roost"]]
+            "moves": [["Solar Beam"], ["Air Slash"], ["Scorching Sands"], ["Flamethrower"]]
         }]
     },
     "gengar": {
@@ -1439,7 +1439,7 @@
         "sets": [{
             "weight": 33,
             "species": "Serperior",
-            "item": ["Emerald Grace"],
+            "item": ["Grassy Totem"],
             "ability": ["Grass Cloak"],
             "evs": {"hp": 252, "def": 4, "spe": 252},
             "nature": ["Timid"],
@@ -1488,12 +1488,12 @@
         }, {
             "weight": 34,
             "species": "Emboar",
-            "item": ["Guardian Charm"],
-            "ability": ["Spirit (Conquest)"],
+            "item": ["Sun Totem"],
+            "ability": ["Flame Boost"],
             "evs": {"hp": 252, "atk": 252, "spd": 4},
             "nature": ["Adamant"],
             "teraType": ["Normal"],
-            "moves": [["Flare Blitz"], ["Hammer Arm"], ["Thunder Punch"], ["Earthquake"]]
+            "moves": [["Heat Crash"], ["Hammer Arm"], ["Thunder Punch"], ["Earthquake"]]
         }]
     },
     "leavanny": {
@@ -1636,7 +1636,7 @@
     "simisear": {
         "weight": 10,
         "sets": [{
-            "weight": 50,
+            "weight": 33,
             "species": "Simisear",
             "item": ["Double Play"],
             "ability": ["Instinct"],
@@ -1645,7 +1645,7 @@
             "teraType": ["Normal"],
             "moves": [["Will-O-Wisp"], ["Taunt"], ["Flamethrower"], ["Knock Off"]]
         }, {
-            "weight": 50,
+            "weight": 33,
             "species": "Simisear",
             "item": ["Staff of Courage"],
             "ability": ["Instinct"],
@@ -1653,12 +1653,21 @@
             "nature": ["Timid"],
             "teraType": ["Normal"],
             "moves": [["Nasty Plot"], ["Fire Blast"], ["Grass Knot"], ["Hidden Power Electric"]]
+        }, {
+            "weight": 34,
+            "species": "Simisear",
+            "item": ["Sun Totem"],
+            "ability": ["Instinct"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Taunt"], ["Fire Blast"], ["Grass Knot"], ["Hidden Power Electric"]]
         }]
     },
     "simipour": {
         "weight": 10,
         "sets": [{
-            "weight": 50,
+            "weight": 33,
             "species": "Simipour",
             "item": ["Double Play"],
             "ability": ["Instinct"],
@@ -1667,7 +1676,7 @@
             "teraType": ["Normal"],
             "moves": [["Toxic"], ["Taunt"], ["Scald"], ["Knock Off"]]
         }, {
-            "weight": 50,
+            "weight": 33,
             "species": "Simipour",
             "item": ["Staff of Courage"],
             "ability": ["Instinct"],
@@ -1675,6 +1684,15 @@
             "nature": ["Timid"],
             "teraType": ["Normal"],
             "moves": [["Nasty Plot"], ["Hydro Pump"], ["Ice Beam"], ["Hidden Power Fighting"]]
+        }, {
+            "weight": 34,
+            "species": "Simipour",
+            "item": ["Rain Totem"],
+            "ability": ["Aqua Boost"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Taunt"], ["Hydro Pump"], ["Ice Beam"], ["Hidden Power Fighting"]]
         }]
     },
     "darmanitan": {
@@ -1700,7 +1718,7 @@
         }, {
             "weight": 34,
             "species": "Darmanitan",
-            "item": ["Guardian Charm"],
+            "item": ["Hachimaki"],
             "ability": ["Hero"],
             "evs": {"atk": 252, "def": 4, "spe": 252},
             "nature": ["Jolly"],
@@ -1943,7 +1961,7 @@
         }, {
             "weight": 33,
             "species": "Kingambit",
-            "item": ["Guardian Charm"],
+            "item": ["Hachimaki"],
             "ability": ["Hero"],
             "evs": {"hp": 252, "atk": 252, "spd": 4},
             "nature": ["Adamant"],
@@ -1987,7 +2005,7 @@
         "sets": [{
             "weight": 33,
             "species": "Bastiodon",
-            "item": ["Guardian Charm"],
+            "item": ["Sand Totem"],
             "ability": ["Last Bastion"],
             "evs": {"hp": 252, "def": 252, "spd": 4},
             "nature": ["Impish"],
@@ -2062,7 +2080,7 @@
         "sets": [{
             "weight": 50,
             "species": "Braviary",
-            "item": ["Guardian Charm"],
+            "item": ["Winged Boots"],
             "ability": ["Hero"],
             "evs": {"atk": 252, "def": 4, "spe": 252},
             "nature": ["Jolly"],
@@ -2434,7 +2452,7 @@
     "articuno": {
         "weight": 10,
         "sets": [{
-            "weight": 100,
+            "weight": 50,
             "species": "Articuno",
             "item": ["Heavy-Duty Boots"],
             "ability": ["Frostbite"],
@@ -2442,6 +2460,15 @@
             "nature": ["Timid"],
             "teraType": ["Normal"],
             "moves": [["Ice Beam"], ["Extrasensory", "Roost"], ["Air Slash", "U-Turn"], ["Defog"]]
+        }, {
+            "weight": 50,
+            "species": "Articuno",
+            "item": ["Snow Totem"],
+            "ability": ["Frostbite"],
+            "evs": {"spa": 252, "spd": 4, "spe": 252},
+            "nature": ["Timid"],
+            "teraType": ["Normal"],
+            "moves": [["Blizzard"], ["Extrasensory", "Roost"], ["Air Slash", "U-Turn"], ["Defog"]]
         }]
     },
     "articunogalar": {
@@ -2559,10 +2586,10 @@
         "sets": [{
             "weight": 50,
             "species": "Dragalge",
-            "item": ["Guardian Charm"],
+            "item": ["Hachimaki"],
             "ability": ["Last Bastion"],
             "evs": {"hp": 252, "spa": 252, "spd": 4},
-            "nature": [""],
+            "nature": ["Modest"],
             "teraType": ["Normal"],
             "moves": [["Dragon Pulse"], ["Sludge Bomb"], ["Surf"], ["Thunderbolt"]]
         }, {
@@ -2598,7 +2625,7 @@
             "moves": [["Earthquake"], ["Ice Spinner"], ["Stone Edge"], ["Heavy Slam"]]
         }, {
             "weight": 34,
-            "species": "Kleavor",
+            "species": "Donphan",
             "item": ["Life Orb"],
             "ability": ["Sprint"],
             "evs": {"atk": 252, "spd": 4, "spe": 252},
@@ -2610,16 +2637,16 @@
     "florges": {
         "weight": 10,
         "sets": [{
-            "weight": 50,
+            "weight": 33,
             "species": "Florges",
             "item": ["Emerald Grace"],
             "ability": ["Grass Cloak"],
             "evs": {"hp": 252, "def": 4, "spa": 252},
-            "nature": ["Adamant"],
+            "nature": ["Modest"],
             "teraType": ["Normal"],
             "moves": [["Grassy Terrain"], ["Moonblast"], ["Energy Ball"], ["Psychic Noise"]]
         }, {
-            "weight": 50,
+            "weight": 33,
             "species": "Florges",
             "item": ["Staff of Purpose"],
             "ability": ["Grass Cloak"],
@@ -2627,6 +2654,15 @@
             "nature": ["Bold"],
             "teraType": ["Normal"],
             "moves": [["Calm Mind"], ["Draining Kiss"], ["Giga Drain"], ["Psychic Noise"]]
+        }, {
+            "weight": 34,
+            "species": "Florges",
+            "item": ["Grassy Totem"],
+            "ability": ["Grass Cloak"],
+            "evs": {"hp": 252, "def": 4, "spa": 252},
+            "nature": ["Modest"],
+            "teraType": ["Normal"],
+            "moves": [["Grassy Terrain"], ["Moonblast"], ["Energy Ball"], ["Psychic Noise"]]
         }]
     },
     "rapidashgalar": {

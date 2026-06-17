@@ -2284,7 +2284,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	// Conquest
 	aquaboost: {
 		name: "Aqua Boost",
-		shortDesc: "The allies of this Pokemon have their Water-type moves boosted by 1.3x.",
+		shortDesc: "This Pokemon and its allies have their Water-type moves boosted by 1.3x.",
 	},
 	blackhole: {
 		name: "Black Hole",
@@ -2309,7 +2309,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	climber: {
 		name: "Climber",
-		shortDesc: "This Pokemon's moves have 1.1x accuracy if lighter than the target",
+		shortDesc: "This Pokemon's moves have 1.4x accuracy if lighter than the target",
 	},
 	confidence: {
 		name: "Confidence",
@@ -2346,7 +2346,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	flameboost: {
 		name: "Flame Boost",
-		shortDesc: "Allies' Fire-type moves deal 1.3x damage.",
+		shortDesc: "This Pokemon and its allies have their Fire-type moves boosted by 1.3x power.",
 	},
 	fortune: {
 		name: "Fortune",
