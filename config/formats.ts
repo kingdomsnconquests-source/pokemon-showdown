@@ -46,9 +46,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
-		]
-
+			'Dragalgite',
+            'Emboarite',
+        	'Froslassite',
+            'Raichunite X',
+            'Scolipite',
+            'Scraftinite',
+            'Staraptite'
+		],
 	},
 	{
 		name: "[Gen 9] ND Ambition Doubles",
@@ -66,9 +71,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+            'Emboarite',
+        	'Froslassite',
+            'Raichunite X',
+            'Scolipite',
+            'Scraftinite',
+            'Staraptite'
 		]
-
 	},
 	// Kingdom-Specific Formats
 	///////////////////////////////////////////////////////////////////
@@ -90,7 +100,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+            'Emboarite',
+        	'Froslassite',
+            'Raichunite X',
+            'Scolipite',
+            'Scraftinite',
+            'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Aurora');
@@ -114,7 +130,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Aurora');
@@ -140,7 +162,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Windy');
@@ -164,7 +192,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Windy');
@@ -190,7 +224,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Silky Terrain');
@@ -214,7 +254,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Silky Terrain');
@@ -240,7 +286,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Rocky Terrain');
@@ -264,7 +316,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Rocky Terrain');
@@ -290,7 +348,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Dragon Force');
@@ -314,7 +378,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Dragon Force');
@@ -340,7 +410,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Rain Dance');
@@ -364,7 +440,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Rain Dance');
@@ -390,7 +472,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Grassy Terrain');
@@ -414,7 +502,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Grassy Terrain');
@@ -440,7 +534,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Sunny Day');
@@ -464,7 +564,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Sunny Day');
@@ -490,7 +596,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Psychic Terrain');
@@ -514,7 +626,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Psychic Terrain');
@@ -540,7 +658,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Snowscape');
@@ -564,7 +688,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Snowscape');
@@ -590,7 +720,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Arena');
@@ -613,7 +749,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Arena');
@@ -638,7 +780,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Spooky');
@@ -662,7 +810,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Spooky');
@@ -688,7 +842,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Sandstorm');
@@ -712,7 +872,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Sandstorm');
@@ -738,7 +904,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Magnetic Field');
@@ -762,7 +934,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-weather', 'Magnetic Field');
@@ -788,7 +966,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Electric Terrain');
@@ -812,7 +996,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Electric Terrain');
@@ -838,7 +1028,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Toxic Terrain');
@@ -862,7 +1058,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Chimechite',
-			'Emboarite',
+			'Dragalgite',
+                        'Emboarite',
+                        'Froslassite',
+                        'Raichunite X',
+                        'Scolipite',
+                        'Scraftinite',
+                        'Staraptite'
 		],
 		onBegin() {
 			this.add('-fieldstart', 'move: Toxic Terrain');
