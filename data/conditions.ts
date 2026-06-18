@@ -406,10 +406,10 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			pokemon.removeVolatile('stunned')
 			if (pokemon.removeVolatile('stunned')) {
 				this.add('cant', pokemon, 'stunned');
-				return false;
+				return null;
 			}
-			pokemon.addVolatile('stunned');
 		},
+		onLockMove: 'recharge',
 	},
 	futuremove: {
 		// this is a slot condition
@@ -1069,7 +1069,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onResidualOrder: 7,
 		onResidual(pokemon) {
-			if (!pokemon.volatiles['magnetrise']) {
+			if (!pokemon.volatiles['magnetrise'] && pokemon.hasType('Steel')) {
 				pokemon.addVolatile('magnetrise');
 			}
 		},

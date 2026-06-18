@@ -2606,7 +2606,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	hachimaki: {
 		name: "Hachimaki",
-		shortDesc: "On switch-in, the holder is trapped, unable to use pivot moves, and faint in 4 turns but gains +1 Atk and SpA."
+		shortDesc: "The holder is trapped, unable to use pivot moves, and faints in 4 turns but gains +1 Atk and SpA."
 	},
 	noisemaker: {
 		name: "Noisemaker",
@@ -2721,7 +2721,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 	travelerscharm: {
 		name: "Traveler's Charm",
-		shortDesc: "On switch-in, if there are hazards on the field and the holder does not faint, this item is consumed to clear hazards on the holder's side."
+		shortDesc: "On switch-in, this item is consumed to clear hazards on the holder's side."
 	},
 	weakspotlens: {
 		name: "Weak Spot Lens",

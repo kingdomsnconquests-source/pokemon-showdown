@@ -9038,7 +9038,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			duration: 0,
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || source.switchFlag === true || !move.hitTargets || source.item || source.volatiles['gem'] ||
-					move.id === 'fling' || move.category === 'Status') return;
+					move.id === 'fling' || move.category === 'Status' || move.target !== 'normal') return;
 				const hitTargets = move.hitTargets;
 				this.speedSort(hitTargets);
 				for (const pokemon of hitTargets) {

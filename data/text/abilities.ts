@@ -2513,7 +2513,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	tenacity: {
 		name: "Tenacity",
 		shortDesc: "Contact: 10% chance to inflict the must recharge effect on attacker.",
-		activate: " [POKEMON] stunned [SOURCE] !",
+		activate: " [POKEMON] stunned the attacker!",
 	},
 	thrust: {
 		name: "Thrust",
