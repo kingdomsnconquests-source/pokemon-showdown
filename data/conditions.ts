@@ -982,7 +982,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		duration: 5,
 		onSwitchIn(pokemon) {
 			if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('travelerscharm')) return;
-			if (pokemon.isGrounded()) {
+			else if (pokemon.isGrounded()) {
 				pokemon.trySetStatus('tox', pokemon);
 			}
 		},
@@ -1037,16 +1037,16 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			const typeModWater = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('raindance')), -6, 6);
 			const typeModGrass = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('grassyterrain')), -6, 6);
 			const typeModElectric = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('electricterrain')), -6, 6);
-			if (result === 0) {
+			if (result === 1) {
 				this.add('-message', `${pokemon.name} is scorched by fiery energy!`);
 				this.damage(pokemon.maxhp * (2 ** typeModFire) / 16);
-			} else if (result === 1) {
+			} else if (result === 2) {
 				this.add('-message', `${pokemon.name} is entangled by grassy energy!`);
 				this.damage(pokemon.maxhp * (2 ** typeModGrass) / 16);
-			} else if (result === 2) {
+			} else if (result === 3) {
 				this.add('-message', `${pokemon.name} is soaked by watery energy!`);
 				this.damage(pokemon.maxhp * (2 ** typeModWater) / 16);
-			} else if (result === 3) {
+			} else if (result === 4) {
 				this.heal(pokemon.maxhp / 8);
 				pokemon.cureStatus();
 				pokemon.removeVolatile('confusion');

@@ -1529,6 +1529,7 @@ export class Pokemon {
 		this.hurtThisTurn = null;
 		this.newlySwitched = true;
 		this.beingCalledBack = false;
+		this.timesAttacked = 0;
 
 		this.volatileStaleness = undefined;
 
