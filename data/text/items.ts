@@ -2765,5 +2765,37 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	twicelucky: {
 		name: "Twice Lucky",
 		shortDesc: "Consumed on switch-in. The holder gains the effects of Serene Grace until switched out."
+	},
+	suntotem: {
+		name: "Sun Totem",
+		shortDesc: "The holder sets harsh sunlight on switch-in but their Speed is reduced by 20%."
+	},
+	raintotem: {
+		name: "Rain Totem",
+		shortDesc: "The holder sets rain on switch-in but their Speed is reduced by 20%."
+	},
+	snowtotem: {
+		name: "Snow Totem",
+		shortDesc: "The holder sets snow on switch-in but their Speed is reduced by 20%."
+	},
+	sandtotem: {
+		name: "Sand Totem",
+		shortDesc: "The holder sets sandstorm on switch-in but their Speed is reduced by 20%."
+	},
+	grassytotem: {
+		name: "Grassy Totem",
+		shortDesc: "The holder sets grassy terrain on switch-in but their Speed is reduced by 20%."
+	},
+	electrictotem: {
+		name: "Electric Totem",
+		shortDesc: "The holder sets electric terrain on switch-in but their Speed is reduced by 20%."
+	},
+	mistytotem: {
+		name: "Misty Totem",
+		shortDesc: "The holder sets misty terrain on switch-in but their Speed is reduced by 20%."
+	},
+	psychictotem: {
+		name: "Psychic Totem",
+		shortDesc: "The holder sets psychic terrain on switch-in but their Speed is reduced by 20%."
 	}
 };
