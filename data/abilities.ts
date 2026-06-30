@@ -3096,6 +3096,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', `[of] ${target}`);
 			}
+			else if (effect.name === 'Frighten' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Own Tempo', `[of] ${target}`);
+			}
 		},
 		flags: { breakable: 1 },
 		name: "Own Tempo",
@@ -5748,6 +5752,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.75);
 			}
 		},
+		onAllyTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Confidence', `[of] ${this.effectState.target}`);
+			}
+			else if (effect.name === 'Frighten' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Confidence', `[of] ${this.effectState.target}`);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Confidence', `[of] ${target}`);
+			}
+			else if (effect.name === 'Frighten' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Confidence', `[of] ${target}`);
+			}
+		},
 		flags: {},
 		name: "Confidence",
 		rating: 0,
@@ -5997,6 +6021,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.boost({ atk: 1, def: 1 }, pokemon, pokemon);
 			}
 		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Hero', `[of] ${target}`);
+			}
+			else if (effect.name === 'Frighten' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Hero', `[of] ${target}`);
+			}
+		},
 		flags: {},
 		name: "Hero",
 		rating: 3,
@@ -6170,6 +6204,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAnyModifyAccuracy(accuracy, target, source) {
 			if (source.isAlly(this.effectState.target) && typeof accuracy === 'number') {
 				return this.chainModify(1.1);
+			}
+		},
+		onAllyTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Mood Maker', `[of] ${this.effectState.target}`);
+			}
+			else if (effect.name === 'Frighten' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Mood Maker', `[of] ${this.effectState.target}`);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Mood Maker', `[of] ${target}`);
+			}
+			else if (effect.name === 'Frighten' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Mood Maker', `[of] ${target}`);
 			}
 		},
 		flags: {},
@@ -6523,6 +6577,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-activate', this.effectState.target, 'ability: Tenacity');
 					source.addVolatile('stunned');
 				}
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Tenacity', `[of] ${target}`);
+			}
+			else if (effect.name === 'Frighten' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Tenacity', `[of] ${target}`);
 			}
 		},
 		flags: {},
